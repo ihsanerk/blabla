@@ -21,6 +21,7 @@
 #include "bus.h"
 #include "pwm.h"
 #include "dynamixel.h"
+#include "delay.h"
 #include "timeout.h"
 #include "tracker.h"
 

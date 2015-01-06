@@ -5,6 +5,7 @@
 #include "leds.h"
 #include "bus.h"
 #include "timeout.h"
+#include "delay.h"
 
 #include <string.h>
 #include <stdint.h>

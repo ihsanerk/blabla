@@ -25,6 +25,7 @@ Command:
   build/default/production/configuration_bits.o \
   build/default/production/main.o \
   build/default/production/traps.o \
+  build/default/production/dxl_hal.o \
   ../GaLib/dist/default/production/GaLib.a \
   --local-stack \
   --defsym=__MPLAB_BUILD=1 \
@@ -1195,6 +1196,7 @@ LOAD build/default/production/configuration.o
 LOAD build/default/production/configuration_bits.o
 LOAD build/default/production/main.o
 LOAD build/default/production/traps.o
+LOAD build/default/production/dxl_hal.o
 LOAD ../GaLib/dist/default/production/GaLib.a
                     0x0001                  __MPLAB_BUILD = 0x1
 LOAD /Applications/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33E/libp33EP512MU810-elf.a
@@ -1538,59 +1540,61 @@ __FUID0
  .debug_info      0x00e61f        0x6e4 ../GaLib/dist/default/production/GaLib.a(tracker.o)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000       0x19f9
+.debug_abbrev     0x000000       0x19fa
  *(.debug_abbrev)
  .debug_abbrev    0x000000        0x1d7 build/default/production/configuration.o
  .debug_abbrev    0x0001d7         0x1f build/default/production/configuration_bits.o
  .debug_abbrev    0x0001f6        0x1a7 build/default/production/main.o
  .debug_abbrev    0x00039d         0x7d build/default/production/traps.o
- .debug_abbrev    0x00041a        0x222 ../GaLib/dist/default/production/GaLib.a(ai.o)
- .debug_abbrev    0x00063c        0x105 ../GaLib/dist/default/production/GaLib.a(ai_actuator.o)
- .debug_abbrev    0x000741         0x9f ../GaLib/dist/default/production/GaLib.a(ai_fresco.o)
- .debug_abbrev    0x0007e0         0xc1 ../GaLib/dist/default/production/GaLib.a(ai_mammooth.o)
- .debug_abbrev    0x0008a1        0x10d ../GaLib/dist/default/production/GaLib.a(controller.o)
- .debug_abbrev    0x0009ae        0x127 ../GaLib/dist/default/production/GaLib.a(encoders.o)
- .debug_abbrev    0x000ad5        0x178 ../GaLib/dist/default/production/GaLib.a(motors.o)
- .debug_abbrev    0x000c4d         0x8a ../GaLib/dist/default/production/GaLib.a(pid.o)
- .debug_abbrev    0x000cd7         0xd7 ../GaLib/dist/default/production/GaLib.a(leds.o)
- .debug_abbrev    0x000dae        0x15d ../GaLib/dist/default/production/GaLib.a(log.o)
- .debug_abbrev    0x000f0b        0x139 ../GaLib/dist/default/production/GaLib.a(adc.o)
- .debug_abbrev    0x001044        0x196 ../GaLib/dist/default/production/GaLib.a(bus.o)
- .debug_abbrev    0x0011da         0xd6 ../GaLib/dist/default/production/GaLib.a(config_flash.o)
- .debug_abbrev    0x0012b0        0x139 ../GaLib/dist/default/production/GaLib.a(dynamixel.o)
- .debug_abbrev    0x0013e9        0x197 ../GaLib/dist/default/production/GaLib.a(dxl_hal.o)
- .debug_abbrev    0x001580         0x14 ../GaLib/dist/default/production/GaLib.a(rtsp.o)
- .debug_abbrev    0x001594        0x168 ../GaLib/dist/default/production/GaLib.a(pwm.o)
- .debug_abbrev    0x0016fc         0x97 ../GaLib/dist/default/production/GaLib.a(bits.o)
- .debug_abbrev    0x001793        0x111 ../GaLib/dist/default/production/GaLib.a(timeout.o)
- .debug_abbrev    0x0018a4        0x155 ../GaLib/dist/default/production/GaLib.a(tracker.o)
+ .debug_abbrev    0x00041a          0x1 build/default/production/dxl_hal.o
+ .debug_abbrev    0x00041b        0x222 ../GaLib/dist/default/production/GaLib.a(ai.o)
+ .debug_abbrev    0x00063d        0x105 ../GaLib/dist/default/production/GaLib.a(ai_actuator.o)
+ .debug_abbrev    0x000742         0x9f ../GaLib/dist/default/production/GaLib.a(ai_fresco.o)
+ .debug_abbrev    0x0007e1         0xc1 ../GaLib/dist/default/production/GaLib.a(ai_mammooth.o)
+ .debug_abbrev    0x0008a2        0x10d ../GaLib/dist/default/production/GaLib.a(controller.o)
+ .debug_abbrev    0x0009af        0x127 ../GaLib/dist/default/production/GaLib.a(encoders.o)
+ .debug_abbrev    0x000ad6        0x178 ../GaLib/dist/default/production/GaLib.a(motors.o)
+ .debug_abbrev    0x000c4e         0x8a ../GaLib/dist/default/production/GaLib.a(pid.o)
+ .debug_abbrev    0x000cd8         0xd7 ../GaLib/dist/default/production/GaLib.a(leds.o)
+ .debug_abbrev    0x000daf        0x15d ../GaLib/dist/default/production/GaLib.a(log.o)
+ .debug_abbrev    0x000f0c        0x139 ../GaLib/dist/default/production/GaLib.a(adc.o)
+ .debug_abbrev    0x001045        0x196 ../GaLib/dist/default/production/GaLib.a(bus.o)
+ .debug_abbrev    0x0011db         0xd6 ../GaLib/dist/default/production/GaLib.a(config_flash.o)
+ .debug_abbrev    0x0012b1        0x139 ../GaLib/dist/default/production/GaLib.a(dynamixel.o)
+ .debug_abbrev    0x0013ea        0x197 ../GaLib/dist/default/production/GaLib.a(dxl_hal.o)
+ .debug_abbrev    0x001581         0x14 ../GaLib/dist/default/production/GaLib.a(rtsp.o)
+ .debug_abbrev    0x001595        0x168 ../GaLib/dist/default/production/GaLib.a(pwm.o)
+ .debug_abbrev    0x0016fd         0x97 ../GaLib/dist/default/production/GaLib.a(bits.o)
+ .debug_abbrev    0x001794        0x111 ../GaLib/dist/default/production/GaLib.a(timeout.o)
+ .debug_abbrev    0x0018a5        0x155 ../GaLib/dist/default/production/GaLib.a(tracker.o)
 
-.debug_line       0x000000       0x5dc2
+.debug_line       0x000000       0x5de6
  *(.debug_line)
  .debug_line      0x000000        0x80b build/default/production/configuration.o
  .debug_line      0x00080b         0x24 build/default/production/configuration_bits.o
  .debug_line      0x00082f        0x593 build/default/production/main.o
  .debug_line      0x000dc2        0x164 build/default/production/traps.o
- .debug_line      0x000f26       0x1973 ../GaLib/dist/default/production/GaLib.a(ai.o)
- .debug_line      0x002899        0x3d9 ../GaLib/dist/default/production/GaLib.a(ai_actuator.o)
- .debug_line      0x002c72         0xe5 ../GaLib/dist/default/production/GaLib.a(ai_fresco.o)
- .debug_line      0x002d57        0x269 ../GaLib/dist/default/production/GaLib.a(ai_mammooth.o)
- .debug_line      0x002fc0        0x443 ../GaLib/dist/default/production/GaLib.a(controller.o)
- .debug_line      0x003403        0x352 ../GaLib/dist/default/production/GaLib.a(encoders.o)
- .debug_line      0x003755        0x37a ../GaLib/dist/default/production/GaLib.a(motors.o)
- .debug_line      0x003acf         0xac ../GaLib/dist/default/production/GaLib.a(pid.o)
- .debug_line      0x003b7b        0x2c7 ../GaLib/dist/default/production/GaLib.a(leds.o)
- .debug_line      0x003e42        0x2a3 ../GaLib/dist/default/production/GaLib.a(log.o)
- .debug_line      0x0040e5        0x236 ../GaLib/dist/default/production/GaLib.a(adc.o)
- .debug_line      0x00431b        0x3b2 ../GaLib/dist/default/production/GaLib.a(bus.o)
- .debug_line      0x0046cd        0x185 ../GaLib/dist/default/production/GaLib.a(config_flash.o)
- .debug_line      0x004852        0x75f ../GaLib/dist/default/production/GaLib.a(dynamixel.o)
- .debug_line      0x004fb1        0x394 ../GaLib/dist/default/production/GaLib.a(dxl_hal.o)
- .debug_line      0x005345         0xbf ../GaLib/dist/default/production/GaLib.a(rtsp.o)
- .debug_line      0x005404        0x26b ../GaLib/dist/default/production/GaLib.a(pwm.o)
- .debug_line      0x00566f         0xce ../GaLib/dist/default/production/GaLib.a(bits.o)
- .debug_line      0x00573d        0x217 ../GaLib/dist/default/production/GaLib.a(timeout.o)
- .debug_line      0x005954        0x46e ../GaLib/dist/default/production/GaLib.a(tracker.o)
+ .debug_line      0x000f26         0x24 build/default/production/dxl_hal.o
+ .debug_line      0x000f4a       0x1973 ../GaLib/dist/default/production/GaLib.a(ai.o)
+ .debug_line      0x0028bd        0x3d9 ../GaLib/dist/default/production/GaLib.a(ai_actuator.o)
+ .debug_line      0x002c96         0xe5 ../GaLib/dist/default/production/GaLib.a(ai_fresco.o)
+ .debug_line      0x002d7b        0x269 ../GaLib/dist/default/production/GaLib.a(ai_mammooth.o)
+ .debug_line      0x002fe4        0x443 ../GaLib/dist/default/production/GaLib.a(controller.o)
+ .debug_line      0x003427        0x352 ../GaLib/dist/default/production/GaLib.a(encoders.o)
+ .debug_line      0x003779        0x37a ../GaLib/dist/default/production/GaLib.a(motors.o)
+ .debug_line      0x003af3         0xac ../GaLib/dist/default/production/GaLib.a(pid.o)
+ .debug_line      0x003b9f        0x2c7 ../GaLib/dist/default/production/GaLib.a(leds.o)
+ .debug_line      0x003e66        0x2a3 ../GaLib/dist/default/production/GaLib.a(log.o)
+ .debug_line      0x004109        0x236 ../GaLib/dist/default/production/GaLib.a(adc.o)
+ .debug_line      0x00433f        0x3b2 ../GaLib/dist/default/production/GaLib.a(bus.o)
+ .debug_line      0x0046f1        0x185 ../GaLib/dist/default/production/GaLib.a(config_flash.o)
+ .debug_line      0x004876        0x75f ../GaLib/dist/default/production/GaLib.a(dynamixel.o)
+ .debug_line      0x004fd5        0x394 ../GaLib/dist/default/production/GaLib.a(dxl_hal.o)
+ .debug_line      0x005369         0xbf ../GaLib/dist/default/production/GaLib.a(rtsp.o)
+ .debug_line      0x005428        0x26b ../GaLib/dist/default/production/GaLib.a(pwm.o)
+ .debug_line      0x005693         0xce ../GaLib/dist/default/production/GaLib.a(bits.o)
+ .debug_line      0x005761        0x217 ../GaLib/dist/default/production/GaLib.a(timeout.o)
+ .debug_line      0x005978        0x46e ../GaLib/dist/default/production/GaLib.a(tracker.o)
 
 .debug_frame      0x000000        0xf9c
  *(.debug_frame)
@@ -4633,7 +4637,7 @@ LOAD data_init
                   0x001226         0x12 ../GaLib/dist/default/production/GaLib.a(tracker.o)
 
 __c30_signature
-                  0x001238        0x1d4
+                  0x001238        0x1da
  __c30_signature
                   0x001238          0x6 build/default/production/configuration.o
  __c30_signature
@@ -4643,153 +4647,155 @@ __c30_signature
  __c30_signature
                   0x00124a          0x6 build/default/production/traps.o
  __c30_signature
-                  0x001250          0x6 ../GaLib/dist/default/production/GaLib.a(ai.o)
+                  0x001250          0x6 build/default/production/dxl_hal.o
  __c30_signature
-                  0x001256          0x6 ../GaLib/dist/default/production/GaLib.a(ai_actuator.o)
+                  0x001256          0x6 ../GaLib/dist/default/production/GaLib.a(ai.o)
  __c30_signature
-                  0x00125c          0x6 ../GaLib/dist/default/production/GaLib.a(ai_fresco.o)
+                  0x00125c          0x6 ../GaLib/dist/default/production/GaLib.a(ai_actuator.o)
  __c30_signature
-                  0x001262          0x6 ../GaLib/dist/default/production/GaLib.a(ai_mammooth.o)
+                  0x001262          0x6 ../GaLib/dist/default/production/GaLib.a(ai_fresco.o)
  __c30_signature
-                  0x001268          0x6 ../GaLib/dist/default/production/GaLib.a(controller.o)
+                  0x001268          0x6 ../GaLib/dist/default/production/GaLib.a(ai_mammooth.o)
  __c30_signature
-                  0x00126e          0x6 ../GaLib/dist/default/production/GaLib.a(encoders.o)
+                  0x00126e          0x6 ../GaLib/dist/default/production/GaLib.a(controller.o)
  __c30_signature
-                  0x001274          0x6 ../GaLib/dist/default/production/GaLib.a(motors.o)
+                  0x001274          0x6 ../GaLib/dist/default/production/GaLib.a(encoders.o)
  __c30_signature
-                  0x00127a          0x6 ../GaLib/dist/default/production/GaLib.a(pid.o)
+                  0x00127a          0x6 ../GaLib/dist/default/production/GaLib.a(motors.o)
  __c30_signature
-                  0x001280          0x6 ../GaLib/dist/default/production/GaLib.a(leds.o)
+                  0x001280          0x6 ../GaLib/dist/default/production/GaLib.a(pid.o)
  __c30_signature
-                  0x001286          0x6 ../GaLib/dist/default/production/GaLib.a(log.o)
+                  0x001286          0x6 ../GaLib/dist/default/production/GaLib.a(leds.o)
  __c30_signature
-                  0x00128c          0x6 ../GaLib/dist/default/production/GaLib.a(adc.o)
+                  0x00128c          0x6 ../GaLib/dist/default/production/GaLib.a(log.o)
  __c30_signature
-                  0x001292          0x6 ../GaLib/dist/default/production/GaLib.a(bus.o)
+                  0x001292          0x6 ../GaLib/dist/default/production/GaLib.a(adc.o)
  __c30_signature
-                  0x001298          0x6 ../GaLib/dist/default/production/GaLib.a(config_flash.o)
+                  0x001298          0x6 ../GaLib/dist/default/production/GaLib.a(bus.o)
  __c30_signature
-                  0x00129e          0x6 ../GaLib/dist/default/production/GaLib.a(dynamixel.o)
+                  0x00129e          0x6 ../GaLib/dist/default/production/GaLib.a(config_flash.o)
  __c30_signature
-                  0x0012a4          0x6 ../GaLib/dist/default/production/GaLib.a(dxl_hal.o)
+                  0x0012a4          0x6 ../GaLib/dist/default/production/GaLib.a(dynamixel.o)
  __c30_signature
-                  0x0012aa          0x6 ../GaLib/dist/default/production/GaLib.a(pwm.o)
+                  0x0012aa          0x6 ../GaLib/dist/default/production/GaLib.a(dxl_hal.o)
  __c30_signature
-                  0x0012b0          0x6 ../GaLib/dist/default/production/GaLib.a(bits.o)
+                  0x0012b0          0x6 ../GaLib/dist/default/production/GaLib.a(pwm.o)
  __c30_signature
-                  0x0012b6          0x6 ../GaLib/dist/default/production/GaLib.a(timeout.o)
+                  0x0012b6          0x6 ../GaLib/dist/default/production/GaLib.a(bits.o)
  __c30_signature
-                  0x0012bc          0x6 ../GaLib/dist/default/production/GaLib.a(tracker.o)
+                  0x0012bc          0x6 ../GaLib/dist/default/production/GaLib.a(timeout.o)
  __c30_signature
-                  0x0012c2          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(crt0_extendedep.o)
+                  0x0012c2          0x6 ../GaLib/dist/default/production/GaLib.a(tracker.o)
  __c30_signature
-                  0x0012c8          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(data_init_extendedep.o)
+                  0x0012c8          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(crt0_extendedep.o)
  __c30_signature
-                  0x0012ce          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(delay32ep.eo)
+                  0x0012ce          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(data_init_extendedep.o)
  __c30_signature
-                  0x0012d4          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(atan2f.epeo)
+                  0x0012d4          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(delay32ep.eo)
  __c30_signature
-                  0x0012da          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(errno.epeo)
+                  0x0012da          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(atan2f.epeo)
  __c30_signature
-                  0x0012e0          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(feqltle.epeo)
+                  0x0012e0          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(errno.epeo)
  __c30_signature
-                  0x0012e6          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fgtge.epeo)
+                  0x0012e6          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(feqltle.epeo)
  __c30_signature
-                  0x0012ec          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fixsfsi.epeo)
+                  0x0012ec          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fgtge.epeo)
  __c30_signature
-                  0x0012f2          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(floatsisf.epeo)
+                  0x0012f2          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fixsfsi.epeo)
  __c30_signature
-                  0x0012f8          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(floatunsisf.epeo)
+                  0x0012f8          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(floatsisf.epeo)
  __c30_signature
-                  0x0012fe          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fmodf.epeo)
+                  0x0012fe          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(floatunsisf.epeo)
  __c30_signature
-                  0x001304          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fmodrem.epeo)
+                  0x001304          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fmodf.epeo)
  __c30_signature
-                  0x00130a          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fne.epeo)
+                  0x00130a          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fmodrem.epeo)
  __c30_signature
-                  0x001310          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fpack.epeo)
+                  0x001310          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fne.epeo)
  __c30_signature
-                  0x001316          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(funpack.epeo)
+                  0x001316          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fpack.epeo)
  __c30_signature
-                  0x00131c          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(funpack2.epeo)
+                  0x00131c          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(funpack.epeo)
  __c30_signature
-                  0x001322          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(futil.epeo)
+                  0x001322          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(funpack2.epeo)
  __c30_signature
-                  0x001328          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(divmoddi3.epeo)
+                  0x001328          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(futil.epeo)
  __c30_signature
-                  0x00132e          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fcompare.epeo)
+                  0x00132e          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(divmoddi3.epeo)
  __c30_signature
-                  0x001334          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(floatdisf.epeo)
+                  0x001334          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fcompare.epeo)
  __c30_signature
-                  0x00133a          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(floatundisf.epeo)
+                  0x00133a          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(floatdisf.epeo)
  __c30_signature
-                  0x001340          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libc-elf.a(malloc.epeo)
+                  0x001340          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(floatundisf.epeo)
  __c30_signature
-                  0x001346          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libc-elf.a(memcpy.epeo)
+                  0x001346          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libc-elf.a(malloc.epeo)
  __c30_signature
-                  0x00134c          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libc-elf.a(vsnprintf.epeo)
+                  0x00134c          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libc-elf.a(memcpy.epeo)
  __c30_signature
-                  0x001352          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libc-elf.a(doprnt.epeo)
+                  0x001352          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libc-elf.a(vsnprintf.epeo)
  __c30_signature
-                  0x001358          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libc-elf.a(fputc.epeo)
+                  0x001358          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libc-elf.a(doprnt.epeo)
  __c30_signature
-                  0x00135e          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libc-elf.a(powers.epeo)
+                  0x00135e          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libc-elf.a(fputc.epeo)
  __c30_signature
-                  0x001364          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libc-elf.a(_iob.epeo)
+                  0x001364          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libc-elf.a(powers.epeo)
  __c30_signature
-                  0x00136a          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libc-elf.a(flsbuf.epeo)
+                  0x00136a          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libc-elf.a(_iob.epeo)
  __c30_signature
-                  0x001370          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(writeep.eo)
+                  0x001370          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libc-elf.a(flsbuf.epeo)
  __c30_signature
-                  0x001376          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(sbrkep.eo)
+                  0x001376          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(writeep.eo)
  __c30_signature
-                  0x00137c          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(c30_uartep.eo)
+                  0x00137c          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(sbrkep.eo)
  __c30_signature
-                  0x001382          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(brkep.elo)
+                  0x001382          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(c30_uartep.eo)
  __c30_signature
-                  0x001388          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(deqltle.epeo)
+                  0x001388          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(brkep.elo)
  __c30_signature
-                  0x00138e          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dgtge.epeo)
+                  0x00138e          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(deqltle.epeo)
  __c30_signature
-                  0x001394          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dne.epeo)
+                  0x001394          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dgtge.epeo)
  __c30_signature
-                  0x00139a          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(extendsfdf.epeo)
+                  0x00139a          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dne.epeo)
  __c30_signature
-                  0x0013a0          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fixunsdfdi.epeo)
+                  0x0013a0          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(extendsfdf.epeo)
  __c30_signature
-                  0x0013a6          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fixunsdfsi.epeo)
+                  0x0013a6          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fixunsdfdi.epeo)
  __c30_signature
-                  0x0013ac          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(floatundidf.epeo)
+                  0x0013ac          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(fixunsdfsi.epeo)
  __c30_signature
-                  0x0013b2          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(floatunsidf.epeo)
+                  0x0013b2          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(floatundidf.epeo)
  __c30_signature
-                  0x0013b8          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(mulsi3.epeo)
+                  0x0013b8          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(floatunsidf.epeo)
  __c30_signature
-                  0x0013be          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(muldi3.epeo)
+                  0x0013be          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(mulsi3.epeo)
  __c30_signature
-                  0x0013c4          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dpadd.epeo)
+                  0x0013c4          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(muldi3.epeo)
  __c30_signature
-                  0x0013ca          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dpdiv.epeo)
+                  0x0013ca          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dpadd.epeo)
  __c30_signature
-                  0x0013d0          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dpmul.epeo)
+                  0x0013d0          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dpdiv.epeo)
  __c30_signature
-                  0x0013d6          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dpsubs.epeo)
+                  0x0013d6          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dpmul.epeo)
  __c30_signature
-                  0x0013dc          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(s_frexp.epeo)
+                  0x0013dc          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dpsubs.epeo)
  __c30_signature
-                  0x0013e2          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dcompare.epeo)
+                  0x0013e2          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(s_frexp.epeo)
  __c30_signature
-                  0x0013e8          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dpack.epeo)
+                  0x0013e8          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dcompare.epeo)
  __c30_signature
-                  0x0013ee          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dtype.epeo)
+                  0x0013ee          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dpack.epeo)
  __c30_signature
-                  0x0013f4          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dunpack.epeo)
+                  0x0013f4          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dtype.epeo)
  __c30_signature
-                  0x0013fa          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dunpack2.epeo)
+                  0x0013fa          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dunpack.epeo)
  __c30_signature
-                  0x001400          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(umuldi3.epeo)
+                  0x001400          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dunpack2.epeo)
  __c30_signature
-                  0x001406          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dpropagateNaN.epeo)
+                  0x001406          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(umuldi3.epeo)
+ __c30_signature
+                  0x00140c          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libfastm-elf.a(dpropagateNaN.epeo)
 
 .nbss               0x1000        0xbf0
  .nbss              0x1000        0x910 ../GaLib/dist/default/production/GaLib.a(config_flash.o)

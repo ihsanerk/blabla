@@ -1,5 +1,5 @@
-build/default/production/Configuration.o:  \
-Configuration.c  \
+build/default/production/configuration.o:  \
+configuration.c  \
 configuration.h  \
  controller.h  \
 pid.h  \

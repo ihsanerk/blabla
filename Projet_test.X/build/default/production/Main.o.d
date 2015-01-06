@@ -12,5 +12,6 @@ adc.h  \
 bus.h  \
 pwm.h  \
  dynamixel.h  \
+delay.h  \
 timeout.h  \
 tracker.h 

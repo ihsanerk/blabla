@@ -1,5 +1,5 @@
-#ifndef TOOLS_BITS_H
-#define	TOOLS_BITS_H
+#ifndef BITS_H
+#define	BITS_H
 
 #include <stdbool.h>
 

@@ -6,19 +6,6 @@
 
 #include "bits.h"
 
-extern unsigned long long int conf_fcy;
-
-/**
- *  \def delay_ms
- *  \brief Wait for a specified amount of miliseconds
- */
-#define delay_ms(A)         __delay32((unsigned long)(A)*(conf_fcy/1000))
-/**
- *  \def delay_us
- *  \brief Wait for a specified amount of microseconds
- */
-#define delay_us(A)         __delay32((unsigned long)(A)*(conf_fcy/1000000))
-
 void busInit(void);
 void busClose(void);
 
