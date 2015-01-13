@@ -4,7 +4,10 @@
 //Librairies
 #include <stdint.h>
 #include <stdbool.h>
+#include <stdlib.h>
+#include <libpic30.h>
 #include <xc.h>
+
 //Inclure les librairies
 #include "debugger.h"
 #include "definition.h"
@@ -12,6 +15,7 @@
 
 //Prototypes
 void pinConfiguration ();
+void oscillatorInit();
 
 
 #endif	/* CONFIGURATION_H */

@@ -12,7 +12,10 @@ void sendString (char* string)
 {
 	unsigned char i;
 	for (i=0; string[i] != '\0'; i++)
+        {
 		uartSendChar(string[i]);
+
+        }
 }
 
 // Envoyer un entier  avec l'uart

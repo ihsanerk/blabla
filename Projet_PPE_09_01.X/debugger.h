@@ -2,8 +2,7 @@
 #define	DEBUGGER_H
 
 //Librairies
-#include "definition.h"
-#include "uart.h"
+#include "configuration.h"
 
 //Pins
 #define LED0 LATDbits.LATD6

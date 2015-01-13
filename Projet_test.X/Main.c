@@ -1,16 +1,10 @@
-/* 
- * File:   Main.c
- * Author: guillaume
- *
- * Created on 5 janvier 2015, 17:34
- */
-
+// Librairies
 #include <stdio.h>
 #include <stdlib.h>
 #include <xc.h>
 #include <stdint.h>
 
-
+//Les libraires crées
 #include "configuration.h"
 #include "controller.h"
 #include "encodeur.h"
@@ -48,7 +42,7 @@ int main() {
 
     // Start
     timerStart();
-//    waitForJack();
+    waitForJack();
 
     // Main loop
     logString("Starting...\n");
@@ -168,6 +162,8 @@ void init() {
 
     timersInit();
     pwmInit();
+    //Avancer à l'aide d'un bouton
+
     //aiInit();
     logString("Initialisation done!\n");
     ledSet(5, true);
