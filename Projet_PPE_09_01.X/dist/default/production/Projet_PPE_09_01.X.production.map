@@ -69,10 +69,10 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x138           0x1d4  (468)
 .const                       0x338                0x10            0x18  (24)
-.text                        0x348               0x2bc           0x41a  (1050)
-.dinit                       0x604                 0x8             0xc  (12)
+.text                        0x348               0x2e0           0x450  (1104)
+.dinit                       0x628                 0x8             0xc  (12)
 
-                     Total program memory used (bytes):          0x612  (1554) <1%
+                     Total program memory used (bytes):          0x648  (1608) <1%
 
 
 Auxflash Memory  [Origin = 0x7fc000, Length = 0x3ffa]
@@ -126,18 +126,18 @@ External Symbols in Program Memory (by address):
                   0x00037a                  _sendSignedInteger
                   0x000450                  _sendUnSignedInteger
                   0x0004fe                  _uart_init
-                  0x000540                  _uartGetChar
-                  0x000556                  _uartSendChar
-                  0x000570                  _uartWaitEndOfTransmission
-                  0x000582                  __U3TXInterrupt
-                  0x0005bc                  _pinConfiguration
-                  0x0005da                  _oscillatorInit
-                  0x0005fa                  _main
+                  0x00054c                  _uartGetChar
+                  0x000562                  _uartSendChar
+                  0x00057c                  _uartWaitEndOfTransmission
+                  0x00058e                  __U2TXInterrupt
+                  0x0005c8                  _pinConfiguration
+                  0x0005e6                  _oscillatorInit
+                  0x000610                  _main
 
 External Symbols in Program Memory (by name):
 
                   0x0002d2                  __DefaultInterrupt
-                  0x000582                  __U3TXInterrupt
+                  0x00058e                  __U2TXInterrupt
                   0x0002d6                  ___divsi3
                   0x0002f4                  ___modsi3
                   0x000312                  ___udivsi3
@@ -147,15 +147,15 @@ External Symbols in Program Memory (by name):
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
                   0x000348                  _debugger_init
-                  0x0005fa                  _main
-                  0x0005da                  _oscillatorInit
-                  0x0005bc                  _pinConfiguration
+                  0x000610                  _main
+                  0x0005e6                  _oscillatorInit
+                  0x0005c8                  _pinConfiguration
                   0x00037a                  _sendSignedInteger
                   0x00034e                  _sendString
                   0x000450                  _sendUnSignedInteger
-                  0x000540                  _uartGetChar
-                  0x000556                  _uartSendChar
-                  0x000570                  _uartWaitEndOfTransmission
+                  0x00054c                  _uartGetChar
+                  0x000562                  _uartSendChar
+                  0x00057c                  _uartWaitEndOfTransmission
                   0x0004fe                  _uart_init
 
 Memory Configuration
@@ -265,27 +265,27 @@ __FUID0
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x160d
+.debug_info       0x000000       0x1b50
  *(.debug_info)
- .debug_info      0x000000        0x5d8 build/default/production/configuration.o
- .debug_info      0x0005d8        0x144 build/default/production/main.o
- .debug_info      0x00071c        0x2cf build/default/production/debugger.o
- .debug_info      0x0009eb        0xc22 build/default/production/uart.o
+ .debug_info      0x000000        0x876 build/default/production/configuration.o
+ .debug_info      0x000876        0x17e build/default/production/main.o
+ .debug_info      0x0009f4        0x2cf build/default/production/debugger.o
+ .debug_info      0x000cc3        0xe8d build/default/production/uart.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x2b4
+.debug_abbrev     0x000000        0x2dd
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0xb6 build/default/production/configuration.o
- .debug_abbrev    0x0000b6         0x36 build/default/production/main.o
- .debug_abbrev    0x0000ec         0x9f build/default/production/debugger.o
- .debug_abbrev    0x00018b        0x129 build/default/production/uart.o
+ .debug_abbrev    0x0000b6         0x5f build/default/production/main.o
+ .debug_abbrev    0x000115         0x9f build/default/production/debugger.o
+ .debug_abbrev    0x0001b4        0x129 build/default/production/uart.o
 
-.debug_line       0x000000        0x59a
+.debug_line       0x000000        0x621
  *(.debug_line)
- .debug_line      0x000000        0x11a build/default/production/configuration.o
- .debug_line      0x00011a         0x60 build/default/production/main.o
- .debug_line      0x00017a        0x24f build/default/production/debugger.o
- .debug_line      0x0003c9        0x1d1 build/default/production/uart.o
+ .debug_line      0x000000        0x132 build/default/production/configuration.o
+ .debug_line      0x000132         0xc7 build/default/production/main.o
+ .debug_line      0x0001f9        0x24f build/default/production/debugger.o
+ .debug_line      0x000448        0x1d9 build/default/production/uart.o
 
 .debug_frame      0x000000        0x110
  *(.debug_frame)
@@ -294,10 +294,10 @@ __FUID0
  .debug_frame     0x000058         0x54 build/default/production/debugger.o
  .debug_frame     0x0000ac         0x64 build/default/production/uart.o
 
-.debug_str        0x000000         0x5e
+.debug_str        0x000000         0x7c
  *(.debug_str)
- .debug_str       0x000000         0x14 build/default/production/configuration.o
- .debug_str       0x000014         0x4a build/default/production/uart.o
+ .debug_str       0x000000         0x29 build/default/production/configuration.o
+ .debug_str       0x000029         0x53 build/default/production/uart.o
 
 .debug_loc
  *(.debug_loc)
@@ -371,7 +371,7 @@ __FUID0
                   0x00004c          0x4 LONG 0x2d2 DEFINED (__T5Interrupt)?ABSOLUTE (__T5Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00004e          0x4 LONG 0x2d2 DEFINED (__INT2Interrupt)?ABSOLUTE (__INT2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000050          0x4 LONG 0x2d2 DEFINED (__U2RXInterrupt)?ABSOLUTE (__U2RXInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000052          0x4 LONG 0x2d2 DEFINED (__U2TXInterrupt)?ABSOLUTE (__U2TXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000052          0x4 LONG 0x58e DEFINED (__U2TXInterrupt)?ABSOLUTE (__U2TXInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000054          0x4 LONG 0x2d2 DEFINED (__SPI2ErrInterrupt)?ABSOLUTE (__SPI2ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000056          0x4 LONG 0x2d2 DEFINED (__SPI2Interrupt)?ABSOLUTE (__SPI2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000058          0x4 LONG 0x2d2 DEFINED (__C1RxRdyInterrupt)?ABSOLUTE (__C1RxRdyInterrupt):ABSOLUTE (__DefaultInterrupt)
@@ -423,7 +423,7 @@ __FUID0
                   0x0000b4          0x4 LONG 0x2d2 DEFINED (__Interrupt80)?ABSOLUTE (__Interrupt80):ABSOLUTE (__DefaultInterrupt)
                   0x0000b6          0x4 LONG 0x2d2 DEFINED (__U3ErrInterrupt)?ABSOLUTE (__U3ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x0000b8          0x4 LONG 0x2d2 DEFINED (__U3RXInterrupt)?ABSOLUTE (__U3RXInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x0000ba          0x4 LONG 0x582 DEFINED (__U3TXInterrupt)?ABSOLUTE (__U3TXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x0000ba          0x4 LONG 0x2d2 DEFINED (__U3TXInterrupt)?ABSOLUTE (__U3TXInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x0000bc          0x4 LONG 0x2d2 DEFINED (__Interrupt84)?ABSOLUTE (__Interrupt84):ABSOLUTE (__DefaultInterrupt)
                   0x0000be          0x4 LONG 0x2d2 DEFINED (__Interrupt85)?ABSOLUTE (__Interrupt85):ABSOLUTE (__DefaultInterrupt)
                   0x0000c0          0x4 LONG 0x2d2 DEFINED (__USB1Interrupt)?ABSOLUTE (__USB1Interrupt):ABSOLUTE (__DefaultInterrupt)
@@ -3169,38 +3169,38 @@ LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
-                  0x000060        0x15b
+                  0x000060        0x1b8
  .debug_pubtypes
-                  0x000060         0x50 build/default/production/configuration.o
+                  0x000060         0x90 build/default/production/configuration.o
  .debug_pubtypes
-                  0x0000b0         0x12 build/default/production/main.o
+                  0x0000f0         0x12 build/default/production/main.o
  .debug_pubtypes
-                  0x0000c2         0x2b build/default/production/debugger.o
+                  0x000102         0x2b build/default/production/debugger.o
  .debug_pubtypes
-                  0x0000ed         0xce build/default/production/uart.o
+                  0x00012d         0xeb build/default/production/uart.o
 
 __c30_signature
-                  0x0001bc         0x3c
+                  0x000218         0x3c
  __c30_signature
-                  0x0001bc          0x6 build/default/production/configuration.o
+                  0x000218          0x6 build/default/production/configuration.o
  __c30_signature
-                  0x0001c2          0x6 build/default/production/main.o
+                  0x00021e          0x6 build/default/production/main.o
  __c30_signature
-                  0x0001c8          0x6 build/default/production/debugger.o
+                  0x000224          0x6 build/default/production/debugger.o
  __c30_signature
-                  0x0001ce          0x6 build/default/production/uart.o
+                  0x00022a          0x6 build/default/production/uart.o
  __c30_signature
-                  0x0001d4          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(crt0_extendedep.o)
+                  0x000230          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(crt0_extendedep.o)
  __c30_signature
-                  0x0001da          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(data_init_extendedep.o)
+                  0x000236          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libpic30-elf.a(data_init_extendedep.o)
  __c30_signature
-                  0x0001e0          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libm-elf.a(divsi3.epeo)
+                  0x00023c          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libm-elf.a(divsi3.epeo)
  __c30_signature
-                  0x0001e6          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libm-elf.a(modsi3.epeo)
+                  0x000242          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libm-elf.a(modsi3.epeo)
  __c30_signature
-                  0x0001ec          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libm-elf.a(udivsi3.epeo)
+                  0x000248          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libm-elf.a(udivsi3.epeo)
  __c30_signature
-                  0x0001f2          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libm-elf.a(umodsi3.epeo)
+                  0x00024e          0x6 /Applications/microchip/xc16/v1.23/bin/bin/../../lib/libm-elf.a(umodsi3.epeo)
 
 .nbss               0x1000          0x2
  .nbss              0x1000          0x2 build/default/production/uart.o
@@ -3209,23 +3209,23 @@ __c30_signature
 .const              0x8338         0x10 load address 0x000338  
  .const             0x8338         0x10 build/default/production/debugger.o
 
-.text             0x000348        0x2bc
+.text             0x000348        0x2e0
  .text            0x000348        0x1b6 build/default/production/debugger.o
                   0x000348                  _debugger_init
                   0x00034e                  _sendString
                   0x00037a                  _sendSignedInteger
                   0x000450                  _sendUnSignedInteger
- .text            0x0004fe         0xbe build/default/production/uart.o
+ .text            0x0004fe         0xca build/default/production/uart.o
                   0x0004fe                  _uart_init
-                  0x000540                  _uartGetChar
-                  0x000556                  _uartSendChar
-                  0x000570                  _uartWaitEndOfTransmission
-                  0x000582                  __U3TXInterrupt
- .text            0x0005bc         0x3e build/default/production/configuration.o
-                  0x0005bc                  _pinConfiguration
-                  0x0005da                  _oscillatorInit
- .text            0x0005fa          0xa build/default/production/main.o
-                  0x0005fa                  _main
+                  0x00054c                  _uartGetChar
+                  0x000562                  _uartSendChar
+                  0x00057c                  _uartWaitEndOfTransmission
+                  0x00058e                  __U2TXInterrupt
+ .text            0x0005c8         0x48 build/default/production/configuration.o
+                  0x0005c8                  _pinConfiguration
+                  0x0005e6                  _oscillatorInit
+ .text            0x000610         0x18 build/default/production/main.o
+                  0x000610                  _main
 
-.dinit            0x000604          0x8
- .dinit           0x000604          0x8 data_init
+.dinit            0x000628          0x8
+ .dinit           0x000628          0x8 data_init
