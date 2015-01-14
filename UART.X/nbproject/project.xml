@@ -2,12 +2,12 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>Projet_PPE_09_01</name>
-            <creation-uuid>9ddb4552-ecb8-47db-9754-0adea61c0bfc</creation-uuid>
+            <name>UART</name>
+            <creation-uuid>02e5bd65-9554-42ef-8da9-764f56410046</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
             <cpp-extensions/>
-            <header-extensions>h</header-extensions>
+            <header-extensions/>
             <asminc-extensions/>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>

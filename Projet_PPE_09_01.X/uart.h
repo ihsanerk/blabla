@@ -10,6 +10,7 @@
 #include <libpic30.h>
 #include <xc.h>
 #include <pps.h>
+#include <uart.h>
 
 #include "definition.h"
 
