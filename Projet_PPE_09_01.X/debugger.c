@@ -1,5 +1,6 @@
 //Librairies
-#include "debugger.h"
+#include  "debugger.h"
+#include  "uart.h"
 
 //Initialise le débugger
 void debugger_init()
@@ -19,7 +20,7 @@ void sendString (char* string)
 }
 
 // Envoyer un entier  avec l'uart
-void sendSignedInteger (int32_t n)
+void sendSignedInteger (long n)
 {
         int i=0;
         char temp[15]="\0";
@@ -59,7 +60,7 @@ void sendSignedInteger (int32_t n)
 }
 
 // Envoyer un entier  avec l'uart
-void sendUnSignedInteger (uint32_t n)
+void sendUnSignedInteger (long n)
 {
         int i=0;
         char temp[15]="\0";

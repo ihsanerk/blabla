@@ -6,10 +6,17 @@
                    projectFiles="true">
       <logicalFolder name="f2" displayName="Configuration" projectFiles="true">
         <itemPath>configuration.h</itemPath>
+        <itemPath>bits.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="Debugger" projectFiles="true">
+        <itemPath>debugger.h</itemPath>
+        <itemPath>uart.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="Deplacement" projectFiles="true">
+        <itemPath>moteur.h</itemPath>
       </logicalFolder>
       <itemPath>definition.h</itemPath>
-      <itemPath>debugger.h</itemPath>
-      <itemPath>uart.h</itemPath>
+      <itemPath>math.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -20,10 +27,17 @@
                    projectFiles="true">
       <logicalFolder name="f2" displayName="Configuration" projectFiles="true">
         <itemPath>configuration.c</itemPath>
+        <itemPath>bits.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="Debugger" projectFiles="true">
+        <itemPath>debugger.c</itemPath>
+        <itemPath>uart.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="Deplacement" projectFiles="true">
+        <itemPath>moteur.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
-      <itemPath>debugger.c</itemPath>
-      <itemPath>uart.c</itemPath>
+      <itemPath>math.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

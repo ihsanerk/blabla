@@ -2,17 +2,10 @@
 #define	UART_H
 
 
-//Librairies
-#include <stdint.h>
-#include <stdbool.h>
-#include <stdlib.h>
-#include <p33EP512MU810.h>
-#include <libpic30.h>
-#include <xc.h>
-#include <pps.h>
-#include <uart.h>
+
 
 #include "definition.h"
+#include "configuration.h"
 
 //Prototypes des fonctions
 void uart_init();
