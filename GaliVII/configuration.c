@@ -27,10 +27,11 @@ void pinConfigure() {
     ANSELG = 0;
 
     // Encoders (right:E1, left:E2)
-    RPINR14bits.QEA1R = 81;
-    RPINR14bits.QEB1R = 126;
-    RPINR16bits.QEA2R = 124;
-    RPINR16bits.QEB2R = 125;
+    RPINR14bits.QEA1R =  81; //E1 CHA
+    RPINR14bits.QEB1R = 126; //E1 CHB
+
+    RPINR16bits.QEA2R = 124; //E2 CHA
+    RPINR16bits.QEB2R = 125; //E2 CHB
 
     // Motors (right:M2, left:M1)
     bitInit(&motors_dir_l, &LATC, 3);
@@ -238,9 +239,11 @@ void configurationInit() {
         configuration[MOTOR_PID_LENGTH_P] = 15.0f;
         configuration[MOTOR_PID_LENGTH_I] = 0.f;
         configuration[MOTOR_PID_LENGTH_D] = 0.f;
+
         configuration[MOTOR_PID_ANGLE_P] = 5.0f;
         configuration[MOTOR_PID_ANGLE_I] = 0.f;
         configuration[MOTOR_PID_ANGLE_D] = 0.f;
+
         configuration[MOTOR_PID_SPEED_P] = 0.f;
         configuration[MOTOR_PID_SPEED_I] = 0.f;
         configuration[MOTOR_PID_SPEED_D] = 0.f;
@@ -280,9 +283,11 @@ void configurationReload() {
     controller.pid_length.param_P = configuration[MOTOR_PID_LENGTH_P];
     controller.pid_length.param_I = configuration[MOTOR_PID_LENGTH_I];
     controller.pid_length.param_D = configuration[MOTOR_PID_LENGTH_D];
+
     controller.pid_angle.param_P = configuration[MOTOR_PID_ANGLE_P];
     controller.pid_angle.param_I = configuration[MOTOR_PID_ANGLE_I];
     controller.pid_angle.param_D = configuration[MOTOR_PID_ANGLE_D];
+
     controller.pid_speed.param_P = configuration[MOTOR_PID_SPEED_P];
     controller.pid_speed.param_I = configuration[MOTOR_PID_SPEED_I];
     controller.pid_speed.param_D = configuration[MOTOR_PID_SPEED_D];
@@ -292,9 +297,11 @@ void configurationSave() {
     configuration[MOTOR_PID_LENGTH_P] = controller.pid_length.param_P;
     configuration[MOTOR_PID_LENGTH_I] = controller.pid_length.param_I;
     configuration[MOTOR_PID_LENGTH_D] = controller.pid_length.param_D;
+
     configuration[MOTOR_PID_ANGLE_P] = controller.pid_angle.param_P;
     configuration[MOTOR_PID_ANGLE_I] = controller.pid_angle.param_I;
     configuration[MOTOR_PID_ANGLE_D] = controller.pid_angle.param_D;
+
     configuration[MOTOR_PID_SPEED_P] = controller.pid_speed.param_P;
     configuration[MOTOR_PID_SPEED_I] = controller.pid_speed.param_I;
     configuration[MOTOR_PID_SPEED_D] = controller.pid_speed.param_D;

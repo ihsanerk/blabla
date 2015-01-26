@@ -130,8 +130,8 @@ void motorsApplyOrder(float order_lenght, float order_angle) {
         pwm_right_abs = 0;
 
     // Directions
-    bool pwm_left_dir = SENS(-1.0f * order_left);
-    bool pwm_right_dir = SENS(order_right);
+    BOOL pwm_left_dir = SENS(-1.0f * order_left);
+    BOOL pwm_right_dir = SENS(order_right);
     bitSet(motors_dir_l, pwm_left_dir);
     bitSet(motors_dir_r, pwm_right_dir);
 

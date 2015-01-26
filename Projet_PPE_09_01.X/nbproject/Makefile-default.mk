@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=configuration.c bits.c debugger.c uart.c moteur.c main.c math.c
+SOURCEFILES_QUOTED_IF_SPACED=configuration.c bits.c debugger.c uart.c moteur.c encodeur.c correcteur.c main.c math.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/configuration.o ${OBJECTDIR}/bits.o ${OBJECTDIR}/debugger.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/moteur.o ${OBJECTDIR}/main.o ${OBJECTDIR}/math.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/configuration.o.d ${OBJECTDIR}/bits.o.d ${OBJECTDIR}/debugger.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/moteur.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/math.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/configuration.o ${OBJECTDIR}/bits.o ${OBJECTDIR}/debugger.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/moteur.o ${OBJECTDIR}/encodeur.o ${OBJECTDIR}/correcteur.o ${OBJECTDIR}/main.o ${OBJECTDIR}/math.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/configuration.o.d ${OBJECTDIR}/bits.o.d ${OBJECTDIR}/debugger.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/moteur.o.d ${OBJECTDIR}/encodeur.o.d ${OBJECTDIR}/correcteur.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/math.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/configuration.o ${OBJECTDIR}/bits.o ${OBJECTDIR}/debugger.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/moteur.o ${OBJECTDIR}/main.o ${OBJECTDIR}/math.o
+OBJECTFILES=${OBJECTDIR}/configuration.o ${OBJECTDIR}/bits.o ${OBJECTDIR}/debugger.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/moteur.o ${OBJECTDIR}/encodeur.o ${OBJECTDIR}/correcteur.o ${OBJECTDIR}/main.o ${OBJECTDIR}/math.o
 
 # Source Files
-SOURCEFILES=configuration.c bits.c debugger.c uart.c moteur.c main.c math.c
+SOURCEFILES=configuration.c bits.c debugger.c uart.c moteur.c encodeur.c correcteur.c main.c math.c
 
 
 CFLAGS=
@@ -117,6 +117,20 @@ ${OBJECTDIR}/moteur.o: moteur.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  moteur.c  -o ${OBJECTDIR}/moteur.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/moteur.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/moteur.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/encodeur.o: encodeur.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/encodeur.o.d 
+	@${RM} ${OBJECTDIR}/encodeur.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  encodeur.c  -o ${OBJECTDIR}/encodeur.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/encodeur.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/encodeur.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/correcteur.o: correcteur.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/correcteur.o.d 
+	@${RM} ${OBJECTDIR}/correcteur.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  correcteur.c  -o ${OBJECTDIR}/correcteur.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/correcteur.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/correcteur.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/main.o.d 
@@ -166,6 +180,20 @@ ${OBJECTDIR}/moteur.o: moteur.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/moteur.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  moteur.c  -o ${OBJECTDIR}/moteur.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/moteur.o.d"      -mno-eds-warn  -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/moteur.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/encodeur.o: encodeur.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/encodeur.o.d 
+	@${RM} ${OBJECTDIR}/encodeur.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  encodeur.c  -o ${OBJECTDIR}/encodeur.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/encodeur.o.d"      -mno-eds-warn  -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/encodeur.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/correcteur.o: correcteur.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/correcteur.o.d 
+	@${RM} ${OBJECTDIR}/correcteur.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  correcteur.c  -o ${OBJECTDIR}/correcteur.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/correcteur.o.d"      -mno-eds-warn  -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/correcteur.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 

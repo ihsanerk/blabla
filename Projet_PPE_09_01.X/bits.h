@@ -2,6 +2,7 @@
 #define	TOOLS_BITS_H
 
 #include <stdbool.h>
+#include "math.h"
 
 /**
  *  \file bits.h
@@ -38,7 +39,7 @@ void bitInit(bitPtr *bptr, regPtr reg, unsigned char n);
  *  \param [in] bptr bitPtr to set
  *  \param [in] b Value to set to
  */
-void bitSet(bitPtr bptr, bool b);
+void bitSet(bitPtr bptr, BOOL b);
 /**
  *  \brief Get a bitPtr's value
  *
@@ -47,7 +48,7 @@ void bitSet(bitPtr bptr, bool b);
  *
  *  \details Details
  */
-bool bitGet(bitPtr rb);
+BOOL bitGet(bitPtr rb);
 
 #endif	/* TOOLS_BITS_H */
 

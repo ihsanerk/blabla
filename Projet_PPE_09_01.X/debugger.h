@@ -3,6 +3,8 @@
 
 //Librairies
 #include "configuration.h"
+#include <stdio.h>
+#include <stdarg.h>
 
 
 //Prototypes
@@ -11,6 +13,7 @@ void sendString (char* string);
 void sendSignedInteger (long n);
 void sendUnSignedInteger (long n);
 
+void StringFormatted(const char *fmt, ...);
 
 #endif	/* DEBUGGER_H */
 

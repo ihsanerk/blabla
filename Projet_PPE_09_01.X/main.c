@@ -66,12 +66,13 @@
 
 void main(void)
 {
+    //Ressources
+    int i = 0;
     //Initialisation
-    pinConfiguration ();
-    uart_init();
-    int i =0;
-    
+    pinConfiguration (); // Initialisation des différents PINS
+    uart_init(); // Initialisation de la communication avec l'ordinateur
     sendString("Fin de l'initialisation de UART.\n");
+
     motorsInit();
     sendString("Fin de l'initialisation du moteur.\n");
 
@@ -90,10 +91,7 @@ void main(void)
 
 while(1)
 {
-//PORTFbits.RF3 = 1;
-//__delay_ms(500);
-//PORTFbits.RF3 = 0;
-//__delay_ms(500);
+
 }
     
 }

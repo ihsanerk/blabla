@@ -19,6 +19,7 @@ void sendString (char* string)
         }
 }
 
+
 // Envoyer un entier  avec l'uart
 void sendSignedInteger (long n)
 {
@@ -93,4 +94,13 @@ void sendUnSignedInteger (long n)
 			temp[i]='\0';
         }
         sendString(temp);
+}
+
+void StringFormatted(const char *fmt, ...) {
+    char buffer[200];
+    va_list args;
+    va_start(args, fmt);
+    vsnprintf(buffer, 200, fmt, args);
+    va_end(args);
+    sendString(buffer);
 }
