@@ -89,11 +89,8 @@ void encodersFetch() {
 }
 
 void encodersDebug() {
-    sendString ("Encoder r:");
-    sendSignedInteger (encoder_right.variation);
-    sendString ("l:");
-    sendSignedInteger (encoder_left.variation);
-    sendString ("\n");
+        StringFormatted("Encoder r:%d l:%d ", encoder_right.variation, encoder_left.variation);
+
 }
 
 float encodersGetLengthVariation() {
