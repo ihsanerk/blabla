@@ -1,6 +1,19 @@
 #include "correcteur.h"
 
-
+//Ressources
+//La position actuelles
+float position_x = 0.0f;
+float position_y = 0.0f;
+float position_angle = 0.0f;
+//L'objectif de destination
+float objectif_x = 0.0f;
+float objectif_y = 0.0f;
+float objectif_angle = 0.0f;
+//Coeficient
+float angle[4];
+float r[4];
+float coeff[4];
+BOOL isAngleAbsolute = FALSE;
 
 //Fonction pour Définir les positions de l'objectif
 void SetPositionObjectif(float x, float y, float angle) {
@@ -205,4 +218,18 @@ void trackerLogPosition(void) {
     StringFormatted("\
     state->next_on_success = aiStateGoto(%ff, %ff, %ff);\n\
     state = state->next_on_success;\n\n", position_x, position_y, position_angle);
+}
+
+
+
+float pidGetOrder(PID *pid, float error) {
+    float order;
+    pid->accumulator += error;
+    order = error * pid->param_P + (pid->last_error - error) * pid->param_D + pid->accumulator * pid->param_I;
+    pid->last_error = error;
+    if (order > 1.0f)
+        order = 1.0f;
+    else if (order < -1.0f)
+        order = -1.0f;
+    return order;
 }

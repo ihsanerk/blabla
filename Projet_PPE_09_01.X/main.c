@@ -11,6 +11,9 @@
 #include  "uart.h"
 #include  "debugger.h"
 #include  "moteur.h"
+#include  "encodeur.h"
+#include  "adc.h"
+#include  "correcteur.h"
 
 
 
@@ -67,9 +70,9 @@
 void main(void)
 {
     //Ressources
-    int i = 0;
     //Initialisation
     pinConfiguration (); // Initialisation des différents PINS
+    adcInit(); //Initialisation des ADC
     uart_init(); // Initialisation de la communication avec l'ordinateur
     sendString("Fin de l'initialisation de UART.\n");
 
@@ -78,8 +81,9 @@ void main(void)
 
    //motorsBrake();
     sendString("On envoi une consigne au moteur : 0.1 longueur et 40.0 angle.\n");
-    for(i=0;i<2000;i++)motorsApplyOrder(1.0F,0.10F);
-    for(i=0;i<1000;i++)motorsApplyOrder(1.0F,0.3F);
+    //for(i=0;i<2000;i++)motorsApplyOrder(1.0F,0.10F);
+    //for(i=0;i<1000;i++)motorsApplyOrder(1.0F,0.3F);
+    trackerSetPosition(0.5f,0.0f, 0.0f);
 
     sendString("Delay de 500 ms\n");
 

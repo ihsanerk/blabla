@@ -7,6 +7,7 @@
       <logicalFolder name="f2" displayName="Configuration" projectFiles="true">
         <itemPath>configuration.h</itemPath>
         <itemPath>bits.h</itemPath>
+        <itemPath>adc.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Debugger" projectFiles="true">
         <itemPath>debugger.h</itemPath>
@@ -30,6 +31,7 @@
       <logicalFolder name="f2" displayName="Configuration" projectFiles="true">
         <itemPath>configuration.c</itemPath>
         <itemPath>bits.c</itemPath>
+        <itemPath>adc.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Debugger" projectFiles="true">
         <itemPath>debugger.c</itemPath>
