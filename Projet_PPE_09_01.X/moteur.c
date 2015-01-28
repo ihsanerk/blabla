@@ -34,13 +34,14 @@ void motorsInit() {
     bitInit(&motors_brake_r, &LATE, 5);
     motors_pwm_l = &PDC6;
     motors_pwm_r = &PDC4;
+
     bitInit(&motors_dir_l_tris, &TRISC, 3);
     bitInit(&motors_dir_r_tris, &TRISE, 6);
     bitInit(&motors_brake_l_tris, &TRISC, 2);
     bitInit(&motors_brake_r_tris, &TRISE, 5);
     bitInit(&motors_pwm_l_tris, &TRISC, 4);
     bitInit(&motors_pwm_r_tris, &TRISE, 7);
-    
+
     // Configure pins in output
     bitSet(motors_dir_r_tris, 0);
     bitSet(motors_dir_l_tris, 0);
@@ -101,7 +102,7 @@ void motorsInit() {
     motors_PTP = 3200;
 
     pwm_max = 400;
-    
+
     // Minimum pwm for the robot to stay still at equilibrium with low P parameter
     pwm_min = 250;
     coef_angle = 0.3f;
