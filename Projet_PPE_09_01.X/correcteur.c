@@ -15,6 +15,9 @@ float r[4];
 float coeff[4];
 BOOL isAngleAbsolute = FALSE;
 
+ PID pid_length;
+ PID pid_angle;
+
 //Fonction pour Définir les positions de l'objectif
 void SetPositionObjectif(float x, float y, float angle) {
     objectif_x = x;
@@ -50,6 +53,11 @@ void trackerUpdate() {
     float error_y;
     //Pour parcourir les différents tableau
     int i;
+    
+
+    
+
+
 
 
     //Initialisation
@@ -115,15 +123,25 @@ void trackerUpdate() {
         }
         // On doit ici actualiser la consigne des moteurs.
 
+
+    
+    pid_length.accumulator = 0 ;
+    pid_angle.accumulator = 0 ;
+
+    current_correction_length=pidGetOrder(&pid_length, current_correction_length);
+    current_correction_angle=pidGetOrder(&pid_angle, current_correction_angle);
+    
+    motorsApplyOrder(current_correction_length, current_correction_angle);
+
     //controllerUpdate(current_correction_length, current_correction_angle);
 }
 
 void trackerDebugPosition() {
-    StringFormatted("Pos :(%1.3f %1.3f %1.3f) ", position_x, position_y, position_angle);
+    StringFormatted("Pos :(%1.3f %1.3f %1.3f)\n ", position_x, position_y, position_angle);
 }
 
 void trackerDebugObjective() {
-    StringFormatted("Obj :(%1.3f %1.3f %1.3f) ", objectif_x, objectif_y, objectif_angle);
+    StringFormatted("Obj :(%1.3f %1.3f %1.3f) \n", objectif_x, objectif_y, objectif_angle);
 }
 
 void fictivePoint (){

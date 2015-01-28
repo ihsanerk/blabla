@@ -42,6 +42,8 @@ extern Encoder encoder_left;
 /**
  *  \brief Initialises the QEI (Quadrature Encoder Interface)
  */
+void encodersDebug();
+
 void encodersInit();
 /**
  *  \brief Fetches the encoders' new values and calculates variation

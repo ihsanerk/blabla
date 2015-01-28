@@ -99,7 +99,9 @@ void motorsInit() {
 
     // Motors
     motors_PTP = 3200;
-    pwm_max = 3000;
+
+    pwm_max = 400;
+    
     // Minimum pwm for the robot to stay still at equilibrium with low P parameter
     pwm_min = 250;
     coef_angle = 0.3f;
@@ -116,7 +118,7 @@ void motorsFreeRunning(void) {
 void motorsApplyOrder(float order_lenght, float order_angle) {
     // Motors orders
     float order_left = (1.f - coef_angle) * order_lenght - coef_angle * order_angle;
-    float order_right = (1.f - coef_angle) * order_lenght + coef_angle * order_angle;
+    float order_right = (1.0f - coef_angle) * order_lenght + coef_angle * order_angle;
 
     int16_t pwm_left_abs, pwm_right_abs;
     // PWM values
@@ -139,7 +141,7 @@ void motorsApplyOrder(float order_lenght, float order_angle) {
     *motors_pwm_l = ABS(pwm_left_abs);
     *motors_pwm_r = ABS(pwm_right_abs);
 
-//    logStringFormatted("Left o:%f, p:%d / Right o:%f, p:%d\n", order_left, pwm_left_abs, order_right, pwm_right_abs);
+      StringFormatted("Left o:%f, p:%d / Right o:%f, p:%d \n", order_left, pwm_left_abs, order_right, pwm_right_abs);
 }
 
 void motorsBrake() {

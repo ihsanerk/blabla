@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=configuration.c bits.c debugger.c uart.c moteur.c encodeur.c correcteur.c main.c math.c adc.c
+SOURCEFILES_QUOTED_IF_SPACED=configuration.c bits.c adc.c debugger.c uart.c moteur.c encodeur.c correcteur.c main.c math.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/configuration.o ${OBJECTDIR}/bits.o ${OBJECTDIR}/debugger.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/moteur.o ${OBJECTDIR}/encodeur.o ${OBJECTDIR}/correcteur.o ${OBJECTDIR}/main.o ${OBJECTDIR}/math.o ${OBJECTDIR}/adc.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/configuration.o.d ${OBJECTDIR}/bits.o.d ${OBJECTDIR}/debugger.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/moteur.o.d ${OBJECTDIR}/encodeur.o.d ${OBJECTDIR}/correcteur.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/math.o.d ${OBJECTDIR}/adc.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/configuration.o ${OBJECTDIR}/bits.o ${OBJECTDIR}/adc.o ${OBJECTDIR}/debugger.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/moteur.o ${OBJECTDIR}/encodeur.o ${OBJECTDIR}/correcteur.o ${OBJECTDIR}/main.o ${OBJECTDIR}/math.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/configuration.o.d ${OBJECTDIR}/bits.o.d ${OBJECTDIR}/adc.o.d ${OBJECTDIR}/debugger.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/moteur.o.d ${OBJECTDIR}/encodeur.o.d ${OBJECTDIR}/correcteur.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/math.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/configuration.o ${OBJECTDIR}/bits.o ${OBJECTDIR}/debugger.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/moteur.o ${OBJECTDIR}/encodeur.o ${OBJECTDIR}/correcteur.o ${OBJECTDIR}/main.o ${OBJECTDIR}/math.o ${OBJECTDIR}/adc.o
+OBJECTFILES=${OBJECTDIR}/configuration.o ${OBJECTDIR}/bits.o ${OBJECTDIR}/adc.o ${OBJECTDIR}/debugger.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/moteur.o ${OBJECTDIR}/encodeur.o ${OBJECTDIR}/correcteur.o ${OBJECTDIR}/main.o ${OBJECTDIR}/math.o
 
 # Source Files
-SOURCEFILES=configuration.c bits.c debugger.c uart.c moteur.c encodeur.c correcteur.c main.c math.c adc.c
+SOURCEFILES=configuration.c bits.c adc.c debugger.c uart.c moteur.c encodeur.c correcteur.c main.c math.c
 
 
 CFLAGS=
@@ -95,6 +95,13 @@ ${OBJECTDIR}/bits.o: bits.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/bits.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  bits.c  -o ${OBJECTDIR}/bits.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/bits.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/bits.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/adc.o: adc.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/adc.o.d 
+	@${RM} ${OBJECTDIR}/adc.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  adc.c  -o ${OBJECTDIR}/adc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/adc.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/adc.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/debugger.o: debugger.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
@@ -145,13 +152,6 @@ ${OBJECTDIR}/math.o: math.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  math.c  -o ${OBJECTDIR}/math.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/math.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/math.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/adc.o: adc.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/adc.o.d 
-	@${RM} ${OBJECTDIR}/adc.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  adc.c  -o ${OBJECTDIR}/adc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/adc.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/adc.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
 else
 ${OBJECTDIR}/configuration.o: configuration.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
@@ -166,6 +166,13 @@ ${OBJECTDIR}/bits.o: bits.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/bits.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  bits.c  -o ${OBJECTDIR}/bits.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/bits.o.d"      -mno-eds-warn  -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/bits.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/adc.o: adc.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/adc.o.d 
+	@${RM} ${OBJECTDIR}/adc.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  adc.c  -o ${OBJECTDIR}/adc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/adc.o.d"      -mno-eds-warn  -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/adc.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/debugger.o: debugger.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
@@ -215,13 +222,6 @@ ${OBJECTDIR}/math.o: math.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/math.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  math.c  -o ${OBJECTDIR}/math.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/math.o.d"      -mno-eds-warn  -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/math.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/adc.o: adc.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/adc.o.d 
-	@${RM} ${OBJECTDIR}/adc.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  adc.c  -o ${OBJECTDIR}/adc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/adc.o.d"      -mno-eds-warn  -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/adc.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 

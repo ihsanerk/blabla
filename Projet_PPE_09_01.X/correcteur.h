@@ -11,6 +11,7 @@
 //Librairies
 #include "encodeur.h"
 //#include "ccontroller.h"
+#include  "moteur.h"
 #include "math.h"
 #include "debugger.h"
 #include <math.h>
@@ -29,6 +30,8 @@ struct PID {
     float accumulator;	/*!< Accumulated errors */
 };
 typedef struct PID PID;
+
+extern PID pid_length,pid_angle;
 
 
 float normalAngle(float angle);

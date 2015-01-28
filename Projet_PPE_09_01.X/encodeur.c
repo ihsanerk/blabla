@@ -89,7 +89,7 @@ void encodersFetch() {
 }
 
 void encodersDebug() {
-        StringFormatted("Encoder r:%d l:%d ", encoder_right.variation, encoder_left.variation);
+        StringFormatted("Encoder right:%d left:%d \n", encoder_right.variation, encoder_left.variation);
 
 }
 

@@ -6,7 +6,6 @@
 #include <pps.h>
 
 #include  "configuration.h"
-#include  "configuration.h"
 #include  "definition.h"
 #include  "uart.h"
 #include  "debugger.h"
@@ -70,27 +69,63 @@
 void main(void)
 {
     //Ressources
+    int i  ;
     //Initialisation
     pinConfiguration (); // Initialisation des différents PINS
     adcInit(); //Initialisation des ADC
     uart_init(); // Initialisation de la communication avec l'ordinateur
+    encodersInit();
     sendString("Fin de l'initialisation de UART.\n");
 
+    encodersDebug();
     motorsInit();
     sendString("Fin de l'initialisation du moteur.\n");
 
-   //motorsBrake();
-    sendString("On envoi une consigne au moteur : 0.1 longueur et 40.0 angle.\n");
-    //for(i=0;i<2000;i++)motorsApplyOrder(1.0F,0.10F);
-    //for(i=0;i<1000;i++)motorsApplyOrder(1.0F,0.3F);
-    trackerSetPosition(0.5f,0.0f, 0.0f);
+    //Initialisation
+    pid_length.param_P = 15.0f;//10.0f;//15.0f;
+    pid_length.param_I = 0.0f;
+    pid_length.param_D = 0.0f;
 
-    sendString("Delay de 500 ms\n");
+    pid_angle.param_P = 5.0f;
+    pid_angle.param_I = 0.0f;
+    pid_angle.param_D = 0.0f;
+    
+   //motorsBrake();
+   // sendString("On envoi une consigne au moteur : 0.1 longueur et 40.0 angle.\n");
+    
+
+    //motorsBrake();
+    //for(i=0;i<1000;i++)motorsApplyOrder(1.0F,0.3F);
+
+    trackerSetPosition(0.0f,0.0f, 0.0f);// Position initial
+    //La position de l'objectif
+    SetPositionObjectif(0.1f,0.0f,0.0f);
+
+
+
+    for ( i = 0 ; i<5 ; i++)
+    {
+        trackerDebugObjective();
+        trackerUpdate();
+        encodersDebug();
+        trackerDebugPosition();
+
+
+    }
+    motorsBrake();
+   /* do
+    {
+        trackerDebugObjective(); 
+        trackerUpdate();
+        encodersDebug();
+        trackerDebugPosition();
+    }while(trackerIsPositionAtObjective()==FALSE);*/
+    //sendString("Delay de 500 ms\n");
 
     //__delay32(30000*32000); // 32 M = FOSC/2 = 32000000 delay de 500ms
     sendString("Fin de la consigne.\n");
 
-    motorsApplyOrder(0.0F,0.0F);
+    //motorsApplyOrder(0.0F,0.0F);
 
 
 while(1)
