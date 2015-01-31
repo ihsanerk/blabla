@@ -1,61 +1,31 @@
+// Library
 #include "moteur.h"
 
-#include <xc.h>
+//Variables
+Codeur 			codeurGauche	;
+Codeur 			codeurDroit		;
 
-#include "math.h"
-#include "debugger.h"
+// Initialisation
+void moteurInit ()
+{
+	// Configuration des pins
+	TRISCbits.TRISC4 = 0;// PWM_G
+	TRISEbits.TRISE7 = 0;// PWM_D
 
-uint16_t pwm_max, pwm_min;
-float coef_angle;
+	TRISEbits.TRISE5 = 0;// BREAK_D
+	TRISCbits.TRISC2 = 0;// BREAK_G
 
-// Pins
-bitPtr motors_dir_r;
-bitPtr motors_dir_l;
-bitPtr motors_brake_r;
-bitPtr motors_brake_l;
-regPtr motors_pwm_r;
-regPtr motors_pwm_l;
-bitPtr motors_dir_l_tris;
-bitPtr motors_dir_r_tris;
-bitPtr motors_brake_l_tris;
-bitPtr motors_brake_r_tris;
-bitPtr motors_pwm_l_tris;
-bitPtr motors_pwm_r_tris;
-unsigned int motors_PTP;
+	TRISEbits.TRISE6 = 0;// DIR_D
+	TRISCbits.TRISC3 = 0;// DIR_G
 
-// Global variables
+	// Init des freins
+        BRAKE_G  = 0;
+        BRAKE_D  = 0;
 
-void motorsInit() {
+        // PTCON & PTPER
+        PTCON           = 0x0000;           // Free Running, no pre/postscale
+	PTPER           = PTP;             // Frzquence de la PWM (1600 => Fpwm = 20kHz)
 
-    // Motors (right:M2, left:M1)
-    bitInit(&motors_dir_l, &LATC, 3);
-    bitInit(&motors_dir_r, &LATE, 6);
-    bitInit(&motors_brake_l, &LATC, 2);
-    bitInit(&motors_brake_r, &LATE, 5);
-    motors_pwm_l = &PDC6;
-    motors_pwm_r = &PDC4;
-
-    bitInit(&motors_dir_l_tris, &TRISC, 3);
-    bitInit(&motors_dir_r_tris, &TRISE, 6);
-    bitInit(&motors_brake_l_tris, &TRISC, 2);
-    bitInit(&motors_brake_r_tris, &TRISE, 5);
-    bitInit(&motors_pwm_l_tris, &TRISC, 4);
-    bitInit(&motors_pwm_r_tris, &TRISE, 7);
-
-    // Configure pins in output
-    bitSet(motors_dir_r_tris, 0);
-    bitSet(motors_dir_l_tris, 0);
-    bitSet(motors_brake_r_tris, 0);
-    bitSet(motors_brake_l_tris, 0);
-    bitSet(motors_pwm_r_tris, 0);
-    bitSet(motors_pwm_l_tris, 0);
-
-    // Init braking
-    motorsUnbrake();
-
-    // PTCON & PTPER
-    PTCON = 0x0000; // Free Running, no pre/postscale
-    PTPER = motors_PTP; // PWM frequency (1600 => Fpwm = 20kHz)
 
     // PWCON6
     PWMCON6bits.FLTIEN = 0;
@@ -89,68 +59,178 @@ void motorsInit() {
     IOCON4bits.SWAP = 0;
     IOCON4bits.OSYNC = 1;
 
-    // PWM duty cycle initialisation
-    *motors_pwm_l = 0;
-    *motors_pwm_r = 0;
-    bitSet(motors_dir_l, 0);
-    bitSet(motors_dir_r, 0);
+	// Initialisaiton du duty cycle
+    PWM_G = PWM_D   = 0;
+    DIR_G = DIR_D   = 0;
 
-    // Enable PWM
-    PTCONbits.PTEN = 1;
+    // Activation du signal PWM
+    PTCONbits.PTEN  = 1;
 
-    // Motors
-    motors_PTP = 3200;
-
-    pwm_max = 400;
-
-    // Minimum pwm for the robot to stay still at equilibrium with low P parameter
-    pwm_min = 250;
-    coef_angle = 0.3f;
 
 }
 
-void motorsFreeRunning(void) {
-    motorsUnbrake();
-    // Disable PWM
-    *motors_pwm_l = 0;
-    *motors_pwm_r = 0;
+
+void qeiInit ()
+{
+	//Init for the remamapable pins
+	// Encoders (right:E1, left:E2)
+    RPINR14bits.QEA1R =  81; //E1 CHA
+    RPINR14bits.QEB1R = 126; //E1 CHB
+
+    RPINR16bits.QEA2R = 124; //E2 CHA
+    RPINR16bits.QEB2R = 125; //E2 CHB
+
+	QEI1CONbits.QEIEN = 1; //Enable QEI
+	QEI1CONbits.QEISIDL = 0; // Don't care idle mode
+	QEI1CONbits.PIMOD = 0b000; // Position init not affected by index
+	QEI1CONbits.IMV = 0b00;	//Index input event don't match with position counter
+	QEI1CONbits.INTDIV = 0b000; // No presclale
+	QEI1CONbits.CNTPOL = 1; //Count in negative
+	QEI1CONbits.GATEN = 0; // No external count enable bit
+	QEI1CONbits.CCM = 0b00; // Select QEI mode Count
+
+	QEI1IOCbits.QCAPEN = 0;
+	QEI1IOCbits.FLTREN = 0; //digital filter disabled
+	QEI1IOCbits.QFDIV = 0b000;
+	QEI1IOCbits.OUTFNC = 0b00;
+	QEI1IOCbits.SWPAB = 0;
+	QEI1IOCbits.HOMPOL = 0;
+	QEI1IOCbits.IDXPOL = 0;
+	QEI1IOCbits.QEBPOL = 0;
+	QEI1IOCbits.QEAPOL = 0;
+
+	QEI1STATbits.PCHEQIEN = 0;
+	QEI1STATbits.PCLEQIEN = 0;
+	QEI1STATbits.POSOVIEN = 0;
+	QEI1STATbits.PCIIEN = 0;
+
+	QEI2CONbits.QEIEN = 1; //Enable QEI
+	QEI2CONbits.QEISIDL = 0; // Don't care idle mode
+	QEI2CONbits.PIMOD = 0b000; // Position init not affected by index
+	QEI2CONbits.IMV = 0b00;	//Index input event don't match with position counter
+	QEI2CONbits.INTDIV = 0b000; // No presclale
+	QEI2CONbits.CNTPOL = 0; //Count in positive
+	QEI2CONbits.GATEN = 0; // No external count enable bit
+	QEI2CONbits.CCM = 0b00; // Select QEI mode Count
+
+	QEI2IOCbits.QCAPEN = 0;
+	QEI2IOCbits.FLTREN = 0; //digital filter disabled
+	QEI2IOCbits.QFDIV = 0b000;
+	QEI2IOCbits.OUTFNC = 0b00;
+	QEI2IOCbits.SWPAB = 0;
+	QEI2IOCbits.HOMPOL = 0;
+	QEI2IOCbits.IDXPOL = 0;
+	QEI2IOCbits.QEBPOL = 0;
+	QEI2IOCbits.QEAPOL = 0;
+
+	QEI2STATbits.PCHEQIEN = 0;
+	QEI2STATbits.PCLEQIEN = 0;
+	QEI2STATbits.POSOVIEN = 0;
+	QEI2STATbits.PCIIEN = 0;
+
+	//Valeurs intitiales
+	POS1CNTL = 0xFFFF;
+	POS1CNTH = 0x0000;
+
+	POS2CNTL = 0xFFFF;
+	POS2CNTH = 0x0000;
 }
 
-void motorsApplyOrder(float order_lenght, float order_angle) {
-    // Motors orders
-    float order_left = (1.f - coef_angle) * order_lenght - coef_angle * order_angle;
-    float order_right = (1.0f - coef_angle) * order_lenght + coef_angle * order_angle;
 
-    int16_t pwm_left_abs, pwm_right_abs;
-    // PWM values
-    if(order_left != 0.0f)
-        pwm_left_abs = (pwm_max - pwm_min) * ABS(order_left) + pwm_min;
-    else
-        pwm_left_abs = 0;
-    if(order_right != 0)
-        pwm_right_abs = (pwm_max - pwm_min) * ABS(order_right) + pwm_min;
-    else
-        pwm_right_abs = 0;
+//R»cupÀre la valeure renvoy»e par les codeurs
+inline void valeurCodeurs()
+{
+	//Variables
+	uint32 valQEIL1, valQEIH1, valQEIL2, valQEIH2 ;
 
-    // Directions
-    BOOL pwm_left_dir = SENS(-1.0f * order_left);
-    BOOL pwm_right_dir = SENS(order_right);
-    bitSet(motors_dir_l, pwm_left_dir);
-    bitSet(motors_dir_r, pwm_right_dir);
-
-    // Absolute values
-    *motors_pwm_l = ABS(pwm_left_abs);
-    *motors_pwm_r = ABS(pwm_right_abs);
-
-      StringFormatted("Left o:%f, p:%d / Right o:%f, p:%d \n", order_left, pwm_left_abs, order_right, pwm_right_abs);
+	// Valeur codeur droit
+	valQEIL1 = POS1CNTL;
+	valQEIH1 = POS1HLD;
+	codeurGauche.newCodeur =  (valQEIH1 << 16) | valQEIL1;
+        codeurGauche.variation=codeurGauche.newCodeur-codeurGauche.oldCodeur;
+        codeurGauche.oldCodeur=codeurGauche.newCodeur;
+	// Valeur codeur gauche
+	valQEIL2 = POS2CNTL;
+	valQEIH2 = POS2HLD;
+	codeurDroit.newCodeur =  (valQEIH2 << 16) | valQEIL2;
+        codeurDroit.variation=codeurDroit.newCodeur-codeurDroit.oldCodeur;
+        codeurDroit.oldCodeur=codeurDroit.newCodeur;
+}
+float codeurGetDistance()
+{
+    return (codeurGauche.variation*0.817e-5f+ codeurDroit.variation*0.817e-5f);
+}
+float codeurGetAngle()
+{
+    return (codeurGauche.variation*0.840e-4f+codeurDroit.variation*0.840e-4f);
+}
+void encodersDebug() {
+    StringFormatted("Valeur du codeur Gauche:%d Variation Gauche :%d \n", codeurGauche.newCodeur,codeurGauche.variation);
+    StringFormatted("Valeur du codeur Droit:%d Variation Droit :%d \n", codeurDroit.newCodeur,codeurDroit.variation);
 }
 
-void motorsBrake() {
-    bitSet(motors_brake_l, 1);
-    bitSet(motors_brake_r, 1);
+// Envoyer les ordres aux moteurs
+inline void applicationAssPosMoteurs(float ordreDistance, float ordreAngle)
+{
+    //Calcule les ordres rÈels grace aux ordres polaires
+    float OrdreGauche =0.7f*ordreDistance - 0.3f*ordreAngle;
+    float OrdreDroit  = 0.7f*ordreDistance + 0.3f*ordreAngle;
+    int32 PWMGauche;
+    int32 PWMDroite;
+
+    //Retier les freins
+    enleverFrein();
+
+    //Afficher un message
+    StringFormatted("Valeur de l'ordre Gauche:%f l'ordre Droit :%f \n", OrdreGauche,OrdreDroit);
+
+
+    //On vÈrifie que la valeur n'est pas nul
+    if(OrdreGauche != 0.0f)
+    {
+        PWMGauche = 1000*ABS(OrdreGauche)+250;
+    }
+    else PWMGauche = 0;
+
+    if(OrdreDroit != 0.0f)
+    {
+        PWMDroite = 1000*ABS(OrdreDroit)+250;
+    }
+    else PWMDroite = 0;
+
+    //Le sens
+    DIR_G           = SENS (-1.0f*PWMGauche);
+    DIR_D           = SENS (PWMDroite);
+
+    //La valeur
+    PWM_G           = ABS (PWMGauche);
+    PWM_D           = ABS (PWMDroite);
 }
 
-void motorsUnbrake() {
-    bitSet(motors_brake_l, 0);
-    bitSet(motors_brake_r, 0);
+// Envoyer les ordres aux moteurs
+inline void applicationAssCirMoteurs(int32 PWMGauche, int32 PWMDroite)
+{
+	//Retier les freins
+    BRAKE_G         = 0;
+    BRAKE_D         = 0;
+
+    //Le sens
+    DIR_G           = SENS (PWMGauche);
+    DIR_D           = SENS (PWMDroite);
+
+    //La valeur
+    PWM_G           = ABS (PWMGauche);
+    PWM_D           = ABS (PWMDroite);
+}
+
+void mettreFrein()
+{
+    BRAKE_G         = 1;
+    BRAKE_D         = 1;
+}
+
+void enleverFrein()
+{
+    BRAKE_G         = 0;
+    BRAKE_D         = 0;
 }

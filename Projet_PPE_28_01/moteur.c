@@ -147,13 +147,13 @@ inline void valeurCodeurs()
 	valQEIL1 = POS1CNTL;
 	valQEIH1 = POS1HLD;
 	codeurGauche.newCodeur =  (valQEIH1 << 16) | valQEIL1;
-        codeurGauche.variation=codeurGauche.newCodeur-codeurGauche.oldCodeur
+        codeurGauche.variation=codeurGauche.newCodeur-codeurGauche.oldCodeur;
         codeurGauche.oldCodeur=codeurGauche.newCodeur;
 	// Valeur codeur gauche
 	valQEIL2 = POS2CNTL;
 	valQEIH2 = POS2HLD;
 	codeurDroit.newCodeur =  (valQEIH2 << 16) | valQEIL2;
-        codeurDroit.variation=codeurDroit.newCodeur-codeurDroit.oldCodeur
+        codeurDroit.variation=codeurDroit.newCodeur-codeurDroit.oldCodeur;
         codeurDroit.oldCodeur=codeurDroit.newCodeur;
 }
 void encodersDebug() {
@@ -162,19 +162,37 @@ void encodersDebug() {
 }
 
 // Envoyer les ordres aux moteurs
-inline void applicationAssPosMoteurs(int32 ordreDistance, int32 ordreAngle)
+inline void applicationAssPosMoteurs(float ordreDistance, float ordreAngle)
 {
-    //Calcule les ordres rÈels grace aux ordres polaires
-	int32 PWMGauche = ordreDistance - ordreAngle;
-	int32 PWMDroite  = ordreDistance + ordreAngle;
+    //Calcule les ordres réels grace aux ordres polaires
+    float OrdreGauche =0.7f*ordreDistance - 0.7f*ordreAngle;
+    float OrdreDroit  = 0.7f*ordreDistance + 0.7f*ordreAngle;
+    int32 PWMGauche;
+    int32 PWMDroite;
 
-	//Retier les freins
-    BRAKE_G         = 0;
-    BRAKE_D         = 0;
+    //Retier les freins
+    enleverFrein();
+
+    //Afficher un message
+    StringFormatted("Valeur de l'ordre Gauche:%f l'ordre Droit :%f \n", OrdreGauche,OrdreDroit);
+
+
+    //On vérifie que la valeur n'est pas nul
+    if(OrdreGauche != 0.0f)
+    {
+        PWMGauche = 450*ABS(OrdreGauche)+250;
+    }
+    else PWMGauche = 0;
+
+    if(OrdreDroit != 0.0f)
+    {
+        PWMDroite = 450*ABS(OrdreDroit)+250;
+    }
+    else PWMDroite = 0;
 
     //Le sens
-	DIR_G           = SENS (PWMGauche);
-	DIR_D           = SENS (PWMDroite);
+    DIR_G           = SENS (PWMGauche);
+    DIR_D           = SENS (PWMDroite);
 
     //La valeur
     PWM_G           = ABS (PWMGauche);
@@ -189,10 +207,22 @@ inline void applicationAssCirMoteurs(int32 PWMGauche, int32 PWMDroite)
     BRAKE_D         = 0;
 
     //Le sens
-	DIR_G           = SENS (PWMGauche);
-	DIR_D           = SENS (PWMDroite);
+    DIR_G           = SENS (PWMGauche);
+    DIR_D           = SENS (PWMDroite);
 
     //La valeur
     PWM_G           = ABS (PWMGauche);
     PWM_D           = ABS (PWMDroite);
+}
+
+void mettreFrein()
+{
+    BRAKE_G         = 1;
+    BRAKE_D         = 1;
+}
+
+void enleverFrein()
+{
+    BRAKE_G         = 0;
+    BRAKE_D         = 0;
 }

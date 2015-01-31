@@ -61,11 +61,11 @@ void trackerUpdate() {
 
 
     //Initialisation
-    encodersFetch(); // On récupère la valeur des encodeurs des les registres
+    valeurCodeurs(); // On récupère la valeur des encodeurs des les registres
     //On récupère la variation de longueur
-    variation_length = encodersGetLengthVariation();
+    variation_length = codeurGetDistance();
     //On récupère la variation d'angle
-    variation_angle = encodersGetAngleVariation();
+    variation_angle = codeurGetAngle();
 
     //On calcule les positions de l'angle, X et Y
     position_angle = normalAngle(position_angle + variation_angle);
@@ -130,8 +130,10 @@ void trackerUpdate() {
 
     current_correction_length=pidGetOrder(&pid_length, current_correction_length);
     current_correction_angle=pidGetOrder(&pid_angle, current_correction_angle);
-    
-    motorsApplyOrder(current_correction_length, current_correction_angle);
+
+    //StringFormatted("Valeur de Distance:%f la valeur de l'Angle :%f \n", current_correction_length,current_correction_angle);
+
+    //applicationAssPosMoteurs(current_correction_length, current_correction_angle);
 
     //controllerUpdate(current_correction_length, current_correction_angle);
 }

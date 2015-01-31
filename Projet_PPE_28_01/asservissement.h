@@ -18,42 +18,35 @@
 //Structures
 
 typedef struct _Asservissement {
-    long variation; //Variation entre les valeurs actuelles et les anciainnes
-    long variationSomme;
-    long ordre; //Consigne donn»au robot ? la fin du threas
-    long erreur;
-    long oldOrdre; //Pr»c»dente consigne du robot
-    long erreurTolerance; //Tolerance par rapport ? l'erreur
+    float variation; //Variation entre les valeurs actuelles et les anciainnes
+    float variationSomme;
+    float ordre; //Consigne donn»au robot ? la fin du threas
+    float erreur;
+    float oldOrdre; //Pr»c»dente consigne du robot
+    float erreurTolerance; //Tolerance par rapport ? l'erreur
 
-    long coefDerive;
-    long coefDeriveNeg; //Lorsque le robot va en marche arriÀre
-    long coefProportionnel;
-    long coefPropNeg; //Lorsque le robot va en marche arriÀre
+    float coefDerive;
+    float coefDeriveNeg; //Lorsque le robot va en marche arriÀre
+    float coefProportionnel;
+    float coefPropNeg; //Lorsque le robot va en marche arriÀre
 
-    long VMax; //Vitesse max
-    long Vmin; //Vitesse min
+    float VMax; //Vitesse max
+    float Vmin; //Vitesse min
 
-    bool enable;
-    long coefAcceleration;
+    BOOL enable;
+    float coefAcceleration;
 
 } Asservissement;
 
 
 //Prototypes
 void asservissementPolInit();
-void asservissementCircuInit();
 void asservissementInit();
 
 inline void polaire();
-inline void circulaire();
-inline void pid(Asservissement * ass, bool ralentir); //Calcule la nouvelle consigne
-void limite(Asservissement * ass, bool ralentir); //Seuillage
+inline void pid(Asservissement * ass, BOOL ralentir); //Calcule la nouvelle consigne
 
-void asservissementPolaire(bool avance);
-void asservissementCirculaire();
-void erreursReInit();
-void erreurMemory();
-void sommeVariations();
+void asservissementPolaire(BOOL avance);
 
 //Variables
 extern Asservissement angle; //Angle pour l'asserivssement polaire

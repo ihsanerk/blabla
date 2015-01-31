@@ -4,15 +4,16 @@
 //Libraries
 #include "configuration.h"
 #include "math.h"
+#include "debugger.h"
 
 //Constantes
 #define PWMPRE		1
 #define FPWM		20000
-#define PTP			(FOSC / (FPWM * PWMPRE))
+#define PTP (FOSC / (FPWM * PWMPRE))
 
 //Pins
-#define DIR_D 		LATCbits.LATC6
-#define DIR_G 		LATEbits.LATE3
+#define DIR_D 		LATEbits.LATE6
+#define DIR_G 		LATCbits.LATC3
 
 #define BRAKE_D 	LATCbits.LATC2
 #define BRAKE_G 	LATEbits.LATE4
@@ -35,8 +36,12 @@ typedef struct _Codeur
 void 				moteurInit ();
 void 				qeiInit ();
 inline void 			valeurCodeurs() ;
-inline void 			applicationAssPosMoteurs(int32 ordreDistance, int32 ordreAngle);
+void encodersDebug();
+inline void 			applicationAssPosMoteurs(float ordreDistance, float ordreAngle);
 inline void 			applicationAssCirMoteurs(int32 PWMGauche, int32 PWMDroite);
+void mettreFrein();
+void enleverFrein();
+
 
 //Variables
 extern Codeur 			codeurGauche;

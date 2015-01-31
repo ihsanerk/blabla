@@ -1,9 +1,7 @@
 build/default/production/correcteur.o:  \
 correcteur.c  \
 correcteur.h  \
- encodeur.h  \
 moteur.h  \
-bits.h  \
+ configuration.h  \
 math.h  \
-debugger.h  \
-configuration.h 
+debugger.h 

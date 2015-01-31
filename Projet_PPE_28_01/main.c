@@ -74,45 +74,15 @@ void main(void)
     pinConfiguration (); // Initialisation des différents PINS
     adcInit(); //Initialisation des ADC
     uart_init(); // Initialisation de la communication avec l'ordinateur
-    encodersInit();
+    qeiInit();
     sendString("Fin de l'initialisation de UART.\n");
 
     encodersDebug();
-    motorsInit();
+    moteurInit();
     sendString("Fin de l'initialisation du moteur.\n");
 
-    //Initialisation
-    pid_length.param_P = 15.0f;//10.0f;//15.0f;
-    pid_length.param_I = 0.0f;
-    pid_length.param_D = 0.0f;
-
-    pid_angle.param_P = 5.0f;
-    pid_angle.param_I = 0.0f;
-    pid_angle.param_D = 0.0f;
-    
-   //motorsBrake();
-   // sendString("On envoi une consigne au moteur : 0.1 longueur et 40.0 angle.\n");
-    
-
-    //motorsBrake();
-    //for(i=0;i<1000;i++)motorsApplyOrder(1.0F,0.3F);
-
-    trackerSetPosition(0.0f,0.0f, 0.0f);// Position initial
-    //La position de l'objectif
-    SetPositionObjectif(0.1f,0.0f,0.0f);
-
-
-
-    for ( i = 0 ; i<5 ; i++)
-    {
-        trackerDebugObjective();
-        trackerUpdate();
-        encodersDebug();
-        trackerDebugPosition();
-
-
-    }
-    motorsBrake();
+    applicationAssPosMoteurs(0.00005f,0.0f);
+    mettreFrein();
    /* do
     {
         trackerDebugObjective(); 

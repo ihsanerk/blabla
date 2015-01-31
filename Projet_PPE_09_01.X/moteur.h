@@ -1,53 +1,54 @@
-#ifndef MOTEUR_H
-#define MOTEUR_H
+#ifndef MOTEUR_H_INCLUDED
+#define MOTEUR_H_INCLUDED
 
-#include "bits.h"
+//Libraries
+#include "configuration.h"
+#include "math.h"
+#include "debugger.h"
 
-#include <stdint.h>
+//Constantes
+#define PWMPRE		1
+#define FPWM		20000
+#define PTP (FOSC / (FPWM * PWMPRE))
 
-/**
- *  \file motors.h
- *  \brief Interface to the DC motors
- */
+//Pins
+#define DIR_D 		LATEbits.LATE6
+#define DIR_G 		LATCbits.LATC3
 
-// Pins dedicace alban représente
-extern bitPtr motors_dir_r; 		/*!< Register bit for right motor's direction */
-extern bitPtr motors_dir_l;			/*!< Register bit for left motor's direction */
-extern bitPtr motors_brake_r;		/*!< Register bit for right motor's braking */
-extern bitPtr motors_brake_l;		/*!< Register bit for left motor's braking */
-extern regPtr motors_pwm_r;			/*!< Register for right motor's PWM */
-extern regPtr motors_pwm_l;			/*!< Register for right motor's PWM */
-extern bitPtr motors_dir_l_tris;
-extern bitPtr motors_dir_r_tris;
-extern bitPtr motors_brake_l_tris;
-extern bitPtr motors_brake_r_tris;
-extern bitPtr motors_pwm_l_tris;
-extern bitPtr motors_pwm_r_tris;
-extern unsigned int motors_PTP;
-extern uint16_t pwm_max, pwm_min;
-extern float coef_angle;
+#define BRAKE_D 	LATCbits.LATC2
+#define BRAKE_G 	LATEbits.LATE5
 
-// Prototypes
-/**
- *  \brief Initialise the motors
- */
-void motorsInit();
-/**
- *  \brief Activates braking
- */
-void motorsBrake();
-/**
- *  \brief Deactivates braking
- */
-void motorsUnbrake();
-/**
- *  \brief Apply orders to the motors with PWM
- *
- *  \param [in] order_lenght Normalised length order
- *  \param [in] order_angle Normalised angle order
- */
-void motorsApplyOrder(float order_lenght, float order_angle);
+#define PWM_D 		PDC4
+#define PWM_G 		PDC6
 
-void motorsFreeRunning(void);
+//Structures
+typedef struct _Codeur
+{
+		uint32            oldCodeur  ;
+		uint32            newCodeur  ;
+		int32             variation  ;
 
-#endif // MOTEUR_H
+}Codeur;
+
+//Prototype
+
+//Prototypes
+void 				moteurInit ();
+void 				qeiInit ();
+inline void 			valeurCodeurs() ;
+void encodersDebug();
+inline void 			applicationAssPosMoteurs(float ordreDistance, float ordreAngle);
+inline void 			applicationAssCirMoteurs(int32 PWMGauche, int32 PWMDroite);
+void mettreFrein();
+void enleverFrein();
+
+float codeurGetDistance();
+float codeurGetAngle();
+
+
+
+//Variables
+extern Codeur 			codeurGauche;
+extern Codeur 			codeurDroit;
+
+#endif // MOTEUR_H_INCLUDED

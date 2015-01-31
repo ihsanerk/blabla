@@ -10,9 +10,8 @@
 #include  "uart.h"
 #include  "debugger.h"
 #include  "moteur.h"
-#include  "encodeur.h"
 #include  "adc.h"
-#include  "correcteur.h"
+#include "correcteur.h"
 
 
 
@@ -69,58 +68,58 @@
 void main(void)
 {
     //Ressources
-    int i  ;
+    int i;
     //Initialisation
     pinConfiguration (); // Initialisation des différents PINS
     adcInit(); //Initialisation des ADC
     uart_init(); // Initialisation de la communication avec l'ordinateur
-    encodersInit();
+    qeiInit();
     sendString("Fin de l'initialisation de UART.\n");
 
-    encodersDebug();
-    motorsInit();
+    //valeurCodeurs();
+    //encodersDebug();
+    moteurInit();
+
     sendString("Fin de l'initialisation du moteur.\n");
 
-    //Initialisation
-    pid_length.param_P = 15.0f;//10.0f;//15.0f;
-    pid_length.param_I = 0.0f;
-    pid_length.param_D = 0.0f;
-
-    pid_angle.param_P = 5.0f;
-    pid_angle.param_I = 0.0f;
-    pid_angle.param_D = 0.0f;
+    //applicationAssPosMoteurs(1.0f,0.0f);
+    //mettreFrein();
     
-   //motorsBrake();
-   // sendString("On envoi une consigne au moteur : 0.1 longueur et 40.0 angle.\n");
     
 
     //motorsBrake();
     //for(i=0;i<1000;i++)motorsApplyOrder(1.0F,0.3F);
 
-    trackerSetPosition(0.0f,0.0f, 0.0f);// Position initial
+    //trackerSetPosition(0.0f,0.0f, 0.0f);// Position initial
     //La position de l'objectif
-    SetPositionObjectif(0.1f,0.0f,0.0f);
+    //SetPositionObjectif(0.1f,0.0f,0.0f);
+    //enleverFrein();
+    for(i=0;i<30;i++)applicationAssPosMoteurs(1.0f,0.0f);
+    mettreFrein();
 
-
-
-    for ( i = 0 ; i<5 ; i++)
+    //trackerDebugPosition();
+    //trackerDebugObjective();
+    /*for ( i = 0 ; i<5 ; i++)
     {
-        trackerDebugObjective();
+        //trackerDebugObjective();
         trackerUpdate();
-        encodersDebug();
-        trackerDebugPosition();
+        //encodersDebug();
+        //trackerDebugPosition();
 
 
-    }
-    motorsBrake();
-   /* do
+    }*/
+
+    
+    /*do
     {
-        trackerDebugObjective(); 
+        //trackerDebugObjective();
         trackerUpdate();
-        encodersDebug();
-        trackerDebugPosition();
-    }while(trackerIsPositionAtObjective()==FALSE);*/
-    //sendString("Delay de 500 ms\n");
+
+        //encodersDebug();
+        //trackerDebugPosition();
+    }while(trackerIsPositionAtObjective()==FALSE);
+
+     */ //sendString("Delay de 500 ms\n");
 
     //__delay32(30000*32000); // 32 M = FOSC/2 = 32000000 delay de 500ms
     sendString("Fin de la consigne.\n");

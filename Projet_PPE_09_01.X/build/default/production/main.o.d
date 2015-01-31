@@ -5,8 +5,6 @@ definition.h  \
  uart.h  \
 debugger.h  \
 moteur.h  \
-bits.h  \
 math.h  \
-encodeur.h  \
 adc.h  \
 correcteur.h 

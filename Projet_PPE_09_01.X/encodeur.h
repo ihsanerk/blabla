@@ -23,7 +23,7 @@ struct Encoder {
     uint32_t old_value;
     uint32_t new_value;
     int16_t variation;
-    float mm_per_tick;
+        float mm_per_tick;
     float rad_per_tick;
 };
 typedef struct Encoder Encoder;

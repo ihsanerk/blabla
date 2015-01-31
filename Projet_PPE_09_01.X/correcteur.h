@@ -9,7 +9,6 @@
 #define	CORRECTEUR_H
 
 //Librairies
-#include "encodeur.h"
 //#include "ccontroller.h"
 #include  "moteur.h"
 #include "math.h"
