@@ -44,7 +44,7 @@ void asservissementPolInit() {
     distance.erreurTolerance = DT;
     distance.variation = 0;
     distance.variationSomme = 0;
-        distance.enable = TRUE;
+    distance.enable = TRUE;
 
     //Initialisation des  valeurs max
     distance.VMax = VMAX;
@@ -105,7 +105,8 @@ inline void pid(Asservissement * ass, BOOL ralentir) {
         ass->ordre = ((ass->erreur * ass->coefProportionnel) / 100) + ((ass->coefDerive * ass->variation) / 100);
 
         //Seuillage
-        limite(ass, ralentir);
+        limite(ass, ralentir); // Pourquoi ?
+
     }
 }
 
@@ -115,10 +116,6 @@ inline void polaire() {
     //Variation de chaque roue depuis le dernier check
     codeurGauche.variation = codeurGauche.newCodeur - codeurGauche.oldCodeur;
     codeurDroit.variation = codeurDroit.newCodeur - codeurDroit.oldCodeur;
-
-    // Mise ? niveau (? mettre en commentaire si n»cessaire
-    codeurDroit.variation = ((long) (codeurDroit.variation * 101500) / 100000);
-    //101430 droite,  gauche 101520
 
     //Mise a jour valeurs asservissement
     distance.variation = (codeurDroit.variation + codeurGauche.variation);
@@ -172,11 +169,11 @@ void asservissementPolaire(BOOL avance) {
 
     //Appliquer le PID
     if (angle.enable == '1') {
-        if (!avance) pid(&angle, TRUE);
+        if (!avance) pid(&angle, TRUE); // On augmente la vitesse
         else pid(&angle, FALSE);
     }
     if (distance.enable == '1') {
-        if (avance) pid(&distance, TRUE);
+        if (avance) pid(&distance, TRUE); // On augmente la vitesse
         else pid(&distance, FALSE);
     }
 
@@ -227,8 +224,7 @@ inline void circulaire() {
         roueGauche.ordre = SIGN(roueGauche.erreur) * roueGauche.VMax;
         if (SIGN(roueDroite.erreur) == team) roueDroite.ordre = SIGN(roueDroite.erreur)*(roueDroite.VMax * ABS(roueDroite.erreur)) / ABS(roueGauche.erreur);
         else roueDroite.ordre = 0;
-    }
-    else {
+    } else {
         roueDroite.ordre = SIGN(roueDroite.erreur) * roueDroite.VMax;
         if (SIGN(roueGauche.erreur) == team) roueGauche.ordre = SIGN(roueGauche.erreur)*(roueGauche.VMax * ABS(roueGauche.erreur)) / ABS(roueDroite.erreur);
         else roueGauche.ordre = 0;

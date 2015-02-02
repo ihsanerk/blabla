@@ -11,8 +11,9 @@
 #include  "debugger.h"
 #include  "moteur.h"
 #include  "adc.h"
-#include  "correcteur.h"
+#include  "controleur.h"
 #include  "math.h"
+#include  "asservissement.h"
 
 
 
@@ -64,30 +65,29 @@
 #pragma config APLK = OFF               // Auxiliary Segment Key bits (Aux Flash Write Protection and Code Protection is Disabled)
 
 
-int8 team ;
+int8 team;
 
-void main(void)
-{
+void main(void) {
     //Ressources
-    int i;
+
     //Initialisation
-    pinConfiguration (); // Initialisation des différents PINS
+    pinConfiguration(); // Initialisation des différents PINS
     adcInit(); //Initialisation des ADC
     uart_init(); // Initialisation de la communication avec l'ordinateur
-    qeiInit();
-    sendString("Fin de l'initialisation de UART.\n");
+    asservissementInit(); // Initialisation du moteur + encodeur + asservissement
+    SetPositionCurrent(0,0,0); //Initialisation de la position de départ
+    SetPositionObjectif(0.1f,0,0); // initialisation de la position de l'objectif
+    sendString("Fin de l'initialisation.\n");
 
-    //valeurCodeurs();
-    //encodersDebug();
-    moteurInit();
     // Initialise l'équipe
-    if(!PORTFbits.RF0) team = 1;
+    if (!PORTFbits.RF0) team = 1;
     else team = -1;
 
     sendString("Fin de l'initialisation du moteur.\n");
 
-    
-    for(i=0;i<30;i++)applicationAssPosMoteurs(1.0f,0.0f);
+
+    //On envoi la consigne que le robot doit avancer à la position x= 5 cm et y =0 cm avec un angle de 0 degré
+    delay_ms(1000);
     mettreFrein();
 
 
@@ -95,9 +95,11 @@ void main(void)
 
 
 
-while(1)
-{
+    while (1) {
+        do{
+           UpdatePosition();
+        }while(!PositionParRapportObjectif());
 
-}
-    
+    }
+
 }

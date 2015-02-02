@@ -7,4 +7,5 @@ math.h  \
 debugger.h  \
 moteur.h  \
 adc.h  \
-correcteur.h 
+controleur.h  \
+asservissement.h 

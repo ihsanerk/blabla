@@ -66,6 +66,9 @@ void moteurInit() {
     // Activation du signal PWM
     PTCONbits.PTEN = 1;
 
+    //Initialise les encodeurs
+    qeiInit();
+
 
 }
 

@@ -45,8 +45,8 @@ void trackerUpdate() {
     variation_angle = encodersGetAngleVariation();
 
     position_angle = normalizeAngle(position_angle + variation_angle);
-    position_x += variation_length * cos(position_angle);
-    position_y += variation_length * sin(position_angle);
+    position_x += variation_length * cos[position_angle];
+    position_y += variation_length * sin[position_angle];
 
     float error_x, error_y;
     error_x = objective_x - position_x;

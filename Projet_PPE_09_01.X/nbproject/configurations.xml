@@ -15,9 +15,9 @@
       </logicalFolder>
       <logicalFolder name="f3" displayName="Deplacement" projectFiles="true">
         <itemPath>moteur.h</itemPath>
-        <itemPath>correcteur.h</itemPath>
         <itemPath>asservissement.h</itemPath>
         <itemPath>pid.h</itemPath>
+        <itemPath>controleur.h</itemPath>
       </logicalFolder>
       <itemPath>definition.h</itemPath>
       <itemPath>math.h</itemPath>
@@ -40,11 +40,12 @@
       </logicalFolder>
       <logicalFolder name="f3" displayName="Deplacement" projectFiles="true">
         <itemPath>moteur.c</itemPath>
-        <itemPath>correcteur.c</itemPath>
         <itemPath>asservissement.c</itemPath>
         <itemPath>pid.c</itemPath>
+        <itemPath>controleur.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
+      <itemPath>math.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
