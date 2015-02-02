@@ -16,15 +16,24 @@
 //GENERAL CONFIGURATION
 #define FXTAL 8000000
 #define PLL 8
-//#define FOSC ((FXTAL)*(PLL))
-//#define FCY ((FOSC)/(2)) //	32000000
-
 #define BAUD 9600
 #define FINAL_BAUD (((FCY/16)/BAUD)-1)
 
 #define PRESCALER	8	// Modifier T2CONbits.TCKPS
 #define FOVERFLOW	1000
 #define PR	(FCY / (PRESCALER * FOVERFLOW))
+
+//DÈfinition pour l'UART
+// Crytal is 24MHz.
+// Configure the oscillator to operate the device at 51 MIPS using PLL
+#define _XTAL_FREQ  24000000
+#define FOSC    (102000000)
+#define FCY     (FOSC/2)
+
+//DÈfinition pour les ADC
+// Number of channels on device
+#define ADC_MAX 32
+
 
 //CONSTANT DEFINITION
 #define FALSE               0
@@ -45,17 +54,17 @@
 #define delay_us(A)         __delay32((unsigned long)(A)*(FCY/1000000))
 
 //TYPE DEFINITION
-typedef signed char         int8    ;
-typedef signed int          int16   ;
-typedef signed long         int32   ;
-typedef signed long long    int64   ;
+typedef signed char int8;
+typedef signed int int16;
+typedef signed long int32;
+typedef signed long long int64;
 
-typedef unsigned char       uint8   ;
-typedef unsigned int        uint16  ;
-typedef unsigned long       uint32  ;
-typedef unsigned long long  uint64  ;
+typedef unsigned char uint8;
+typedef unsigned int uint16;
+typedef unsigned long uint32;
+typedef unsigned long long uint64;
 
-typedef signed char         BOOL    ;
+typedef signed char BOOL;
 
 
 //Constantes
@@ -78,7 +87,7 @@ typedef signed char         BOOL    ;
 #define IMP_M       204805		//Impulsions par metre : moiti» du r»el (test» sur 1M20 pour 3mm)
 #define IMP_T       217237		//Impulsions par tour (pr»cis jusqu'? 100 tours, 3d d'erreur) pas assez
 
-extern int8		team;
+extern int8 team;
 
 
 #endif	/* MATH_H */

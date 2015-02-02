@@ -3,8 +3,8 @@ main.c  \
 configuration.h  \
 definition.h  \
  uart.h  \
+math.h  \
 debugger.h  \
 moteur.h  \
-math.h  \
 adc.h  \
 correcteur.h 

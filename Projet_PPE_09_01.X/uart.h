@@ -5,7 +5,7 @@
 
 
 #include "definition.h"
-#include "configuration.h"
+#include "math.h"
 
 //Prototypes des fonctions
 void uart_init();

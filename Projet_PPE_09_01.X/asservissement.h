@@ -1,15 +1,7 @@
-/* 
- * File:   asservissement.h
- * Author: guillaume
- *
- * Created on 16 janvier 2015, 14:44
- */
-
-#ifndef ASSERVISSEMENT_H
-#define	ASSERVISSEMENT_H
+#ifndef ASSERVISSEMENT_H_INCLUDED
+#define ASSERVISSEMENT_H_INCLUDED
 
 //Libraries
-#include "definition.h"
 #include "moteur.h"
 #include "math.h"
 
@@ -18,23 +10,23 @@
 //Structures
 
 typedef struct _Asservissement {
-    long variation; //Variation entre les valeurs actuelles et les anciainnes
-    long variationSomme;
-    long ordre; //Consigne donn»au robot ? la fin du threas
-    long erreur;
-    long oldOrdre; //Pr»c»dente consigne du robot
-    long erreurTolerance; //Tolerance par rapport ? l'erreur
+    int32 variation; //Variation entre les valeurs actuelles et les anciainnes
+    int32 variationSomme;
+    int32 ordre; //Consigne donn»au robot ? la fin du threas
+    int32 erreur;
+    int32 oldOrdre; //Pr»c»dente consigne du robot
+    int32 erreurTolerance; //Tolerance par rapport ? l'erreur
 
-    long coefDerive;
-    long coefDeriveNeg; //Lorsque le robot va en marche arriÀre
-    long coefProportionnel;
-    long coefPropNeg; //Lorsque le robot va en marche arriÀre
+    int32 coefDerive;
+    int32 coefDeriveNeg; //Lorsque le robot va en marche arriÀre
+    int32 coefProportionnel;
+    int32 coefPropNeg; //Lorsque le robot va en marche arriÀre
 
-    long VMax; //Vitesse max
-    long Vmin; //Vitesse min
+    int32 VMax; //Vitesse max
+    int32 Vmin; //Vitesse min
 
-    bool enable;
-    long coefAcceleration;
+    BOOL enable;
+    int32 coefAcceleration;
 
 } Asservissement;
 
@@ -46,10 +38,10 @@ void asservissementInit();
 
 inline void polaire();
 inline void circulaire();
-inline void pid(Asservissement * ass, bool ralentir); //Calcule la nouvelle consigne
-void limite(Asservissement * ass, bool ralentir); //Seuillage
+inline void pid(Asservissement * ass, BOOL ralentir); //Calcule la nouvelle consigne
+void limite(Asservissement * ass, BOOL ralentir); //Seuillage
 
-void asservissementPolaire(bool avance);
+void asservissementPolaire(BOOL avance);
 void asservissementCirculaire();
 void erreursReInit();
 void erreurMemory();
@@ -62,5 +54,4 @@ extern Asservissement distance; //Distance pour l'asserivssement polaire
 extern Asservissement roueDroite; //Pour asservissement circulaire
 extern Asservissement roueGauche;
 
-#endif	/* ASSERVISSEMENT_H */
-
+#endif // ASSERVISSEMENT_H_INCLUDED

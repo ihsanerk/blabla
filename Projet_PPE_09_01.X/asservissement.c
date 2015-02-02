@@ -14,10 +14,13 @@ void asservissementInit() {
 
     //Initialise les moteurs
     moteurInit();
+
+
 }
 
 void asservissementPolInit() {
     //Initialisation de "angle"
+
     angle.coefDerive = CDA;
     angle.coefDeriveNeg = CDA;
     angle.coefProportionnel = CPA;
@@ -41,7 +44,7 @@ void asservissementPolInit() {
     distance.erreurTolerance = DT;
     distance.variation = 0;
     distance.variationSomme = 0;
-    distance.enable = TRUE;
+        distance.enable = TRUE;
 
     //Initialisation des  valeurs max
     distance.VMax = VMAX;
@@ -91,7 +94,7 @@ void asservissementCircuInit() {
 
 //Procèdure calculant la nouvelle consigne
 
-inline void pid(Asservissement * ass, bool ralentir) {
+inline void pid(Asservissement * ass, BOOL ralentir) {
     //Si l'erreur est infÈrieure au seuil de tolÈrance l'ordre a ÈtÈ atteint
     if ((ABS(ass->erreur)) < (ass->erreurTolerance))
         ass->ordre = 0;
@@ -136,12 +139,12 @@ inline void polaire() {
 
 //Seuillage
 
-void limite(Asservissement * ass, bool ralentir) {
+void limite(Asservissement * ass, BOOL ralentir) {
     //Variable temporaire permettant de gÈrer l'accÈlÈration
     long acceleration = (ABS(ass->oldOrdre)+(ABS(ass->oldOrdre) * ass->coefAcceleration) / 100);
 
     // DÈceleration manuelle pour les ordres d'avance
-    if (ralentir && (ABS(ass->erreur) < ((long) 150 * IMP_M) / 1000)) {
+    if (ralentir == '1' && (ABS(ass->erreur) < ((long) 150 * IMP_M) / 1000)) {
         acceleration = MAX(ABS(ass->Vmin) + 150, (ABS(ass->oldOrdre)-(ABS(ass->oldOrdre)) / 200));
         acceleration = MIN(ABS(ass->oldOrdre)+(ABS(ass->oldOrdre) * ass->coefAcceleration) / 100, acceleration);
     }
@@ -160,7 +163,7 @@ void limite(Asservissement * ass, bool ralentir) {
 
 //Gestion de l'asservissement du robot
 
-void asservissementPolaire(bool avance) {
+void asservissementPolaire(BOOL avance) {
     //On obtiens les valeurs des codeurs
     valeurCodeurs();
 
@@ -168,11 +171,11 @@ void asservissementPolaire(bool avance) {
     polaire();
 
     //Appliquer le PID
-    if (angle.enable) {
+    if (angle.enable == '1') {
         if (!avance) pid(&angle, TRUE);
         else pid(&angle, FALSE);
     }
-    if (distance.enable) {
+    if (distance.enable == '1') {
         if (avance) pid(&distance, TRUE);
         else pid(&distance, FALSE);
     }

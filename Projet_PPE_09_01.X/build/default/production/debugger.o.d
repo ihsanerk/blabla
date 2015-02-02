@@ -3,4 +3,5 @@ debugger.c  \
 debugger.h  \
  configuration.h  \
 uart.h  \
-definition.h 
+definition.h  \
+math.h 

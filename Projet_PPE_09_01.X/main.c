@@ -11,7 +11,8 @@
 #include  "debugger.h"
 #include  "moteur.h"
 #include  "adc.h"
-#include "correcteur.h"
+#include  "correcteur.h"
+#include  "math.h"
 
 
 
@@ -63,7 +64,7 @@
 #pragma config APLK = OFF               // Auxiliary Segment Key bits (Aux Flash Write Protection and Code Protection is Disabled)
 
 
-
+int8 team ;
 
 void main(void)
 {
@@ -79,52 +80,19 @@ void main(void)
     //valeurCodeurs();
     //encodersDebug();
     moteurInit();
+    // Initialise l'équipe
+    if(!PORTFbits.RF0) team = 1;
+    else team = -1;
 
     sendString("Fin de l'initialisation du moteur.\n");
 
-    //applicationAssPosMoteurs(1.0f,0.0f);
-    //mettreFrein();
     
-    
-
-    //motorsBrake();
-    //for(i=0;i<1000;i++)motorsApplyOrder(1.0F,0.3F);
-
-    //trackerSetPosition(0.0f,0.0f, 0.0f);// Position initial
-    //La position de l'objectif
-    //SetPositionObjectif(0.1f,0.0f,0.0f);
-    //enleverFrein();
     for(i=0;i<30;i++)applicationAssPosMoteurs(1.0f,0.0f);
     mettreFrein();
 
-    //trackerDebugPosition();
-    //trackerDebugObjective();
-    /*for ( i = 0 ; i<5 ; i++)
-    {
-        //trackerDebugObjective();
-        trackerUpdate();
-        //encodersDebug();
-        //trackerDebugPosition();
 
-
-    }*/
-
-    
-    /*do
-    {
-        //trackerDebugObjective();
-        trackerUpdate();
-
-        //encodersDebug();
-        //trackerDebugPosition();
-    }while(trackerIsPositionAtObjective()==FALSE);
-
-     */ //sendString("Delay de 500 ms\n");
-
-    //__delay32(30000*32000); // 32 M = FOSC/2 = 32000000 delay de 500ms
     sendString("Fin de la consigne.\n");
 
-    //motorsApplyOrder(0.0F,0.0F);
 
 
 while(1)
