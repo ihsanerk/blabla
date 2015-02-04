@@ -130,11 +130,11 @@ void qeiInit() {
     QEI2STATbits.PCIIEN = 0;
 
     //Valeurs intitiales
-    POS1CNTL = 0xFFFF;
-    POS1CNTH = 0x0000;
+    POS1CNTL = (uint16)0xFFFF;
+    POS1CNTH = (uint16)0x0000;
 
-    POS2CNTL = 0xFFFF;
-    POS2CNTH = 0x0000;
+    POS2CNTL = (uint16)0xFFFF;
+    POS2CNTH = (uint16)0x0000;
 }
 
 
@@ -184,16 +184,16 @@ inline void applicationAssPosMoteurs(float ordreDistance, float ordreAngle) {
     enleverFrein();
 
     //Afficher un message
-    StringFormatted("Valeur de l'ordre Gauche:%f l'ordre Droit :%f \n", OrdreGauche, OrdreDroit);
+    //StringFormatted("Valeur de l'ordre Gauche:%f l'ordre Droit :%f \n", OrdreGauche, OrdreDroit);
 
 
     //On vérifie que la valeur n'est pas nul
     if (OrdreGauche != 0.0f) {
-        PWMGauche = 1000 * ABS(OrdreGauche) + 250;
+        PWMGauche = 2000 * ABS(OrdreGauche) + 250;
     } else PWMGauche = 0;
 
     if (OrdreDroit != 0.0f) {
-        PWMDroite = 1000 * ABS(OrdreDroit) + 250;
+        PWMDroite = 2000 * ABS(OrdreDroit) + 250;
     } else PWMDroite = 0;
 
     //Le sens

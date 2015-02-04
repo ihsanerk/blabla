@@ -26,7 +26,7 @@ typedef struct _Codeur
 {
 		uint32            oldCodeur  ;
 		uint32            newCodeur  ;
-		int32             variation  ;
+		int16             variation  ;
 
 }Codeur;
 

@@ -3,6 +3,9 @@
 //Variables
 Position Gali_current={0.0f,0.0f,0.0f};
 Position Gali_objectif={0.0f,0.0f,0.0f};
+float position_x=0.0f;
+float position_y=0.0f;
+float position_angle=0.0f;
 
 //Fonctions
 
@@ -24,10 +27,7 @@ void UpdatePosition() {
     //Pour récupèrer la variation des encodeurs
     float variation_longueur=0.0f;
     float variation_angle=0.0f;
-    //Pour déterminer la postion réel du Robot
-    float position_x=0.0f;
-    float position_y=0.0f;
-    float position_angle=0.0f;
+    
     //Pour calculer l'erreur entre la position réel du Robot et l'objetcif
     float erreur_x=0.0f;
     float erreur_y=0.0f;
@@ -42,9 +42,13 @@ void UpdatePosition() {
     variation_angle = codeurGetAngle();
 
     //Calcule des positions réelles
+    if(variation_angle>0.0001f){
     position_angle = NormaliserAngle(Gali_current.angle + variation_angle);
+    }
+    if(variation_longueur>0.0001f){
     position_x += variation_longueur * cos(position_angle);
     position_y += variation_longueur * sin(position_angle);
+    }
 
     //Calcule des erreurs
     erreur_x=Gali_objectif.x - position_x;
@@ -65,7 +69,7 @@ void UpdatePosition() {
 }
 
 BOOL PositionParRapportObjectif() {
-    if(ABS(Gali_current.x - Gali_objectif.x) < 0.02f && ABS(Gali_current.y - Gali_objectif.y) < 0.02f && ABS(NormaliserAngle(Gali_current.angle - Gali_objectif.angle)) < PI/16) {
+    if(ABS(Gali_current.x - Gali_objectif.x) > 0.02f && ABS(Gali_current.y - Gali_objectif.y) > 0.02f){// && ABS(NormaliserAngle(Gali_current.angle - Gali_objectif.angle)) < PI/16) {
         return TRUE;
     }
     return FALSE;
@@ -78,4 +82,10 @@ float NormaliserAngle(float angle) {
         angle = angle - 2.0f * PI;
     }
     return angle;
+}
+
+void afficher_position()
+{
+   StringFormatted("Position x =%f  y = %f  angle = %f",position_x, position_y,position_angle);
+
 }

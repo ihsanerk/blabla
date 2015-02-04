@@ -3,6 +3,7 @@
 
 //Librairies
 #include  "moteur.h"
+#include  "debugger.h"
 
 //Structure de position
 typedef struct _Position
@@ -16,6 +17,9 @@ typedef struct _Position
 //Variables
 extern Position Gali_current;
 extern Position Gali_objectif;
+extern float position_x;
+extern float position_y;
+extern float position_angle;
 
 //Prototypes des fonctions
 void SetPositionObjectif(float x, float y, float angle);
@@ -23,6 +27,7 @@ void SetPositionCurrent(float x, float y, float angle);
 void UpdatePosition();
 BOOL PositionParRapportObjectif();
 float NormaliserAngle(float angle);
+void afficher_position();
 
 
 #endif // CONTROLEUR_H_INCLUDED

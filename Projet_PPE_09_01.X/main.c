@@ -76,7 +76,7 @@ void main(void) {
     uart_init(); // Initialisation de la communication avec l'ordinateur
     asservissementInit(); // Initialisation du moteur + encodeur + asservissement
     SetPositionCurrent(0,0,0); //Initialisation de la position de départ
-    SetPositionObjectif(0.1f,0,0); // initialisation de la position de l'objectif
+    SetPositionObjectif(0.05f,0,0); // initialisation de la position de l'objectif
     sendString("Fin de l'initialisation.\n");
 
     // Initialise l'équipe
@@ -84,22 +84,26 @@ void main(void) {
     else team = -1;
 
     sendString("Fin de l'initialisation du moteur.\n");
-
+    //delay_ms(5000);
 
     //On envoi la consigne que le robot doit avancer à la position x= 5 cm et y =0 cm avec un angle de 0 degré
-    delay_ms(1000);
-    mettreFrein();
-
+    
 
     sendString("Fin de la consigne.\n");
 
-
-
-    while (1) {
         do{
            UpdatePosition();
-        }while(!PositionParRapportObjectif());
+           afficher_position();
+        }while( (ABS(Gali_objectif.x-Gali_current.x))>0.001f );
+        
 
+       // mettreFrein();
+        afficher_position();
+
+
+   while (1) {
+        mettreFrein();
     }
+    
 
 }
