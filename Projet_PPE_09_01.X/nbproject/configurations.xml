@@ -19,6 +19,12 @@
         <itemPath>pid.h</itemPath>
         <itemPath>controleur.h</itemPath>
       </logicalFolder>
+      <logicalFolder name="f4" displayName="Detection" projectFiles="true">
+        <itemPath>DetectionSharp.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f5" displayName="Strategie" projectFiles="true">
+        <itemPath>dijkstra.h</itemPath>
+      </logicalFolder>
       <itemPath>definition.h</itemPath>
       <itemPath>math.h</itemPath>
     </logicalFolder>
@@ -43,6 +49,12 @@
         <itemPath>asservissement.c</itemPath>
         <itemPath>pid.c</itemPath>
         <itemPath>controleur.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="Detection" projectFiles="true">
+        <itemPath>DetectionSharp.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f5" displayName="Strategie" projectFiles="true">
+        <itemPath>dijkstra.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>math.c</itemPath>
@@ -260,6 +272,7 @@
         <property key="UART 4" value="true"/>
         <property key="USB" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="false"/>

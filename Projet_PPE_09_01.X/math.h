@@ -89,12 +89,6 @@ typedef signed char BOOL;
 
 extern int8 team;
 
-//Fonctions SIN , COS et TAN
-//LUT
-extern int16	asinLUT [2001];
-extern int16	sinLUT [2001];
-extern int16	cosLUT [2001];
-
 
 
 #endif	/* MATH_H */

@@ -36,7 +36,7 @@ void moteurInit() {
     PWMCON6bits.DTC = 0b10;
     PWMCON6bits.MTBS = 0;
     PWMCON6bits.XPRES = 0;
-    PWMCON6bits.IUE = 0;
+    PWMCON6bits.IUE = 0; //Ancienne valeur 0;
 
     // PWCON4
     PWMCON4bits.IUE = 1; // Immediate update of PWM enabled
@@ -163,7 +163,7 @@ float codeurGetDistance() {
 }
 
 float codeurGetAngle() {
-    return (codeurGauche.variation * 0.840e-4f + codeurDroit.variation * 0.840e-4f)/2.0f;
+    return (codeurGauche.variation * 0.840e-4f - codeurDroit.variation * 0.840e-4f)/2.0f;
 }
 
 void encodersDebug() {
@@ -175,8 +175,8 @@ void encodersDebug() {
 
 inline void applicationAssPosMoteurs(float ordreDistance, float ordreAngle) {
     //Calcule les ordres réels grace aux ordres polaires
-    float OrdreGauche = 0.7f * ordreDistance - 0.3f * ordreAngle;
-    float OrdreDroit = 0.7f * ordreDistance + 0.3f * ordreAngle;
+    float OrdreGauche = ordreDistance; //0.7f * ordreDistance - 0.3f * ordreAngle;
+    float OrdreDroit = ordreDistance;  //0.7f * ordreDistance + 0.3f * ordreAngle;
     int32 PWMGauche;
     int32 PWMDroite;
 
@@ -186,24 +186,29 @@ inline void applicationAssPosMoteurs(float ordreDistance, float ordreAngle) {
     //Afficher un message
     //StringFormatted("Valeur de l'ordre Gauche:%f l'ordre Droit :%f \n", OrdreGauche, OrdreDroit);
 
-
     //On vérifie que la valeur n'est pas nul
     if (OrdreGauche != 0.0f) {
-        PWMGauche = 2000 * ABS(OrdreGauche) + 250;
+        PWMGauche = 2500 * ABS(OrdreGauche) + 250;
     } else PWMGauche = 0;
 
     if (OrdreDroit != 0.0f) {
-        PWMDroite = 2000 * ABS(OrdreDroit) + 250;
+        PWMDroite = 2500 * ABS(OrdreDroit) + 250;
     } else PWMDroite = 0;
 
+StringFormatted("%d",OrdreDroit);
+
     //Le sens
-    DIR_G = SENS(-1.0f * PWMGauche);
+    DIR_G = SENS(-1.0f* PWMGauche);
     DIR_D = SENS(PWMDroite);
 
     //La valeur
     PWM_G = ABS(PWMGauche);
     PWM_D = ABS(PWMDroite);
 }
+
+
+
+
 
 // Envoyer les ordres aux moteurs
 

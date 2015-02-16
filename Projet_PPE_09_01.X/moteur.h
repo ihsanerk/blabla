@@ -28,6 +28,7 @@ typedef struct _Codeur
 		uint32            newCodeur  ;
 		int16             variation  ;
 
+
 }Codeur;
 
 //Prototype

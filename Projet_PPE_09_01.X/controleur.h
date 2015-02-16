@@ -4,6 +4,7 @@
 //Librairies
 #include  "moteur.h"
 #include  "debugger.h"
+#include  "math.h"
 
 //Structure de position
 typedef struct _Position
@@ -27,7 +28,9 @@ void SetPositionCurrent(float x, float y, float angle);
 void UpdatePosition();
 BOOL PositionParRapportObjectif();
 float NormaliserAngle(float angle);
-void afficher_position();
 
+void afficher_position();
+void afficher_objectif();
+void afficher_Gali();
 
 #endif // CONTROLEUR_H_INCLUDED
