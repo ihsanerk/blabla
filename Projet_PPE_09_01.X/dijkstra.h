@@ -31,7 +31,7 @@ extern int MATRICE_NOEUD[NB_NOEUD][NB_NOEUD] =
     {},
     {},
     {},
-    {},
+    {}
 };
 
 //Tableau du chemin à parcourrir

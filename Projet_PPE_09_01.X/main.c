@@ -14,6 +14,7 @@
 #include  "controleur.h"
 #include  "math.h"
 #include  "asservissement.h"
+#include "DetectionSharp.h"
 
 
 
@@ -75,14 +76,15 @@ void main(void) {
     adcInit(); //Initialisation des ADC
     uart_init(); // Initialisation de la communication avec l'ordinateur
     asservissementInit(); // Initialisation du moteur + encodeur + asservissement
-    SetPositionCurrent(0,0,0); //Initialisation de la position de départ
-    SetPositionObjectif(0.03f,0,0); // initialisation de la position de l'objectif
+    SetPositionCurrent(0, 0, 0); //Initialisation de la position de départ
+    SetPositionObjectif(-0.5f, 0, 0); // initialisation de la position de l'objectif
+    detectionSharpInit();
     //sendString("Fin de l'initialisation.\n");
 
     //afficher_objectif();
     //afficher_Gali();
     //afficher_position();
-    
+
     // Initialise l'équipe
     if (!PORTFbits.RF0) team = 1;
     else team = -1;
@@ -91,27 +93,29 @@ void main(void) {
     //delay_ms(5000);
 
     //On envoi la consigne que le robot doit avancer à la position x= 5 cm et y =0 cm avec un angle de 0 degré
-    
+
 
     //sendString("Fin de la consigne.\n");
 
-        
-        //SetPositionObjectif()
-do{
-           UpdatePosition();
-           //afficher_position();
-        }while( (ABS(Gali_objectif.x-position_x))>0.01f );
-        sendString("MARCHE BIEN\n");
-    
+
+    //SetPositionObjectif()
+    do {
+        UpdatePosition();
+
+        //afficher_position();
+    } while ((ABS(Gali_objectif.x - Gali_current.x)) > 0.01f);
+    sendString("MARCHE BIEN\n");
 
 
-   while (1) {
-       
-        
-       // mettreFrein();
-    
+
+    while (1) {
+        //UpdatePosition();
+        //afficher_position();
+
         mettreFrein();
+        //adc_detection();
+        //mettreFrein();
     }
-    
+
 
 }

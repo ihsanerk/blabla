@@ -21,6 +21,7 @@ extern Position Gali_objectif;
 extern float position_x;
 extern float position_y;
 extern float position_angle;
+extern float vitesse;
 
 //Prototypes des fonctions
 void SetPositionObjectif(float x, float y, float angle);

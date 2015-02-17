@@ -159,11 +159,11 @@ inline void valeurCodeurs() {
 }
 
 float codeurGetDistance() {
-    return (codeurGauche.variation * 0.817e-5f + codeurDroit.variation * 0.817e-5f)/2.0f;
+    return (codeurGauche.variation * (0.8e-3f/8.5f) + codeurDroit.variation * (0.8e-3f/8.5f))/(2.0f);
 }
 
 float codeurGetAngle() {
-    return (codeurGauche.variation * 0.840e-4f - codeurDroit.variation * 0.840e-4f)/2.0f;
+    return (codeurGauche.variation * 0.840e-4f - codeurDroit.variation * 0.840e-4f);
 }
 
 void encodersDebug() {
@@ -175,8 +175,8 @@ void encodersDebug() {
 
 inline void applicationAssPosMoteurs(float ordreDistance, float ordreAngle) {
     //Calcule les ordres réels grace aux ordres polaires
-    float OrdreGauche = ordreDistance; //0.7f * ordreDistance - 0.3f * ordreAngle;
-    float OrdreDroit = ordreDistance;  //0.7f * ordreDistance + 0.3f * ordreAngle;
+    float OrdreGauche = ordreDistance - ordreAngle; //0.7f * ordreDistance - 0.3f * ordreAngle;
+    float OrdreDroit  = ordreDistance + ordreAngle;  //0.7f * ordreDistance + 0.3f * ordreAngle;
     int32 PWMGauche;
     int32 PWMDroite;
 
@@ -195,7 +195,6 @@ inline void applicationAssPosMoteurs(float ordreDistance, float ordreAngle) {
         PWMDroite = 2500 * ABS(OrdreDroit) + 250;
     } else PWMDroite = 0;
 
-StringFormatted("%d",OrdreDroit);
 
     //Le sens
     DIR_G = SENS(-1.0f* PWMGauche);

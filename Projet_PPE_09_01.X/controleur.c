@@ -6,6 +6,7 @@ Position Gali_objectif = {0.0f,0.0f,0.0f};
 float position_x=0.0f;
 float position_y=0.0f;
 float position_angle=0.0f;
+float vitesse=1.0f;
 
 //Fonctions
 
@@ -49,11 +50,11 @@ void UpdatePosition() {
     variation_angle = codeurGetAngle();
 
 
-    //Calcule des positions réelles
+    //Calcul des positions réelles
     if(ABS(variation_angle)>1e-6f){
         position_angle = NormaliserAngle(Gali_current.angle + variation_angle);
     }
-        if(ABS(variation_longueur)>1e-6f)
+    if(ABS(variation_longueur)>1e-6f)
     {
     //encodersDebug();
     position_x += variation_longueur * sin(position_angle);
@@ -62,7 +63,8 @@ void UpdatePosition() {
     Gali_current.x=position_x;
     Gali_current.y = position_y;
     Gali_current.angle = position_angle;
-    //afficher_position();
+
+
     }
 
     //Calcule des erreurs
@@ -74,13 +76,31 @@ void UpdatePosition() {
     else Avance =1.0f;
 
     //Calcule pour corriger les erreurs
-    if (ABS(erreur_x) < 1e-6f && ABS(erreur_y) < 1e-6f)
+    if (ABS(erreur_x) < 0.001f && ABS(erreur_y) < 0.001f)
     {
         current_erreur_longueur = 0.0f;
         current_erreur_angle = 0.0f;
     } 
     else
     {
+        //On calcule la vitesse d'accélération
+        if((ABS(erreur_x)>0.1f)&&(ABS(erreur_y)>0.1f))
+        {
+            if(vitesse<2.5f) vitesse=0.5f+vitesse;
+        }
+        else
+        {
+            if((ABS(erreur_x)<=0.1f)&&(ABS(erreur_y)<=0.1f))
+            {
+                if(vitesse >2) vitesse=1;
+                if(vitesse>0.001f) vitesse= vitesse -0.01f;
+      
+                
+            }
+
+        }
+
+        StringFormatted("X: %1.3f \n",position_x);
         current_erreur_longueur = sqrt(erreur_x * erreur_x + erreur_y * erreur_y);
         current_erreur_angle = atan2(erreur_x, erreur_y);
         //On normalise l'angle
@@ -91,7 +111,7 @@ void UpdatePosition() {
 
 
     //On envoi la consigne au moteur
-    applicationAssPosMoteurs(Avance*current_erreur_longueur,current_erreur_angle);
+    applicationAssPosMoteurs(current_erreur_longueur*vitesse,current_erreur_angle);
 
 }
 
@@ -115,15 +135,15 @@ float NormaliserAngle(float angle) {
 
 void afficher_position()
 {
-   StringFormatted("Position x =%f  y = %f  angle = %f\n",position_x, position_y,position_angle);
-
+   //StringFormatted("Position x =%1.3f  y = %1.3f  angle = %1.3f\n",position_x, position_y,position_angle);
+    StringFormatted("x = %f\n",position_x);
 }
 void afficher_objectif()
 {
-   StringFormatted("Objectif x =%f  y = %f  angle = %f\n",Gali_objectif.x, Gali_objectif.y,Gali_objectif.angle);
+   StringFormatted("Objectif x =%1.3f  y = %1.3f  angle = %1.3f\n",Gali_objectif.x, Gali_objectif.y,Gali_objectif.angle);
 }
 void afficher_Gali()
 {
-       StringFormatted("Gali x =%f  y = %f  angle = %f\n",Gali_current.x, Gali_current.y,Gali_current.angle);
+       StringFormatted("Gali x =%1.3f  y = %1.3f  angle = %1.3f\n",Gali_current.x, Gali_current.y,Gali_current.angle);
 
 }
