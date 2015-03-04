@@ -15,5 +15,7 @@ void sendUnSignedInteger (long n);
 
 void StringFormatted(const char *fmt, ...);
 
+void envoyer_message(int CodeurDroit,int CodeurGauche);
+
 #endif	/* DEBUGGER_H */
 

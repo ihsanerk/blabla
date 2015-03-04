@@ -74,8 +74,8 @@ void moteurInit() {
 
 void qeiInit() {
     //Init for the remamapable pins
-    // Encoders (right:E1, left:E2)
-    RPINR14bits.QEA1R = 81; //E1 CHA
+    // Encoders (Droite:E1, Gauche:E2)
+    RPINR14bits.QEA1R = 127; //E1 CHA /// Essayé avec cette nouvelle valeur
     RPINR14bits.QEB1R = 126; //E1 CHB
 
     RPINR16bits.QEA2R = 124; //E2 CHA
@@ -160,6 +160,14 @@ inline void valeurCodeurs() {
 
 float codeurGetDistance() {
     return (codeurGauche.variation * (0.8e-3f/8.5f) + codeurDroit.variation * (0.8e-3f/8.5f))/(2.0f);
+}
+int codeurGetDroit()
+{
+    return codeurDroit.variation;
+}
+int codeurGetGauche()
+{
+    return codeurGauche.variation;
 }
 
 float codeurGetAngle() {

@@ -44,6 +44,9 @@ void mettreFrein();
 void enleverFrein();
 
 float codeurGetDistance();
+int codeurGetDroit();
+int codeurGetGauche();
+
 float codeurGetAngle();
 
 

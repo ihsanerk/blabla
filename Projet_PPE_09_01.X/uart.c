@@ -6,6 +6,8 @@
 #include <pps.h>
 #include "configuration.h"
 #include "uart.h"
+#include "debugger.h"
+
 
 
 #define FP 40000000
@@ -65,7 +67,9 @@ void uart_init()
         // TX pour la carte Explorer 16
 	//RPOR9bits.RP101R = 3;		//RP64 as U2TX
 
-        RPOR15bits.RP127R = 3;
+        RPINR18bits.U1RXR = 62; //RX pin 74 sur le dsPic33e
+        RPOR15bits.RP127R = 3; // RP127 : le pin 73 sur dsPic33e
+
         //TX sur la carte Gali VII
 
 
@@ -107,7 +111,10 @@ void __attribute__((__interrupt__,auto_psv)) _U2TXInterrupt(void)
     c = (char) uartGetChar();// On recupère le caractère
 
     recievedChar = c; // On recopie le char dans la variable
+    envoyer_message(c);
 
     IFS1bits.U2TXIF = 0; // Clear TX Interrupt flag
 }
+
+
 

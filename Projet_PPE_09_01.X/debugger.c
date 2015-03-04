@@ -1,6 +1,7 @@
 //Librairies
 #include  "debugger.h"
 #include  "uart.h"
+#include "moteur.h"
 
 //Initialise le débugger
 void debugger_init()
@@ -103,4 +104,26 @@ void StringFormatted(const char *fmt, ...) {
     vsnprintf(buffer, 200, fmt, args);
     va_end(args);
     sendString(buffer);
+}
+
+void envoyer_message(int CodeurDroit,int CodeurGauche)
+{
+    //on récupère la valeur des codeurs
+    valeurCodeurs();
+
+
+    switch(recievedChar)
+    {
+        case'd' :
+            CodeurDroit=CodeurDroit+codeurGetDroit();
+            StringFormatted("%d",CodeurDroit);
+            break;
+        case 'g':
+            CodeurGauche=CodeurGauche+codeurGetGauche();
+            StringFormatted("%d",CodeurGauche);
+            break;
+        default:
+            break;
+            
+    }
 }

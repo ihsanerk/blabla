@@ -70,6 +70,8 @@ int8 team;
 
 void main(void) {
     //Ressources
+    int CodeurDroit=0;
+    int CodeurGauche=0;
 
     //Initialisation
     pinConfiguration(); // Initialisation des différents PINS
@@ -99,22 +101,29 @@ void main(void) {
 
 
     //SetPositionObjectif()
-    do {
+    /*do {
         UpdatePosition();
 
         //afficher_position();
     } while ((ABS(Gali_objectif.x - Gali_current.x)) > 0.01f);
     sendString("MARCHE BIEN\n");
-
+    */
 
 
     while (1) {
         //UpdatePosition();
+
         //afficher_position();
 
-        mettreFrein();
+        //mettreFrein();
         //adc_detection();
         //mettreFrein();
+        //Si on envoi un d : envoi la valeur de l'encodeur droit, g : celle de l'encodeur gauche
+        envoyer_message(CodeurDroit,CodeurGauche);
+        delay_ms(500);
+
+
+
     }
 
 
