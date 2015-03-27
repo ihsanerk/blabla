@@ -22,37 +22,38 @@
 #define PWM_G 		PDC6
 
 //Structures
-typedef struct _Codeur
-{
-		uint32            oldCodeur  ;
-		uint32            newCodeur  ;
-		int16             variation  ;
+
+typedef struct _Codeur {
+    uint32 oldCodeur;
+    uint32 newCodeur;
+    int16 variation;
+    uint32 somme;
 
 
-}Codeur;
+} Codeur;
 
 //Prototype
 
 //Prototypes
-void 				moteurInit ();
-void 				qeiInit ();
-inline void 			valeurCodeurs() ;
+void moteurInit();
+void qeiInit();
+inline void valeurCodeurs();
 void encodersDebug();
-inline void 			applicationAssPosMoteurs(float ordreDistance, float ordreAngle);
-inline void 			applicationAssCirMoteurs(int32 PWMGauche, int32 PWMDroite);
+inline void applicationAssPosMoteurs(float ordreDistance, float ordreAngle);
+inline void applicationAssCirMoteurs(int32 PWMGauche, int32 PWMDroite);
 void mettreFrein();
 void enleverFrein();
 
 float codeurGetDistance();
-int codeurGetDroit();
-int codeurGetGauche();
+float codeurGetDroit();
+float codeurGetGauche();
 
 float codeurGetAngle();
 
 
 
 //Variables
-extern Codeur 			codeurGauche;
-extern Codeur 			codeurDroit;
+extern Codeur codeurGauche;
+extern Codeur codeurDroit;
 
 #endif // MOTEUR_H_INCLUDED

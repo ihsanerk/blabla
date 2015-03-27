@@ -86,133 +86,133 @@ ${OBJECTDIR}/src/ai/ai.o: src/ai/ai.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/ai 
 	@${RM} ${OBJECTDIR}/src/ai/ai.o.d 
 	@${RM} ${OBJECTDIR}/src/ai/ai.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/ai/ai.c  -o ${OBJECTDIR}/src/ai/ai.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/ai/ai.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/ai/ai.c  -o ${OBJECTDIR}/src/ai/ai.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/ai/ai.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/ai/ai.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/ai/ai_actuator.o: src/ai/ai_actuator.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/ai 
 	@${RM} ${OBJECTDIR}/src/ai/ai_actuator.o.d 
 	@${RM} ${OBJECTDIR}/src/ai/ai_actuator.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/ai/ai_actuator.c  -o ${OBJECTDIR}/src/ai/ai_actuator.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/ai/ai_actuator.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/ai/ai_actuator.c  -o ${OBJECTDIR}/src/ai/ai_actuator.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/ai/ai_actuator.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/ai/ai_actuator.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/ai/ai_fresco.o: src/ai/ai_fresco.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/ai 
 	@${RM} ${OBJECTDIR}/src/ai/ai_fresco.o.d 
 	@${RM} ${OBJECTDIR}/src/ai/ai_fresco.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/ai/ai_fresco.c  -o ${OBJECTDIR}/src/ai/ai_fresco.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/ai/ai_fresco.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/ai/ai_fresco.c  -o ${OBJECTDIR}/src/ai/ai_fresco.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/ai/ai_fresco.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/ai/ai_fresco.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/ai/ai_mammooth.o: src/ai/ai_mammooth.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/ai 
 	@${RM} ${OBJECTDIR}/src/ai/ai_mammooth.o.d 
 	@${RM} ${OBJECTDIR}/src/ai/ai_mammooth.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/ai/ai_mammooth.c  -o ${OBJECTDIR}/src/ai/ai_mammooth.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/ai/ai_mammooth.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/ai/ai_mammooth.c  -o ${OBJECTDIR}/src/ai/ai_mammooth.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/ai/ai_mammooth.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/ai/ai_mammooth.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/control/controller.o: src/control/controller.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/control 
 	@${RM} ${OBJECTDIR}/src/control/controller.o.d 
 	@${RM} ${OBJECTDIR}/src/control/controller.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/control/controller.c  -o ${OBJECTDIR}/src/control/controller.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/control/controller.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/control/controller.c  -o ${OBJECTDIR}/src/control/controller.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/control/controller.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/control/controller.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/control/encoders.o: src/control/encoders.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/control 
 	@${RM} ${OBJECTDIR}/src/control/encoders.o.d 
 	@${RM} ${OBJECTDIR}/src/control/encoders.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/control/encoders.c  -o ${OBJECTDIR}/src/control/encoders.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/control/encoders.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/control/encoders.c  -o ${OBJECTDIR}/src/control/encoders.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/control/encoders.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/control/encoders.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/control/motors.o: src/control/motors.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/control 
 	@${RM} ${OBJECTDIR}/src/control/motors.o.d 
 	@${RM} ${OBJECTDIR}/src/control/motors.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/control/motors.c  -o ${OBJECTDIR}/src/control/motors.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/control/motors.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/control/motors.c  -o ${OBJECTDIR}/src/control/motors.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/control/motors.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/control/motors.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/control/pid.o: src/control/pid.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/control 
 	@${RM} ${OBJECTDIR}/src/control/pid.o.d 
 	@${RM} ${OBJECTDIR}/src/control/pid.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/control/pid.c  -o ${OBJECTDIR}/src/control/pid.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/control/pid.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/control/pid.c  -o ${OBJECTDIR}/src/control/pid.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/control/pid.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/control/pid.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/debug/leds.o: src/debug/leds.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/debug 
 	@${RM} ${OBJECTDIR}/src/debug/leds.o.d 
 	@${RM} ${OBJECTDIR}/src/debug/leds.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/debug/leds.c  -o ${OBJECTDIR}/src/debug/leds.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/debug/leds.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/debug/leds.c  -o ${OBJECTDIR}/src/debug/leds.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/debug/leds.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/debug/leds.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/debug/log.o: src/debug/log.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/debug 
 	@${RM} ${OBJECTDIR}/src/debug/log.o.d 
 	@${RM} ${OBJECTDIR}/src/debug/log.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/debug/log.c  -o ${OBJECTDIR}/src/debug/log.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/debug/log.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/debug/log.c  -o ${OBJECTDIR}/src/debug/log.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/debug/log.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/debug/log.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/io/adc.o: src/io/adc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/io 
 	@${RM} ${OBJECTDIR}/src/io/adc.o.d 
 	@${RM} ${OBJECTDIR}/src/io/adc.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/io/adc.c  -o ${OBJECTDIR}/src/io/adc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/io/adc.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/io/adc.c  -o ${OBJECTDIR}/src/io/adc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/io/adc.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/io/adc.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/io/bus.o: src/io/bus.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/io 
 	@${RM} ${OBJECTDIR}/src/io/bus.o.d 
 	@${RM} ${OBJECTDIR}/src/io/bus.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/io/bus.c  -o ${OBJECTDIR}/src/io/bus.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/io/bus.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/io/bus.c  -o ${OBJECTDIR}/src/io/bus.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/io/bus.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/io/bus.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/io/config_flash.o: src/io/config_flash.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/io 
 	@${RM} ${OBJECTDIR}/src/io/config_flash.o.d 
 	@${RM} ${OBJECTDIR}/src/io/config_flash.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/io/config_flash.c  -o ${OBJECTDIR}/src/io/config_flash.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/io/config_flash.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/io/config_flash.c  -o ${OBJECTDIR}/src/io/config_flash.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/io/config_flash.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/io/config_flash.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/io/dynamixel.o: src/io/dynamixel.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/io 
 	@${RM} ${OBJECTDIR}/src/io/dynamixel.o.d 
 	@${RM} ${OBJECTDIR}/src/io/dynamixel.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/io/dynamixel.c  -o ${OBJECTDIR}/src/io/dynamixel.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/io/dynamixel.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/io/dynamixel.c  -o ${OBJECTDIR}/src/io/dynamixel.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/io/dynamixel.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/io/dynamixel.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/io/dxl_hal.o: src/io/dxl_hal.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/io 
 	@${RM} ${OBJECTDIR}/src/io/dxl_hal.o.d 
 	@${RM} ${OBJECTDIR}/src/io/dxl_hal.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/io/dxl_hal.c  -o ${OBJECTDIR}/src/io/dxl_hal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/io/dxl_hal.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/io/dxl_hal.c  -o ${OBJECTDIR}/src/io/dxl_hal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/io/dxl_hal.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/io/dxl_hal.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/io/pwm.o: src/io/pwm.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/io 
 	@${RM} ${OBJECTDIR}/src/io/pwm.o.d 
 	@${RM} ${OBJECTDIR}/src/io/pwm.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/io/pwm.c  -o ${OBJECTDIR}/src/io/pwm.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/io/pwm.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/io/pwm.c  -o ${OBJECTDIR}/src/io/pwm.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/io/pwm.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/io/pwm.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/tools/bits.o: src/tools/bits.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/tools 
 	@${RM} ${OBJECTDIR}/src/tools/bits.o.d 
 	@${RM} ${OBJECTDIR}/src/tools/bits.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/tools/bits.c  -o ${OBJECTDIR}/src/tools/bits.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/tools/bits.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/tools/bits.c  -o ${OBJECTDIR}/src/tools/bits.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/tools/bits.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/tools/bits.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/tools/timeout.o: src/tools/timeout.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/tools 
 	@${RM} ${OBJECTDIR}/src/tools/timeout.o.d 
 	@${RM} ${OBJECTDIR}/src/tools/timeout.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/tools/timeout.c  -o ${OBJECTDIR}/src/tools/timeout.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/tools/timeout.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/tools/timeout.c  -o ${OBJECTDIR}/src/tools/timeout.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/tools/timeout.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/tools/timeout.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/src/tracking/tracker.o: src/tracking/tracker.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/tracking 
 	@${RM} ${OBJECTDIR}/src/tracking/tracker.o.d 
 	@${RM} ${OBJECTDIR}/src/tracking/tracker.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  src/tracking/tracker.c  -o ${OBJECTDIR}/src/tracking/tracker.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/tracking/tracker.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  src/tracking/tracker.c  -o ${OBJECTDIR}/src/tracking/tracker.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/src/tracking/tracker.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -fast-math -O0 -I"include" -I"../" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/src/tracking/tracker.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 else
@@ -358,7 +358,7 @@ ${OBJECTDIR}/src/io/rtsp.o: src/io/rtsp.s  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src/io 
 	@${RM} ${OBJECTDIR}/src/io/rtsp.o.d 
 	@${RM} ${OBJECTDIR}/src/io/rtsp.o 
-	${MP_CC} $(MP_EXTRA_AS_PRE)  src/io/rtsp.s  -o ${OBJECTDIR}/src/io/rtsp.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -omf=elf -fast-math -Wa,-MD,"${OBJECTDIR}/src/io/rtsp.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_ICD3=1,-g,--no-relax$(MP_EXTRA_AS_POST)
+	${MP_CC} $(MP_EXTRA_AS_PRE)  src/io/rtsp.s  -o ${OBJECTDIR}/src/io/rtsp.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG   -omf=elf -fast-math -Wa,-MD,"${OBJECTDIR}/src/io/rtsp.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,,-g,--no-relax$(MP_EXTRA_AS_POST)
 	@${FIXDEPS} "${OBJECTDIR}/src/io/rtsp.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
 	
 else

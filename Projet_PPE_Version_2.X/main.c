@@ -14,7 +14,7 @@
 #include  "controleur.h"
 #include  "math.h"
 #include  "asservissement.h"
-#include "DetectionSharp.h"
+#include  "DetectionSharp.h"
 
 
 
@@ -70,8 +70,11 @@ int8 team;
 
 void main(void) {
     //Ressources
-    int CodeurDroit=0;
-    int CodeurGauche=0;
+    float CodeurDroit = 0.0f;
+    float CodeurGauche = 0.0f;
+    float  distance =0.0f;
+    float angle=0.0f;
+    int compteur=0;
 
     //Initialisation
     pinConfiguration(); // Initialisation des différents PINS
@@ -79,20 +82,45 @@ void main(void) {
     uart_init(); // Initialisation de la communication avec l'ordinateur
     asservissementInit(); // Initialisation du moteur + encodeur + asservissement
     SetPositionCurrent(0, 0, 0); //Initialisation de la position de départ
-    SetPositionObjectif(-0.5f, 0, 0); // initialisation de la position de l'objectif
-    detectionSharpInit();
+    SetPositionObjectif(0, 0.3f, 0); // initialisation de la position de l'objectif
+    //detectionSharpInit();
 
     // Initialise l'équipe
     if (!PORTFbits.RF0) team = 1;
     else team = -1;
 
-        sendString("Fin de l'initialisation.\n");
+    sendString("Fin de l'initialisation.\n");
 
 
+    do
+    {
+        delay_ms(500);
+        UpdatePosition();
+        //valeurCodeurs();
+        //distance+=codeurGetDistance();
+        //CodeurDroit+=codeurGetDroit();
+        //CodeurGauche+=codeurGetGauche();
+        //angle+=codeurGetAngle();
+
+
+        //StringFormatted("D:%1.5f , G:%1.5f ;",CodeurDroit,CodeurGauche);
+        //StringFormatted("D:%1.5f ;",distance);
+        //StringFormatted("A:%1.5f ;",angle);
+        StringFormatted("X:%1.5f , Y:%1.5f ,A:%1.5f;",Gali_current.x,Gali_current.y,Gali_current.angle);
+
+        //encodersDebug();
+        //afficher_Gali();
+        compteur++;
+    }while((ABS(Gali_current.y-Gali_objectif.y)>0.01f));
+    sendString("Fin de la consigne.\n");
+    mettreFrein();
+    
+    //delay_ms(10000);
     while (1) {
+        //on récupère la valeur des codeurs
+        //UpdatePosition();
 
-        //Si on envoi un d : envoi la valeur de l'encodeur droit, g : celle de l'encodeur gauche
-        envoyer_message(CodeurDroit,CodeurGauche);
+                //StringFormatted("X:%1.5f , Y:%1.5f ,A:%1.5f;",Gali_current.x,Gali_current.y,Gali_current.angle);
 
 
 

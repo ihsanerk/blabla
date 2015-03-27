@@ -46,65 +46,52 @@ void UpdatePosition() {
 
     //On récupère la variation des
     valeurCodeurs();
+
     variation_longueur = codeurGetDistance();
     variation_angle = codeurGetAngle();
+   //variation_angle=0.0f;
 
 
     //Calcul des positions réelles
-    if (ABS(variation_angle) > 1e-6f) {
-        position_angle = NormaliserAngle(Gali_current.angle + variation_angle);
+    if (ABS(variation_angle) >0.01f) {
+        //position_angle = NormaliserAngle(Gali_current.angle + variation_angle);
+        position_angle+=variation_angle;
+        Gali_current.angle = position_angle;
+
     }
-    if (ABS(variation_longueur) > 1e-6f) {
-        //encodersDebug();
-        position_x += variation_longueur * sin(position_angle);
-        position_y += variation_longueur * cos(position_angle);
+    if (ABS(variation_longueur) > 0.001) {
+
+        position_x += variation_longueur * sin(position_angle*0.0174532925f);
+        position_y += variation_longueur * cos(position_angle*0.0174532925f);
 
         Gali_current.x = position_x;
         Gali_current.y = position_y;
-        Gali_current.angle = position_angle;
-
 
     }
 
     //Calcule des erreurs
     erreur_x = Gali_objectif.x - position_x;
     erreur_y = Gali_objectif.y - position_y;
-    erreur_angle = NormaliserAngle(Gali_objectif.angle - position_angle);
+    erreur_angle = Gali_objectif.angle - position_angle;
 
-    if (erreur_x < 0) Avance = -1.0f;
+    if (erreur_y > 0) Avance = -1.0f;
     else Avance = 1.0f;
 
 
     //Calcule pour corriger les erreurs
-    if (ABS(erreur_x) < 0.001f && ABS(erreur_y) < 0.001f) {
+    if (ABS(erreur_x) < 0.001f && ABS(erreur_y) < 0.001f && ABS(variation_angle) <0.01f) {
         current_erreur_longueur = 0.0f;
         current_erreur_angle = 0.0f;
     }
     else {
-        //On calcule la vitesse d'accélération
-        if ((ABS(erreur_x) > 0.1f) && (ABS(erreur_y) > 0.1f)) {
-            if (vitesse < 2.5f) vitesse = 0.5f + vitesse;
-        } else {
-            if ((ABS(erreur_x) <= 0.1f) && (ABS(erreur_y) <= 0.1f)) {
-                if (vitesse > 2) vitesse = 1;
-                if (vitesse > 0.001f) vitesse = vitesse - 0.01f;
-
-
-            }
-
-        }
-
-        StringFormatted("X: %1.3f \n", position_x);
         current_erreur_longueur = sqrt(erreur_x * erreur_x + erreur_y * erreur_y);
-        current_erreur_angle =  atan2 (erreur_y, erreur_x)+Gali_current.angle;
-
-        current_erreur_angle = NormaliserAngle(current_erreur_angle);
-    }
+        current_erreur_angle =  Gali_current.angle+erreur_angle;
+        }
 
 
 
     //On envoi la consigne au moteur
-    applicationAssPosMoteurs(Avance*current_erreur_longueur*vitesse, current_erreur_angle);
+    applicationAssPosMoteurs(Avance*current_erreur_longueur, current_erreur_angle);
 
 }
 
@@ -117,13 +104,16 @@ BOOL PositionParRapportObjectif() {
 }
 
 float NormaliserAngle(float angle) {
+    //On convertie l'angle en radian
+    angle=angle*0.0174532925f;
+
     //On normalise l'angle
     angle = fmod(angle, (2.0f * PI));
 
     if (angle > PI) {
         angle = angle - 2.0f * PI;
     }
-    return angle;
+    return angle/0.0174532925f; // Pour le mettre en degré
 }
 
 void afficher_position() {

@@ -106,22 +106,22 @@ void StringFormatted(const char *fmt, ...) {
     sendString(buffer);
 }
 
-void envoyer_message(int CodeurDroit,int CodeurGauche)
+void envoyer_message(int CodeurDroit,int CodeurGauche,char c)
 {
     //on récupère la valeur des codeurs
     valeurCodeurs();
 
 
-    switch(recievedChar)
+    switch(c)
     {
         case'd' :
             CodeurDroit=CodeurDroit+codeurGetDroit();
-            StringFormatted("%d",CodeurDroit);
+            StringFormatted("  %d",CodeurDroit);
             recievedChar='q';
             break;
         case 'g':
             CodeurGauche=CodeurGauche+codeurGetGauche();
-            StringFormatted("%d",CodeurGauche);
+            StringFormatted("  %d",CodeurGauche);
             recievedChar='q';
             break;
         default:

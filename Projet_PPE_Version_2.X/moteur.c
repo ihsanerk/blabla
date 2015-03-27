@@ -4,6 +4,7 @@
 //Variables
 Codeur codeurGauche;
 Codeur codeurDroit;
+float Rayon=0.1f;
 
 // Initialisation
 
@@ -75,8 +76,14 @@ void moteurInit() {
 void qeiInit() {
     //Init for the remamapable pins
     // Encoders (Droite:E1, Gauche:E2)
-    RPINR14bits.QEA1R = 127; //E1 CHA /// Essayé avec cette nouvelle valeur
+
+    //POur la Carte de GaliVII
+    RPINR14bits.QEA1R = 127;//81; //E1 CHA //127 Essayé avec cette nouvelle valeur
     RPINR14bits.QEB1R = 126; //E1 CHB
+
+    //Pour la carte Explorer 16
+    //RPINR14bits.QEA1R = 112;//81; //E1 CHA //127 Essayé avec cette nouvelle valeur
+    //RPINR14bits.QEB1R = 126; //E1 CHB
 
     RPINR16bits.QEA2R = 124; //E2 CHA
     RPINR16bits.QEB2R = 125; //E2 CHB
@@ -150,33 +157,40 @@ inline void valeurCodeurs() {
     codeurGauche.newCodeur = (valQEIH1 << 16) | valQEIL1;
     codeurGauche.variation = codeurGauche.newCodeur - codeurGauche.oldCodeur;
     codeurGauche.oldCodeur = codeurGauche.newCodeur;
+    //On met la variation dans la somme
+    codeurGauche.somme=codeurGauche.somme+codeurGauche.variation;
     // Valeur codeur gauche
     valQEIL2 = POS2CNTL;
     valQEIH2 = POS2HLD;
     codeurDroit.newCodeur = (valQEIH2 << 16) | valQEIL2;
     codeurDroit.variation = codeurDroit.newCodeur - codeurDroit.oldCodeur;
     codeurDroit.oldCodeur = codeurDroit.newCodeur;
+    //On met la variation dans la somme
+    codeurDroit.somme=codeurDroit.somme+codeurDroit.variation;
 }
 
 float codeurGetDistance() {
-    return (codeurGauche.variation * (0.8e-3f/8.5f) + codeurDroit.variation * (0.8e-3f/8.5f))/(2.0f);
+    //StringFormatted("V:%d , G:%1.4f ;",codeurGauche.variation,codeurGauche.variation*0.000000994374f);
+    return ((codeurGauche.variation*0.000008388982002f+codeurDroit.variation*0.000008499521666)/2);//-(codeurGauche.variation*(29745/99150)))*1.67818e-05f);
 }
-int codeurGetDroit()
+float codeurGetDroit()
 {
-    return codeurDroit.variation;
+    //return codeurDroit.somme;
+    return codeurDroit.variation*0.000008499521666f;
 }
-int codeurGetGauche()
+float codeurGetGauche()
 {
-    return codeurGauche.variation;
+    //return codeurGauche.somme;
+    return codeurGauche.variation*0.000008388982002f;
 }
 
 float codeurGetAngle() {
-    return (codeurGauche.variation * 0.840e-4f - codeurDroit.variation * 0.840e-4f);
+    return (((codeurGetGauche()*90/(PI*Rayon)))-(codeurGetDroit()*90/(PI*Rayon)));
 }
 
 void encodersDebug() {
     StringFormatted("Valeur du codeur Gauche:%d Variation Gauche :%d \n", codeurGauche.newCodeur, codeurGauche.variation);
-    StringFormatted("Valeur du codeur Droit:%d Variation Droit :%d \n", codeurDroit.newCodeur, codeurDroit.variation);
+    //StringFormatted("Valeur du codeur Droit:%d Variation Droit :%d \n", codeurDroit.newCodeur, codeurDroit.variation);
 }
 
 // Envoyer les ordres aux moteurs
