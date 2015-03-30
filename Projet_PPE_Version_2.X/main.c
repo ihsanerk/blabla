@@ -14,7 +14,7 @@
 #include  "math.h"
 #include  "asservissement.h"
 #include  "DetectionSharp.h"
-#include    "timer.h"
+#include  "timer.h"
 
 
 
@@ -97,7 +97,26 @@ int main(void) {
     do {
         delay_ms(500);
         UpdatePosition();
-        
+        sharpTimerInit();
+        detectionSharpInit ();
+        // Front Down left
+//        sendString (" | Sharp 1 = ");
+//	sendSignedInteger (getSharp(0));
+//        // Front Up left
+//	sendString (" | Sharp 2 = ");
+//	sendSignedInteger (getSharp(1));
+//        // Back Left
+//	sendString (" | Sharp 3 = ");
+//	sendSignedInteger (getSharp(2));
+//        //Back Right
+//	sendString (" | Sharp 4 = ");
+//	sendSignedInteger (getSharp(3));
+////      Front Up Right
+//        sendString (" | Sharp 5 = ");
+//	sendSignedInteger (getSharp(4));
+////      Front Down Right
+//	sendString (" | Sharp 6 = ");
+//	sendSignedInteger (getSharp(5));
         //valeurCodeurs();
         //distance+=codeurGetDistance();
         //CodeurDroit+=codeurGetDroit();
@@ -108,7 +127,7 @@ int main(void) {
         //compteur++;
         //StringFormatted("D:%1.5f ;",distance);
         //StringFormatted("A:%1.5f ;",angle);
-        StringFormatted("X:%1.5f , Y:%1.5f ,A:%1.5f D:%1.5f;", Gali_current.x, Gali_current.y, Gali_current.angle,Gali_current.angle*0.0174532925f);
+       // StringFormatted("X:%1.5f , Y:%1.5f ,A:%1.5f D:%1.5f;", Gali_current.x, Gali_current.y, Gali_current.angle,Gali_current.angle*0.0174532925f);
 } while (ABS(Gali_current.angle - Gali_objectif.angle) > 0.1f);
     //} while ((ABS(Gali_current.x - Gali_objectif.x) > 0.01f)|| (ABS(Gali_current.y - Gali_objectif.y) > 0.01f));
     sendString("Fin de la consigne1.\n");
@@ -127,6 +146,6 @@ int main(void) {
 
     }
 
-
+    return 0;
 }
 

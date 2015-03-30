@@ -1,0 +1,17 @@
+
+			code baby gali
+			bougie avec renvoie roue au lieu pos :
+--------
+
+///Mettre
+Bouton reset; bouton couleur
+plier sharp
+Place boutons et connecteur jack
+
+
+--------------------------
+
+Précision nécessaire : 50 tours au moins
+
+247218*40 => 360*40 + 45
+360 => 246 448
