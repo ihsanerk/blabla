@@ -53,16 +53,15 @@ void UpdatePosition() {
 
 
     //Calcul des positions réelles
-    if (ABS(variation_angle) >0.01f) {
-        //position_angle = NormaliserAngle(Gali_current.angle + variation_angle);
-        position_angle+=variation_angle;
+    if (ABS(variation_angle) >0.1f) {
+        position_angle = Gali_current.angle + variation_angle;
         Gali_current.angle = position_angle;
 
     }
     if (ABS(variation_longueur) > 0.001) {
 
-        position_x += variation_longueur * sin(position_angle*0.0174532925f);
-        position_y += variation_longueur * cos(position_angle*0.0174532925f);
+        position_x += -variation_longueur * sin(variation_angle*0.0174532925f);
+        position_y += variation_longueur * cos(variation_angle*0.0174532925f);
 
         Gali_current.x = position_x;
         Gali_current.y = position_y;
@@ -79,14 +78,22 @@ void UpdatePosition() {
 
 
     //Calcule pour corriger les erreurs
-    if (ABS(erreur_x) < 0.001f && ABS(erreur_y) < 0.001f && ABS(variation_angle) <0.01f) {
-        current_erreur_longueur = 0.0f;
-        current_erreur_angle = 0.0f;
+    if (ABS(erreur_x) < 0.001f )
+    {
+    erreur_x=0.0f;
     }
-    else {
+    if(ABS(erreur_y) < 0.001f)
+    {
+     erreur_y=0.0f;
+    }
+    if(ABS(erreur_angle) <0.1f)
+    {
+      erreur_angle=0.0f;
+    }
+    
         current_erreur_longueur = sqrt(erreur_x * erreur_x + erreur_y * erreur_y);
         current_erreur_angle =  Gali_current.angle+erreur_angle;
-        }
+        
 
 
 
@@ -96,8 +103,7 @@ void UpdatePosition() {
 }
 
 BOOL PositionParRapportObjectif() {
-    if (ABS(Gali_current.x - Gali_objectif.x) > 0.002f && ABS(Gali_current.y - Gali_objectif.y) > 0.002f
-            && ABS(NormaliserAngle(Gali_current.angle - Gali_objectif.angle)) < PI / 16) {
+    if (ABS(Gali_current.x - Gali_objectif.x) > 0.002f && ABS(Gali_current.y - Gali_objectif.y) > 0.002f && ABS(Gali_current.angle - Gali_objectif.angle) < 0.01f) {
         return TRUE;
     }
     return FALSE;
@@ -118,7 +124,7 @@ float NormaliserAngle(float angle) {
 
 void afficher_position() {
     //StringFormatted("Position x =%1.3f  y = %1.3f  angle = %1.3f\n",position_x, position_y,position_angle);
-    StringFormatted("x = %f\n", position_x);
+    StringFormatted(" = %f\n", position_x);
 }
 
 void afficher_objectif() {

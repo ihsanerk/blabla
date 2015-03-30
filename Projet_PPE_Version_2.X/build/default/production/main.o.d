@@ -2,11 +2,13 @@ build/default/production/main.o:  \
 main.c  \
 configuration.h  \
 definition.h  \
- uart.h  \
+ debugger.h  \
+leds.h  \
+bits.h  \
 math.h  \
-debugger.h  \
 moteur.h  \
 adc.h  \
 controleur.h  \
-asservissement.h  \
- DetectionSharp.h 
+ asservissement.h  \
+DetectionSharp.h  \
+timer.h 

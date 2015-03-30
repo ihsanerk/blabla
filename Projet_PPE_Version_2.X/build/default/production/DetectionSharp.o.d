@@ -3,4 +3,6 @@ DetectionSharp.c  \
  DetectionSharp.h  \
 math.h  \
 debugger.h  \
-configuration.h 
+configuration.h  \
+leds.h  \
+bits.h 

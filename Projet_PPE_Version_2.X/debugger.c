@@ -6,6 +6,9 @@
 //Initialise le débugger
 void debugger_init()
 {
+    //Initialisation du UART et LED
+    uart_init();
+    ledsInit();
 
 }
 

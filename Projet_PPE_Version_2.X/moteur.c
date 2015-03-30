@@ -185,7 +185,7 @@ float codeurGetGauche()
 }
 
 float codeurGetAngle() {
-    return (((codeurGetGauche()*90/(PI*Rayon)))-(codeurGetDroit()*90/(PI*Rayon)));
+    return ((codeurGetDroit()*90/(PI*Rayon))-((codeurGetGauche()*90/(PI*Rayon))));
 }
 
 void encodersDebug() {
@@ -219,7 +219,7 @@ inline void applicationAssPosMoteurs(float ordreDistance, float ordreAngle) {
 
 
     //Le sens
-    DIR_G = SENS(-1.0f* PWMGauche);
+    DIR_G = SENS(-PWMGauche);
     DIR_D = SENS(PWMDroite);
 
     //La valeur

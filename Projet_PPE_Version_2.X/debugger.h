@@ -5,7 +5,7 @@
 #include "configuration.h"
 #include <stdio.h>
 #include <stdarg.h>
-
+#include "leds.h"
 
 //Prototypes
 void debugger_init();

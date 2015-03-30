@@ -7,7 +7,6 @@
 
 #include  "configuration.h"
 #include  "definition.h"
-#include  "uart.h"
 #include  "debugger.h"
 #include  "moteur.h"
 #include  "adc.h"
@@ -15,6 +14,7 @@
 #include  "math.h"
 #include  "asservissement.h"
 #include  "DetectionSharp.h"
+#include    "timer.h"
 
 
 
@@ -68,59 +68,60 @@
 
 int8 team;
 
-void main(void) {
+int main(void) {
     //Ressources
-    float CodeurDroit = 0.0f;
-    float CodeurGauche = 0.0f;
-    float  distance =0.0f;
-    float angle=0.0f;
-    int compteur=0;
+    //float CodeurDroit = 0.0f;
+    //float CodeurGauche = 0.0f;
+    //float distance = 0.0f;
+    //float angle = 0.0f;
+    //int compteur = 0;
 
     //Initialisation
     pinConfiguration(); // Initialisation des différents PINS
     adcInit(); //Initialisation des ADC
-    uart_init(); // Initialisation de la communication avec l'ordinateur
+    debugger_init(); // Initialisation de la communication avec l'ordinateur + debugger leds
     asservissementInit(); // Initialisation du moteur + encodeur + asservissement
     SetPositionCurrent(0, 0, 0); //Initialisation de la position de départ
-    SetPositionObjectif(0, 0.3f, 0); // initialisation de la position de l'objectif
+    SetPositionObjectif(0, 0, 50.0f); // initialisation de la position de l'objectif
     //detectionSharpInit();
 
+    
+    
     // Initialise l'équipe
     if (!PORTFbits.RF0) team = 1;
     else team = -1;
 
     sendString("Fin de l'initialisation.\n");
+   ledSetAll(TRUE);
 
-
-    do
-    {
+    do {
         delay_ms(500);
         UpdatePosition();
+        
         //valeurCodeurs();
         //distance+=codeurGetDistance();
         //CodeurDroit+=codeurGetDroit();
         //CodeurGauche+=codeurGetGauche();
         //angle+=codeurGetAngle();
 
-
-        //StringFormatted("D:%1.5f , G:%1.5f ;",CodeurDroit,CodeurGauche);
+        //StringFormatted("C:%d;",compteur);
+        //compteur++;
         //StringFormatted("D:%1.5f ;",distance);
         //StringFormatted("A:%1.5f ;",angle);
-        StringFormatted("X:%1.5f , Y:%1.5f ,A:%1.5f;",Gali_current.x,Gali_current.y,Gali_current.angle);
-
-        //encodersDebug();
-        //afficher_Gali();
-        compteur++;
-    }while((ABS(Gali_current.y-Gali_objectif.y)>0.01f));
-    sendString("Fin de la consigne.\n");
+        StringFormatted("X:%1.5f , Y:%1.5f ,A:%1.5f D:%1.5f;", Gali_current.x, Gali_current.y, Gali_current.angle,Gali_current.angle*0.0174532925f);
+} while (ABS(Gali_current.angle - Gali_objectif.angle) > 0.1f);
+    //} while ((ABS(Gali_current.x - Gali_objectif.x) > 0.01f)|| (ABS(Gali_current.y - Gali_objectif.y) > 0.01f));
+    sendString("Fin de la consigne1.\n");
     mettreFrein();
     
+
+
     //delay_ms(10000);
     while (1) {
         //on récupère la valeur des codeurs
         //UpdatePosition();
 
-                //StringFormatted("X:%1.5f , Y:%1.5f ,A:%1.5f;",Gali_current.x,Gali_current.y,Gali_current.angle);
+        //StringFormatted("X:%1.5f , Y:%1.5f ,A:%1.5f;",Gali_current.x,Gali_current.y,Gali_current.angle);
 
 
 
@@ -128,3 +129,4 @@ void main(void) {
 
 
 }
+

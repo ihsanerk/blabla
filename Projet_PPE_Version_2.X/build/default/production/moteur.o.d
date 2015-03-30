@@ -3,4 +3,6 @@ moteur.c  \
 moteur.h  \
 configuration.h  \
  math.h  \
-debugger.h 
+debugger.h  \
+leds.h  \
+bits.h 
