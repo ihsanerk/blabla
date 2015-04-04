@@ -96,9 +96,11 @@ int main(void) {
 
     do {
         delay_ms(500);
+        sendString("coucou.\n");
         UpdatePosition();
         sharpTimerInit();
         detectionSharpInit ();
+        
         // Front Down left
 //        sendString (" | Sharp 1 = ");
 //	sendSignedInteger (getSharp(0));

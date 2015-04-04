@@ -1,4 +1,4 @@
-//	Library
+ //	Library
 #include "DetectionSharp.h"
 
 //	Variables
@@ -21,13 +21,13 @@ void detectionSharpInit ()
 	gestionnaireACD[0].currentSharpIndex = gestionnaireACD[1].currentSharpIndex = 0;
 
 	// 	ACD
-		
+
 	//	ANSELy
 	_ANSB15 = 1;
 	_ANSB14 = 1;
 	_ANSB13 = 1;
 	_ANSB12 = 1;
-	
+
 	// CON1
 	AD1CON1bits.ADON = 0; 		// ACD mode disable
 	AD1CON1bits.ADSIDL = 0; 	// Idle mode module operation
@@ -39,7 +39,7 @@ void detectionSharpInit ()
 	AD1CON1bits.SIMSAM = 0;		// Samples multiple channels individually in sequence
 	AD1CON1bits.ASAM = 0;		// Sampling begins when SAMP bit is set
 	AD1CON1bits.SAMP = 0;		// ADC conversion not started or in progress
-	
+
 	//	CON2
 	AD1CON2bits.VCFG = 0b000;	// VCFG
 	AD1CON2bits.CSCNA = 0;		// Do not scan inputs
@@ -48,14 +48,14 @@ void detectionSharpInit ()
 	AD1CON2bits.SMPI = 0b00000;	// Increments the DMA address after completion of every sample/conversion operation
 	AD1CON2bits.BUFM = 0;		// Always starts filling the buffer from the start address
 	AD1CON2bits.ALTS = 0;		// Always uses channel input selects for Sample A
-	
+
 	// CON 3
 	AD1CON3bits.ADRC = 0; 				// Clock Derived from System Clock
 	AD1CON3bits.SAMC = 0b11111; 		// 31 TAD
 	AD1CON3bits.ADCS = 0b000000010;		// TCY · (ADCS<7:0> + 1) = 3 · TCY = TAD
-	
+
 	//	CON 4
-	AD1CON4bits.DMABL   = 0;		// Allocates 1 word of buffer to each analog input	
+	AD1CON4bits.DMABL   = 0;		// Allocates 1 word of buffer to each analog input
 	AD1CON4bits.ADDMAEN = 0;		// Conversion results stored in ADCxBUF0 register, for transfer to RAM using DMA
 	AD1CHS0bits.CH0NA = 0;			// Channel 0 negative input is VREFL
 
@@ -65,11 +65,11 @@ void detectionSharpInit ()
 	AD2CON3  = 0b0001111100000010;
 	AD2CON4  = 0b0000000000000000;
 	AD2CHS0bits.CH0NA = 0; 			// Channel 0 negative input is VREFL
-	
+
 	//	Lancement ACD
 	AD1CON1bits.ADON = 1;
-	AD2CON1bits.ADON = 1;	
-	
+	AD2CON1bits.ADON = 1;
+
 	//Initialiser les variables
 	blocage.timerDetection = millis;
 	blocage.actif = FALSE;
@@ -99,7 +99,7 @@ void sharpTimerInit()
 
 int detectionSharpProcess (bool sens)
 {
-	// Si on détecte un ennemie dans le sens d'avancée que l'on avait pas détecté avant 
+	// Si on détecte un ennemie dans le sens d'avancée que l'on avait pas détecté avant
 	if ((detectionSharpObstacle(sens)) && (! blocage.actif))
 	{
 		// Signaler qu'on est bloqué
@@ -107,14 +107,14 @@ int detectionSharpProcess (bool sens)
 		blocage.timerDetection = millis;
 		return 1;
 	}
-	
+
 	//	Sinon si on ne détecte rien, réinitialiser les variables
 	else if ( !detectionSharpObstacle(sens) && blocage.actif)
 	{
 		blocage.actif = FALSE;
 		return 2;
 	}
-	
+
 	return 0;
 }
 
@@ -125,7 +125,7 @@ inline uint16 getSharp(int8 id)
 	// Ressources
 	int8 i;
 	uint16 value = 0;
-	
+
 	// Trouver la valeur moyenne
 	for(i=0; i < NB_SAMPLE; i++)
 	{
@@ -133,17 +133,17 @@ inline uint16 getSharp(int8 id)
 		{
 			case 0: value += sharp1[i];
 					break;
-			
+
 			case 1:value += sharp2[i];
 					break;
-			
+
 			case 2:value += sharp3[i];
 					break;
-			
+
 			case 3:value += sharp4[i];
 					break;
 		}
-		
+
 	}
 
 	return value;
@@ -155,11 +155,11 @@ bool detectionSharpObstacle (bool sens)
 	// En avant
 	if ( sens && ((getSharp(3) > 1300) || (getSharp(2) > 1300)))//sharp 4 = J12, sharp 3 = J13
 		return TRUE;
-	
+
 	// En arrière
 	else if ( !sens && ((getSharp(0) >	1300) || (getSharp(1) > 1300)))
 		return TRUE;
-		
+
 	return FALSE;
 }
 
@@ -169,17 +169,17 @@ bool detectionSharpObstacleSide (bool sens, bool side)
 	// En avant
 	if ( sens && side && ((getSharp(2) > 1300)))
 		return TRUE;
-	
+
 	else if ( sens && !side && ((getSharp(3) > 1300)))
 		return TRUE;
-	
+
 	// En arrière
 	else if ( !sens && side && ((getSharp(0) > 1300)))
 		return TRUE;
-	
+
 	else if ( !sens && !side && ((getSharp(1) > 1300)))
 		return TRUE;
-		
+
 	return FALSE;
 }
 
@@ -192,12 +192,12 @@ void __attribute__((__interrupt__,auto_psv)) _T3Interrupt(void)
 		if (gestionnaireACD [0].currentSharpIndex == 0) sharp1[gestionnaireACD [0].sampleIndex] = ADC1BUF0;
 		else sharp2[gestionnaireACD [0].sampleIndex] = ADC1BUF0;
 	}
-	else 
+	else
 	{
 		if (gestionnaireACD [0].currentSharpIndex == 0) sharp1[gestionnaireACD [0].sampleIndex] = 0;
 		else sharp2[gestionnaireACD [0].sampleIndex] = 0;
 	}
-	
+
 	// Capteurs arrières
 	if(AD2CON1bits.DONE)
 	{

@@ -72,7 +72,7 @@ void uart_init() {
     IPC7bits.U2RXIP = 0b110; // Interruption level TODO: set good level
     */
     // TX pour la carte Explorer 16
-    //RPOR9bits.RP101R = 3;		//RP64 as U2TX
+//    RPOR9bits.RP101R = 3;		//RP64 as U2TX
 
     ///Pour la Carte Gali VII
     RPINR19bits.U2RXR = 62; //RX pin 74 sur le dsPic33e

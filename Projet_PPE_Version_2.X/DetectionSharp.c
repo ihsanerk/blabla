@@ -129,16 +129,16 @@ inline uint16 getSharp(int8 id)
 			case 1:value += sharpFrontUp1[i];
 					break;
                     // Back Left
-			case 2:value += sharpBack1[i];
+			case 2:value += sharpFrontDown2[i];
 					break;
                     // Back Right
-			case 3:value += sharpBack2[i];
+			case 3:value += sharpFrontUp2[i];
 					break;
 
-                        case 4:value += sharpFrontDown2[i];
+                        case 4:value += sharpBack1[i];
 					break;
 
-			case 5:value += sharpFrontUp2[i];
+			case 5:value += sharpBack2[i];
 					break;
 		}
 
@@ -217,27 +217,30 @@ void __attribute__((__interrupt__,auto_psv)) _T3Interrupt(void)
 
 		if (gestionnaireACD [0].currentSharpIndex == 0)
                 {
+                    //capteur left down
                     sharpFrontDown1[gestionnaireACD [0].sampleIndex] = ADC1BUF0;
-//                    sendString (" | Sharp 1 = %d ", ADC1BUF0);
+//                    StringFormatted (" | Sharp 1 = %d ", ADC1BUF0);
                 }
+                //capteur left up
 		else if (gestionnaireACD [0].currentSharpIndex == 1){
                     sharpFrontUp1[gestionnaireACD [0].sampleIndex] = ADC1BUF0;
-//                    sendString (" | Sharp 2  ");
+//                    StringFormatted (" | Sharp 2 = %d ", ADC1BUF0);
                 }
+                    //capteur Back right
                 else if (gestionnaireACD [0].currentSharpIndex == 2){
-                    sharpFrontDown2[gestionnaireACD [0].sampleIndex] = ADC1BUF0;
-                    StringFormatted(" | Sharp 3 = %d ",ADC1BUF0);
-//                    sendString (" | Sharp 3  ");
+                    sharpBack1[gestionnaireACD [0].sampleIndex] = ADC1BUF0;
+//                    StringFormatted(" | Sharp 3 = %d ",ADC1BUF0);
                 }
+                //capteur back left
                 else if (gestionnaireACD [0].currentSharpIndex == 3){
-                    sharpFrontUp2[gestionnaireACD [0].sampleIndex] = ADC1BUF0;
-//                    sendString (" | Sharp 4  ");
+                    sharpBack2[gestionnaireACD [0].sampleIndex] = ADC1BUF0;
+                    StringFormatted (" | Sharp 4 = %d ", ADC1BUF0);
                 }
-                    
+
 	}
 	else
 	{
-		if (gestionnaireACD [0].currentSharpIndex == 0) 
+		if (gestionnaireACD [0].currentSharpIndex == 0)
                     sharpFrontDown1[gestionnaireACD [0].sampleIndex] = 0;
 		else if (gestionnaireACD [0].currentSharpIndex == 1)
                     sharpFrontUp1[gestionnaireACD [0].sampleIndex] = 0;
@@ -250,15 +253,17 @@ void __attribute__((__interrupt__,auto_psv)) _T3Interrupt(void)
 	// Capteurs arrières
 	if(AD2CON1bits.DONE)
 	{
+            //capteur front right down
 		if (gestionnaireACD [1].currentSharpIndex == 0) {
 //                    sendString (" | Sharp 5  ");
-                    sharpBack2[gestionnaireACD [1].sampleIndex] = ADC2BUF0;
-                    StringFormatted(" | Sharp 5 = %d ",ADC2BUF0);
+                    sharpFrontDown2[gestionnaireACD [1].sampleIndex] = ADC2BUF0;
+//                    StringFormatted(" | Sharp 5 = %d ",ADC2BUF0);
                 }
-                    
+
 		else {
-//                    sendString (" | Sharp 6  ");
-                    sharpBack1[gestionnaireACD [1].sampleIndex] = ADC2BUF0;
+                    //capteur front right Up
+//                    StringFormatted(" | Sharp 6 = %d ",ADC2BUF0);
+                    sharpFrontUp2[gestionnaireACD [1].sampleIndex] = ADC2BUF0;
                 }
 	}
 	else
@@ -286,7 +291,7 @@ void __attribute__((__interrupt__,auto_psv)) _T3Interrupt(void)
 
 	// Changement des entrées AD
 	AD1CHS0bits.CH0SA = gestionnaireACD [0].currentSharpIndex + 12;
-	AD2CHS0bits.CH0SA = gestionnaireACD [1].currentSharpIndex + 14;
+	AD2CHS0bits.CH0SA = gestionnaireACD [1].currentSharpIndex + 10;
 
 	// Lancements AD
 	AD1CON1bits.SAMP = 1;
@@ -295,4 +300,3 @@ void __attribute__((__interrupt__,auto_psv)) _T3Interrupt(void)
 	// Réinitialise le flag
 	_T3IF = 0;
 }
-

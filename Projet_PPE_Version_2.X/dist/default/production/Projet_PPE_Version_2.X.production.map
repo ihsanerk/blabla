@@ -186,13 +186,13 @@ Program Memory  [Origin = 0x200, Length = 0x55600]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200              0x2696          0x39e1  (14817)
-.const                      0x2896               0x104           0x186  (390)
-.text                       0x299a              0x1d16          0x2ba1  (11169)
-.dinit                      0x46b0               0x1f4           0x2ee  (750)
-.text                       0x48a4               0x4ee           0x765  (1893)
-.init.delay32               0x4d92                0x1c            0x2a  (42)
+.const                      0x2896                0xfe           0x17d  (381)
+.text                       0x2994              0x1d0a          0x2b8f  (11151)
+.dinit                      0x469e               0x1f4           0x2ee  (750)
+.text                       0x4892               0x4f2           0x76b  (1899)
+.init.delay32               0x4d84                0x1c            0x2a  (42)
 
-                     Total program memory used (bytes):         0x7185  (29061) 5%
+                     Total program memory used (bytes):         0x7170  (29040) 5%
 
 
 Auxflash Memory  [Origin = 0x7fc000, Length = 0x3ffa]
@@ -372,86 +372,86 @@ External Symbols in Program Memory (by address):
                   0x0027e0                  __dtype
                   0x002804                  __dunpack
                   0x002852                  ___umuldi3
-                  0x00299a                  _asservissementInit
-                  0x0029a6                  _asservissementPolInit
-                  0x002a68                  _asservissementCircuInit
-                  0x002b1e                  _pid
-                  0x002bb4                  _polaire
-                  0x002c42                  _limite
-                  0x002e6a                  _asservissementPolaire
-                  0x002ed0                  _asservissementCirculaire
-                  0x002ef4                  _circulaire
-                  0x00317c                  _erreursReInit
-                  0x0031f6                  _erreurMemory
-                  0x003284                  _sharpTimerInit
-                  0x0032b0                  _detectionSharpInit
-                  0x00335e                  _getSharp
-                  0x003412                  _detectionSharpObstacle
-                  0x00347a                  _detectionSharpProcess
-                  0x0034da                  _detectionSharpObstacleSide
-                  0x003590                  __T3Interrupt
-                  0x0037da                  _SetPositionObjectif
-                  0x003800                  _SetPositionCurrent
-                  0x003826                  _UpdatePosition
-                  0x003b0c                  _PositionParRapportObjectif
-                  0x003c68                  _NormaliserAngle
-                  0x003cba                  _afficher_position
-                  0x003cce                  _afficher_objectif
-                  0x003cee                  _afficher_Gali
-                  0x003d0e                  _moteurInit
-                  0x003d92                  _qeiInit
-                  0x003e7c                  _valeurCodeurs
-                  0x003f16                  _codeurGetDistance
-                  0x003f5e                  _codeurGetDroit
-                  0x003f7a                  _codeurGetGauche
-                  0x003f96                  _codeurGetAngle
-                  0x003ffc                  _encodersDebug
-                  0x004014                  _applicationAssPosMoteurs
-                  0x004176                  _applicationAssCirMoteurs
-                  0x0041d8                  _mettreFrein
-                  0x0041e2                  _enleverFrein
-                  0x0041ec                  _ledsInit
-                  0x004212                  _ledSet
-                  0x0042ee                  _ledToggle
-                  0x0043f8                  _ledSetAll
-                  0x004452                  _debugger_init
-                  0x00445c                  _sendString
-                  0x004488                  _sendSignedInteger
-                  0x00455e                  _sendUnSignedInteger
-                  0x00460c                  _StringFormatted
-                  0x004628                  _envoyer_message
-                  0x0048a4                  _pidGetOrder
-                  0x0049b2                  _adcInit
-                  0x004a28                  _adcPoll
-                  0x004a86                  _adcGetChannel
-                  0x004aae                  _uart_init
-                  0x004afc                  _uartGetChar
-                  0x004b12                  _uartSendChar
-                  0x004b2c                  _uartWaitEndOfTransmission
-                  0x004b3e                  __U2TXInterrupt
-                  0x004b7e                  _main
-                  0x004c3e                  _timerInit
-                  0x004c9e                  _jackInit
-                  0x004cc2                  _bitInit
-                  0x004cda                  _bitSet
-                  0x004d12                  _bitGet
-                  0x004d2e                  _pinConfiguration
-                  0x004d92                  ___delay32
+                  0x002994                  _asservissementInit
+                  0x0029a0                  _asservissementPolInit
+                  0x002a62                  _asservissementCircuInit
+                  0x002b18                  _pid
+                  0x002bae                  _polaire
+                  0x002c3c                  _limite
+                  0x002e64                  _asservissementPolaire
+                  0x002eca                  _asservissementCirculaire
+                  0x002eee                  _circulaire
+                  0x003176                  _erreursReInit
+                  0x0031f0                  _erreurMemory
+                  0x00327e                  _sharpTimerInit
+                  0x0032aa                  _detectionSharpInit
+                  0x003358                  _getSharp
+                  0x00340c                  _detectionSharpObstacle
+                  0x003474                  _detectionSharpProcess
+                  0x0034d4                  _detectionSharpObstacleSide
+                  0x00358a                  __T3Interrupt
+                  0x0037c8                  _SetPositionObjectif
+                  0x0037ee                  _SetPositionCurrent
+                  0x003814                  _UpdatePosition
+                  0x003afa                  _PositionParRapportObjectif
+                  0x003c56                  _NormaliserAngle
+                  0x003ca8                  _afficher_position
+                  0x003cbc                  _afficher_objectif
+                  0x003cdc                  _afficher_Gali
+                  0x003cfc                  _moteurInit
+                  0x003d80                  _qeiInit
+                  0x003e6a                  _valeurCodeurs
+                  0x003f04                  _codeurGetDistance
+                  0x003f4c                  _codeurGetDroit
+                  0x003f68                  _codeurGetGauche
+                  0x003f84                  _codeurGetAngle
+                  0x003fea                  _encodersDebug
+                  0x004002                  _applicationAssPosMoteurs
+                  0x004164                  _applicationAssCirMoteurs
+                  0x0041c6                  _mettreFrein
+                  0x0041d0                  _enleverFrein
+                  0x0041da                  _ledsInit
+                  0x004200                  _ledSet
+                  0x0042dc                  _ledToggle
+                  0x0043e6                  _ledSetAll
+                  0x004440                  _debugger_init
+                  0x00444a                  _sendString
+                  0x004476                  _sendSignedInteger
+                  0x00454c                  _sendUnSignedInteger
+                  0x0045fa                  _StringFormatted
+                  0x004616                  _envoyer_message
+                  0x004892                  _pidGetOrder
+                  0x0049a0                  _adcInit
+                  0x004a16                  _adcPoll
+                  0x004a74                  _adcGetChannel
+                  0x004a9c                  _uart_init
+                  0x004aea                  _uartGetChar
+                  0x004b00                  _uartSendChar
+                  0x004b1a                  _uartWaitEndOfTransmission
+                  0x004b2c                  __U2TXInterrupt
+                  0x004b6c                  _main
+                  0x004c30                  _timerInit
+                  0x004c90                  _jackInit
+                  0x004cb4                  _bitInit
+                  0x004ccc                  _bitSet
+                  0x004d04                  _bitGet
+                  0x004d20                  _pinConfiguration
+                  0x004d84                  ___delay32
 
 External Symbols in Program Memory (by name):
 
-                  0x003c68                  _NormaliserAngle
-                  0x003b0c                  _PositionParRapportObjectif
-                  0x003800                  _SetPositionCurrent
-                  0x0037da                  _SetPositionObjectif
-                  0x00460c                  _StringFormatted
-                  0x003826                  _UpdatePosition
+                  0x003c56                  _NormaliserAngle
+                  0x003afa                  _PositionParRapportObjectif
+                  0x0037ee                  _SetPositionCurrent
+                  0x0037c8                  _SetPositionObjectif
+                  0x0045fa                  _StringFormatted
+                  0x003814                  _UpdatePosition
                   0x0002d2                  __DefaultInterrupt
-                  0x003590                  __T3Interrupt
-                  0x004b3e                  __U2TXInterrupt
+                  0x00358a                  __T3Interrupt
+                  0x004b2c                  __U2TXInterrupt
                   0x00202c                  ___adddf3
                   0x000338                  ___addsf3
-                  0x004d92                  ___delay32
+                  0x004d84                  ___delay32
                   0x00213a                  ___divdf3
                   0x002658                  ___divdi3
                   0x0003f6                  ___divsf3
@@ -514,68 +514,68 @@ External Symbols in Program Memory (by name):
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
                   0x0006ba                  __sincosf
-                  0x004a86                  _adcGetChannel
-                  0x0049b2                  _adcInit
-                  0x004a28                  _adcPoll
-                  0x003cee                  _afficher_Gali
-                  0x003cce                  _afficher_objectif
-                  0x003cba                  _afficher_position
-                  0x004176                  _applicationAssCirMoteurs
-                  0x004014                  _applicationAssPosMoteurs
-                  0x002a68                  _asservissementCircuInit
-                  0x002ed0                  _asservissementCirculaire
-                  0x00299a                  _asservissementInit
-                  0x0029a6                  _asservissementPolInit
-                  0x002e6a                  _asservissementPolaire
-                  0x004d12                  _bitGet
-                  0x004cc2                  _bitInit
-                  0x004cda                  _bitSet
-                  0x002ef4                  _circulaire
-                  0x003f96                  _codeurGetAngle
-                  0x003f16                  _codeurGetDistance
-                  0x003f5e                  _codeurGetDroit
-                  0x003f7a                  _codeurGetGauche
+                  0x004a74                  _adcGetChannel
+                  0x0049a0                  _adcInit
+                  0x004a16                  _adcPoll
+                  0x003cdc                  _afficher_Gali
+                  0x003cbc                  _afficher_objectif
+                  0x003ca8                  _afficher_position
+                  0x004164                  _applicationAssCirMoteurs
+                  0x004002                  _applicationAssPosMoteurs
+                  0x002a62                  _asservissementCircuInit
+                  0x002eca                  _asservissementCirculaire
+                  0x002994                  _asservissementInit
+                  0x0029a0                  _asservissementPolInit
+                  0x002e64                  _asservissementPolaire
+                  0x004d04                  _bitGet
+                  0x004cb4                  _bitInit
+                  0x004ccc                  _bitSet
+                  0x002eee                  _circulaire
+                  0x003f84                  _codeurGetAngle
+                  0x003f04                  _codeurGetDistance
+                  0x003f4c                  _codeurGetDroit
+                  0x003f68                  _codeurGetGauche
                   0x0003f2                  _cosf
-                  0x004452                  _debugger_init
-                  0x0032b0                  _detectionSharpInit
-                  0x003412                  _detectionSharpObstacle
-                  0x0034da                  _detectionSharpObstacleSide
-                  0x00347a                  _detectionSharpProcess
-                  0x003ffc                  _encodersDebug
-                  0x0041e2                  _enleverFrein
-                  0x004628                  _envoyer_message
-                  0x0031f6                  _erreurMemory
-                  0x00317c                  _erreursReInit
+                  0x004440                  _debugger_init
+                  0x0032aa                  _detectionSharpInit
+                  0x00340c                  _detectionSharpObstacle
+                  0x0034d4                  _detectionSharpObstacleSide
+                  0x003474                  _detectionSharpProcess
+                  0x003fea                  _encodersDebug
+                  0x0041d0                  _enleverFrein
+                  0x004616                  _envoyer_message
+                  0x0031f0                  _erreurMemory
+                  0x003176                  _erreursReInit
                   0x0004e8                  _fmodf
                   0x0023c8                  _frexp
                   0x0023c8                  _frexpl
-                  0x00335e                  _getSharp
-                  0x004c9e                  _jackInit
-                  0x004212                  _ledSet
-                  0x0043f8                  _ledSetAll
-                  0x0042ee                  _ledToggle
-                  0x0041ec                  _ledsInit
-                  0x002c42                  _limite
-                  0x004b7e                  _main
-                  0x0041d8                  _mettreFrein
-                  0x003d0e                  _moteurInit
-                  0x002b1e                  _pid
-                  0x0048a4                  _pidGetOrder
-                  0x004d2e                  _pinConfiguration
-                  0x002bb4                  _polaire
-                  0x003d92                  _qeiInit
-                  0x004488                  _sendSignedInteger
-                  0x00445c                  _sendString
-                  0x00455e                  _sendUnSignedInteger
-                  0x003284                  _sharpTimerInit
+                  0x003358                  _getSharp
+                  0x004c90                  _jackInit
+                  0x004200                  _ledSet
+                  0x0043e6                  _ledSetAll
+                  0x0042dc                  _ledToggle
+                  0x0041da                  _ledsInit
+                  0x002c3c                  _limite
+                  0x004b6c                  _main
+                  0x0041c6                  _mettreFrein
+                  0x003cfc                  _moteurInit
+                  0x002b18                  _pid
+                  0x004892                  _pidGetOrder
+                  0x004d20                  _pinConfiguration
+                  0x002bae                  _polaire
+                  0x003d80                  _qeiInit
+                  0x004476                  _sendSignedInteger
+                  0x00444a                  _sendString
+                  0x00454c                  _sendUnSignedInteger
+                  0x00327e                  _sharpTimerInit
                   0x00078c                  _sinf
                   0x000790                  _sqrtf
-                  0x004c3e                  _timerInit
-                  0x004afc                  _uartGetChar
-                  0x004b12                  _uartSendChar
-                  0x004b2c                  _uartWaitEndOfTransmission
-                  0x004aae                  _uart_init
-                  0x003e7c                  _valeurCodeurs
+                  0x004c30                  _timerInit
+                  0x004aea                  _uartGetChar
+                  0x004b00                  _uartSendChar
+                  0x004b1a                  _uartWaitEndOfTransmission
+                  0x004a9c                  _uart_init
+                  0x003e6a                  _valeurCodeurs
                   0x000a60                  _vfprintf
                   0x0008d4                  _vsnprintf
 
@@ -897,11 +897,11 @@ __FUID0
  .debug_line      0x0013a1        0x5a3 build/default/production/asservissement.o
  .debug_line      0x001944         0x90 build/default/production/pid.o
  .debug_line      0x0019d4        0x2ae build/default/production/controleur.o
- .debug_line      0x001c82        0x57a build/default/production/DetectionSharp.o
- .debug_line      0x0021fc        0x14a build/default/production/main.o
+ .debug_line      0x001c82        0x572 build/default/production/DetectionSharp.o
+ .debug_line      0x0021f4        0x152 build/default/production/main.o
  .debug_line      0x002346         0x24 build/default/production/math.o
 
-.debug_frame      0x000000        0x62c
+.debug_frame      0x000000        0x618
  *(.debug_frame)
  .debug_frame     0x000000         0x24 build/default/production/configuration.o
  .debug_frame     0x000024         0x44 build/default/production/bits.o
@@ -914,8 +914,8 @@ __FUID0
  .debug_frame     0x000344         0xc4 build/default/production/asservissement.o
  .debug_frame     0x000408         0x24 build/default/production/pid.o
  .debug_frame     0x00042c        0x104 build/default/production/controleur.o
- .debug_frame     0x000530         0xd8 build/default/production/DetectionSharp.o
- .debug_frame     0x000608         0x24 build/default/production/main.o
+ .debug_frame     0x000530         0xc4 build/default/production/DetectionSharp.o
+ .debug_frame     0x0005f4         0x24 build/default/production/main.o
 
 .debug_str        0x000000        0x468
  *(.debug_str)
@@ -1016,7 +1016,7 @@ __FUID0
                   0x00001e          0x4 LONG 0x2d2 DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000020          0x4 LONG 0x2d2 DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000022          0x4 LONG 0x2d2 DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000024          0x4 LONG 0x3590 DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000024          0x4 LONG 0x358a DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000026          0x4 LONG 0x2d2 DEFINED (__SPI1ErrInterrupt)?ABSOLUTE (__SPI1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000028          0x4 LONG 0x2d2 DEFINED (__SPI1Interrupt)?ABSOLUTE (__SPI1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00002a          0x4 LONG 0x2d2 DEFINED (__U1RXInterrupt)?ABSOLUTE (__U1RXInterrupt):ABSOLUTE (__DefaultInterrupt)
@@ -1039,7 +1039,7 @@ __FUID0
                   0x00004c          0x4 LONG 0x2d2 DEFINED (__T5Interrupt)?ABSOLUTE (__T5Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00004e          0x4 LONG 0x2d2 DEFINED (__INT2Interrupt)?ABSOLUTE (__INT2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000050          0x4 LONG 0x2d2 DEFINED (__U2RXInterrupt)?ABSOLUTE (__U2RXInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000052          0x4 LONG 0x4b3e DEFINED (__U2TXInterrupt)?ABSOLUTE (__U2TXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000052          0x4 LONG 0x4b2c DEFINED (__U2TXInterrupt)?ABSOLUTE (__U2TXInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000054          0x4 LONG 0x2d2 DEFINED (__SPI2ErrInterrupt)?ABSOLUTE (__SPI2ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000056          0x4 LONG 0x2d2 DEFINED (__SPI2Interrupt)?ABSOLUTE (__SPI2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000058          0x4 LONG 0x2d2 DEFINED (__C1RxRdyInterrupt)?ABSOLUTE (__C1RxRdyInterrupt):ABSOLUTE (__DefaultInterrupt)
@@ -4103,97 +4103,97 @@ __c30_signature
 .config_GSSK      0xf80004          0x2
  .config_GSSK     0xf80004          0x2 build/default/production/main.o
 
-.const              0xa896        0x104 load address 0x002896  
+.const              0xa896         0xfe load address 0x002896  
  .const             0xa896         0x5e build/default/production/controleur.o
- .const             0xa8f4         0x32 build/default/production/moteur.o
- .const             0xa926         0x30 build/default/production/DetectionSharp.o
- .const             0xa956         0x30 build/default/production/main.o
- .const             0xa986         0x14 build/default/production/debugger.o
+ .const             0xa8f4         0x3a build/default/production/main.o
+ .const             0xa92e         0x32 build/default/production/moteur.o
+ .const             0xa960         0x20 build/default/production/DetectionSharp.o
+ .const             0xa980         0x14 build/default/production/debugger.o
 
-.text             0x00299a       0x1d16
- .text            0x00299a        0x8ea build/default/production/asservissement.o
-                  0x00299a                  _asservissementInit
-                  0x0029a6                  _asservissementPolInit
-                  0x002a68                  _asservissementCircuInit
-                  0x002b1e                  _pid
-                  0x002bb4                  _polaire
-                  0x002c42                  _limite
-                  0x002e6a                  _asservissementPolaire
-                  0x002ed0                  _asservissementCirculaire
-                  0x002ef4                  _circulaire
-                  0x00317c                  _erreursReInit
-                  0x0031f6                  _erreurMemory
- .text            0x003284        0x556 build/default/production/DetectionSharp.o
-                  0x003284                  _sharpTimerInit
-                  0x0032b0                  _detectionSharpInit
-                  0x00335e                  _getSharp
-                  0x003412                  _detectionSharpObstacle
-                  0x00347a                  _detectionSharpProcess
-                  0x0034da                  _detectionSharpObstacleSide
-                  0x003590                  __T3Interrupt
- .text            0x0037da        0x534 build/default/production/controleur.o
-                  0x0037da                  _SetPositionObjectif
-                  0x003800                  _SetPositionCurrent
-                  0x003826                  _UpdatePosition
-                  0x003b0c                  _PositionParRapportObjectif
-                  0x003c68                  _NormaliserAngle
-                  0x003cba                  _afficher_position
-                  0x003cce                  _afficher_objectif
-                  0x003cee                  _afficher_Gali
- .text            0x003d0e        0x4de build/default/production/moteur.o
-                  0x003d0e                  _moteurInit
-                  0x003d92                  _qeiInit
-                  0x003e7c                  _valeurCodeurs
-                  0x003f16                  _codeurGetDistance
-                  0x003f5e                  _codeurGetDroit
-                  0x003f7a                  _codeurGetGauche
-                  0x003f96                  _codeurGetAngle
-                  0x003ffc                  _encodersDebug
-                  0x004014                  _applicationAssPosMoteurs
-                  0x004176                  _applicationAssCirMoteurs
-                  0x0041d8                  _mettreFrein
-                  0x0041e2                  _enleverFrein
- .text            0x0041ec        0x266 build/default/production/leds.o
-                  0x0041ec                  _ledsInit
-                  0x004212                  _ledSet
-                  0x0042ee                  _ledToggle
-                  0x0043f8                  _ledSetAll
- .text            0x004452        0x25e build/default/production/debugger.o
-                  0x004452                  _debugger_init
-                  0x00445c                  _sendString
-                  0x004488                  _sendSignedInteger
-                  0x00455e                  _sendUnSignedInteger
-                  0x00460c                  _StringFormatted
-                  0x004628                  _envoyer_message
+.text             0x002994       0x1d0a
+ .text            0x002994        0x8ea build/default/production/asservissement.o
+                  0x002994                  _asservissementInit
+                  0x0029a0                  _asservissementPolInit
+                  0x002a62                  _asservissementCircuInit
+                  0x002b18                  _pid
+                  0x002bae                  _polaire
+                  0x002c3c                  _limite
+                  0x002e64                  _asservissementPolaire
+                  0x002eca                  _asservissementCirculaire
+                  0x002eee                  _circulaire
+                  0x003176                  _erreursReInit
+                  0x0031f0                  _erreurMemory
+ .text            0x00327e        0x54a build/default/production/DetectionSharp.o
+                  0x00327e                  _sharpTimerInit
+                  0x0032aa                  _detectionSharpInit
+                  0x003358                  _getSharp
+                  0x00340c                  _detectionSharpObstacle
+                  0x003474                  _detectionSharpProcess
+                  0x0034d4                  _detectionSharpObstacleSide
+                  0x00358a                  __T3Interrupt
+ .text            0x0037c8        0x534 build/default/production/controleur.o
+                  0x0037c8                  _SetPositionObjectif
+                  0x0037ee                  _SetPositionCurrent
+                  0x003814                  _UpdatePosition
+                  0x003afa                  _PositionParRapportObjectif
+                  0x003c56                  _NormaliserAngle
+                  0x003ca8                  _afficher_position
+                  0x003cbc                  _afficher_objectif
+                  0x003cdc                  _afficher_Gali
+ .text            0x003cfc        0x4de build/default/production/moteur.o
+                  0x003cfc                  _moteurInit
+                  0x003d80                  _qeiInit
+                  0x003e6a                  _valeurCodeurs
+                  0x003f04                  _codeurGetDistance
+                  0x003f4c                  _codeurGetDroit
+                  0x003f68                  _codeurGetGauche
+                  0x003f84                  _codeurGetAngle
+                  0x003fea                  _encodersDebug
+                  0x004002                  _applicationAssPosMoteurs
+                  0x004164                  _applicationAssCirMoteurs
+                  0x0041c6                  _mettreFrein
+                  0x0041d0                  _enleverFrein
+ .text            0x0041da        0x266 build/default/production/leds.o
+                  0x0041da                  _ledsInit
+                  0x004200                  _ledSet
+                  0x0042dc                  _ledToggle
+                  0x0043e6                  _ledSetAll
+ .text            0x004440        0x25e build/default/production/debugger.o
+                  0x004440                  _debugger_init
+                  0x00444a                  _sendString
+                  0x004476                  _sendSignedInteger
+                  0x00454c                  _sendUnSignedInteger
+                  0x0045fa                  _StringFormatted
+                  0x004616                  _envoyer_message
 
-.dinit            0x0046b0        0x1f4
- .dinit           0x0046b0        0x1f4 data_init
+.dinit            0x00469e        0x1f4
+ .dinit           0x00469e        0x1f4 data_init
 
-.text             0x0048a4        0x4ee
- .text            0x0048a4        0x10e build/default/production/pid.o
-                  0x0048a4                  _pidGetOrder
- .text            0x0049b2         0xfc build/default/production/adc.o
-                  0x0049b2                  _adcInit
-                  0x004a28                  _adcPoll
-                  0x004a86                  _adcGetChannel
- .text            0x004aae         0xd0 build/default/production/uart.o
-                  0x004aae                  _uart_init
-                  0x004afc                  _uartGetChar
-                  0x004b12                  _uartSendChar
-                  0x004b2c                  _uartWaitEndOfTransmission
-                  0x004b3e                  __U2TXInterrupt
- .text            0x004b7e         0xc0 build/default/production/main.o
-                  0x004b7e                  _main
- .text            0x004c3e         0x84 build/default/production/timer.o
-                  0x004c3e                  _timerInit
-                  0x004c9e                  _jackInit
- .text            0x004cc2         0x6c build/default/production/bits.o
-                  0x004cc2                  _bitInit
-                  0x004cda                  _bitSet
-                  0x004d12                  _bitGet
- .text            0x004d2e         0x64 build/default/production/configuration.o
-                  0x004d2e                  _pinConfiguration
+.text             0x004892        0x4f2
+ .text            0x004892        0x10e build/default/production/pid.o
+                  0x004892                  _pidGetOrder
+ .text            0x0049a0         0xfc build/default/production/adc.o
+                  0x0049a0                  _adcInit
+                  0x004a16                  _adcPoll
+                  0x004a74                  _adcGetChannel
+ .text            0x004a9c         0xd0 build/default/production/uart.o
+                  0x004a9c                  _uart_init
+                  0x004aea                  _uartGetChar
+                  0x004b00                  _uartSendChar
+                  0x004b1a                  _uartWaitEndOfTransmission
+                  0x004b2c                  __U2TXInterrupt
+ .text            0x004b6c         0xc4 build/default/production/main.o
+                  0x004b6c                  _main
+ .text            0x004c30         0x84 build/default/production/timer.o
+                  0x004c30                  _timerInit
+                  0x004c90                  _jackInit
+ .text            0x004cb4         0x6c build/default/production/bits.o
+                  0x004cb4                  _bitInit
+                  0x004ccc                  _bitSet
+                  0x004d04                  _bitGet
+ .text            0x004d20         0x64 build/default/production/configuration.o
+                  0x004d20                  _pinConfiguration
 
-.init.delay32     0x004d92         0x1c
- .init.delay32    0x004d92         0x1c c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
-                  0x004d92                  ___delay32
+.init.delay32     0x004d84         0x1c
+ .init.delay32    0x004d84         0x1c c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
+                  0x004d84                  ___delay32
