@@ -108,6 +108,37 @@ void strategy()
             if (EnnemyDetected == FALSE)
             {
                //go to target à ajouter mais que de qlq cm
+                switch (target)
+                {
+                    case 0 : //algo poser plots ou gobelet
+                                break;
+                    case 1 : //algoPrendreGobelet
+                                break;
+                    case 2 : //algoPrendrePlot
+                                break;
+                    case 3 : //algoPrendrePlot
+                                break;
+                    case 4 : //algoPrendrePlot
+                                break;
+                    case 5 : //algoPrendrePlot
+                                break;
+                    case 6 : //algoPrendrePlot
+                                break;
+                    case 7 : //algoPrendrePlot
+                                break;
+                    case 8 : //algoPoserPlots
+                                break;
+                    case 9 : //algoClapets
+                                break;
+                    case 10 ://algoClapets
+                                break;
+                    case 11 ://algoPrendreGoblet
+                                break;
+                    case 12 ://algoPoserPlots
+                                break;
+                    case 13 ://algoPoserPlots
+                                break;
+                }
             }
             else
             {

@@ -33,9 +33,9 @@ Command:
   build/default/production/pid.o \
   build/default/production/controleur.o \
   build/default/production/DetectionSharp.o \
+  build/default/production/strategy.o \
   build/default/production/main.o \
   build/default/production/math.o \
-  build/default/production/strategy.o \
   --local-stack \
   --defsym=__MPLAB_BUILD=1 \
   -Tp33EP512MU810.gld.00 \
@@ -194,10 +194,10 @@ section                    address   length (PC units)   length (bytes) (dec)
 .const                      0x2fb2               0x292           0x3db  (987)
 .text                       0x3244              0x1846          0x2469  (9321)
 .dinit                      0x4a8a               0x282           0x3c3  (963)
-.text                       0x4d0c               0xbb8          0x1194  (4500)
-.init.delay32               0x58c4                0x1c            0x2a  (42)
+.text                       0x4d0c               0xbec          0x11e2  (4578)
+.init.delay32               0x58f8                0x1c            0x2a  (42)
 
-                     Total program memory used (bytes):         0x8250  (33360) 6%
+                     Total program memory used (bytes):         0x829e  (33438) 6%
 
 
 Auxflash Memory  [Origin = 0x7fc000, Length = 0x3ffa]
@@ -430,23 +430,23 @@ External Symbols in Program Memory (by address):
                   0x0051d0                  _allselected
                   0x0051fc                  _shortpath
                   0x005322                  _strategy
-                  0x0053d2                  _pidGetOrder
-                  0x0054e0                  _adcInit
-                  0x005556                  _adcPoll
-                  0x0055b4                  _adcGetChannel
-                  0x0055dc                  _uart_init
-                  0x00562a                  _uartGetChar
-                  0x005640                  _uartSendChar
-                  0x00565a                  _uartWaitEndOfTransmission
-                  0x00566c                  __U2TXInterrupt
-                  0x0056ac                  _main
-                  0x005770                  _timerInit
-                  0x0057d0                  _jackInit
-                  0x0057f4                  _bitInit
-                  0x00580c                  _bitSet
-                  0x005844                  _bitGet
-                  0x005860                  _pinConfiguration
-                  0x0058c4                  ___delay32
+                  0x005406                  _pidGetOrder
+                  0x005514                  _adcInit
+                  0x00558a                  _adcPoll
+                  0x0055e8                  _adcGetChannel
+                  0x005610                  _uart_init
+                  0x00565e                  _uartGetChar
+                  0x005674                  _uartSendChar
+                  0x00568e                  _uartWaitEndOfTransmission
+                  0x0056a0                  __U2TXInterrupt
+                  0x0056e0                  _main
+                  0x0057a4                  _timerInit
+                  0x005804                  _jackInit
+                  0x005828                  _bitInit
+                  0x005840                  _bitSet
+                  0x005878                  _bitGet
+                  0x005894                  _pinConfiguration
+                  0x0058f8                  ___delay32
 
 External Symbols in Program Memory (by name):
 
@@ -458,10 +458,10 @@ External Symbols in Program Memory (by name):
                   0x0040c4                  _UpdatePosition
                   0x0002d2                  __DefaultInterrupt
                   0x003e3a                  __T3Interrupt
-                  0x00566c                  __U2TXInterrupt
+                  0x0056a0                  __U2TXInterrupt
                   0x002748                  ___adddf3
                   0x000338                  ___addsf3
-                  0x0058c4                  ___delay32
+                  0x0058f8                  ___delay32
                   0x002856                  ___divdf3
                   0x002d74                  ___divdi3
                   0x0003f6                  ___divsf3
@@ -526,9 +526,9 @@ External Symbols in Program Memory (by name):
                   0x000200                  __resetPRI
                   0x0006ba                  __sincosf
                   0x001fb2                  __vfprintf_cdnopuxX
-                  0x0055b4                  _adcGetChannel
-                  0x0054e0                  _adcInit
-                  0x005556                  _adcPoll
+                  0x0055e8                  _adcGetChannel
+                  0x005514                  _adcInit
+                  0x00558a                  _adcPoll
                   0x00458c                  _afficher_Gali
                   0x00456c                  _afficher_objectif
                   0x004558                  _afficher_position
@@ -540,9 +540,9 @@ External Symbols in Program Memory (by name):
                   0x003244                  _asservissementInit
                   0x003250                  _asservissementPolInit
                   0x003714                  _asservissementPolaire
-                  0x005844                  _bitGet
-                  0x0057f4                  _bitInit
-                  0x00580c                  _bitSet
+                  0x005878                  _bitGet
+                  0x005828                  _bitInit
+                  0x005840                  _bitSet
                   0x00379e                  _circulaire
                   0x004834                  _codeurGetAngle
                   0x0047b4                  _codeurGetDistance
@@ -563,18 +563,18 @@ External Symbols in Program Memory (by name):
                   0x002ae4                  _frexp
                   0x002ae4                  _frexpl
                   0x003c08                  _getSharp
-                  0x0057d0                  _jackInit
+                  0x005804                  _jackInit
                   0x004d32                  _ledSet
                   0x004f18                  _ledSetAll
                   0x004e0e                  _ledToggle
                   0x004d0c                  _ledsInit
                   0x0034ec                  _limite
-                  0x0056ac                  _main
+                  0x0056e0                  _main
                   0x004a76                  _mettreFrein
                   0x0045ac                  _moteurInit
                   0x0033c8                  _pid
-                  0x0053d2                  _pidGetOrder
-                  0x005860                  _pinConfiguration
+                  0x005406                  _pidGetOrder
+                  0x005894                  _pinConfiguration
                   0x00345e                  _polaire
                   0x004630                  _qeiInit
                   0x004fa8                  _sendSignedInteger
@@ -585,11 +585,11 @@ External Symbols in Program Memory (by name):
                   0x00078c                  _sinf
                   0x000790                  _sqrtf
                   0x005322                  _strategy
-                  0x005770                  _timerInit
-                  0x00562a                  _uartGetChar
-                  0x005640                  _uartSendChar
-                  0x00565a                  _uartWaitEndOfTransmission
-                  0x0055dc                  _uart_init
+                  0x0057a4                  _timerInit
+                  0x00565e                  _uartGetChar
+                  0x005674                  _uartSendChar
+                  0x00568e                  _uartWaitEndOfTransmission
+                  0x005610                  _uart_init
                   0x00471a                  _valeurCodeurs
                   0x000a6e                  _vfprintf
                   0x0008d4                  _vsnprintf
@@ -626,9 +626,9 @@ LOAD build/default/production/asservissement.o
 LOAD build/default/production/pid.o
 LOAD build/default/production/controleur.o
 LOAD build/default/production/DetectionSharp.o
+LOAD build/default/production/strategy.o
 LOAD build/default/production/main.o
 LOAD build/default/production/math.o
-LOAD build/default/production/strategy.o
                     0x0001                  __MPLAB_BUILD = 0x1
 LOAD c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33E\libp33EP512MU810-elf.a
 LOAD c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libfx-elf.a
@@ -885,9 +885,9 @@ __FUID0
  .debug_info      0x005f77        0x201 build/default/production/pid.o
  .debug_info      0x006178        0x4aa build/default/production/controleur.o
  .debug_info      0x006622       0x182a build/default/production/DetectionSharp.o
- .debug_info      0x007e4c        0x30e build/default/production/main.o
- .debug_info      0x00815a        0x128 build/default/production/math.o
- .debug_info      0x008282        0x373 build/default/production/strategy.o
+ .debug_info      0x007e4c        0x373 build/default/production/strategy.o
+ .debug_info      0x0081bf        0x30e build/default/production/main.o
+ .debug_info      0x0084cd        0x128 build/default/production/math.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0xdba
@@ -904,11 +904,11 @@ __FUID0
  .debug_abbrev    0x0008ba         0x8a build/default/production/pid.o
  .debug_abbrev    0x000944        0x126 build/default/production/controleur.o
  .debug_abbrev    0x000a6a        0x183 build/default/production/DetectionSharp.o
- .debug_abbrev    0x000bed         0xdd build/default/production/main.o
- .debug_abbrev    0x000cca         0x1f build/default/production/math.o
- .debug_abbrev    0x000ce9         0xd1 build/default/production/strategy.o
+ .debug_abbrev    0x000bed         0xd1 build/default/production/strategy.o
+ .debug_abbrev    0x000cbe         0xdd build/default/production/main.o
+ .debug_abbrev    0x000d9b         0x1f build/default/production/math.o
 
-.debug_line       0x000000       0x25a2
+.debug_line       0x000000       0x25b2
  *(.debug_line)
  .debug_line      0x000000        0x101 build/default/production/configuration.o
  .debug_line      0x000101         0xc0 build/default/production/bits.o
@@ -922,9 +922,9 @@ __FUID0
  .debug_line      0x001944         0x90 build/default/production/pid.o
  .debug_line      0x0019d4        0x2ae build/default/production/controleur.o
  .debug_line      0x001c82        0x572 build/default/production/DetectionSharp.o
- .debug_line      0x0021f4        0x152 build/default/production/main.o
- .debug_line      0x002346         0x24 build/default/production/math.o
- .debug_line      0x00236a        0x238 build/default/production/strategy.o
+ .debug_line      0x0021f4        0x248 build/default/production/strategy.o
+ .debug_line      0x00243c        0x152 build/default/production/main.o
+ .debug_line      0x00258e         0x24 build/default/production/math.o
 
 .debug_frame      0x000000        0x680
  *(.debug_frame)
@@ -940,8 +940,8 @@ __FUID0
  .debug_frame     0x000408         0x24 build/default/production/pid.o
  .debug_frame     0x00042c        0x104 build/default/production/controleur.o
  .debug_frame     0x000530         0xc4 build/default/production/DetectionSharp.o
- .debug_frame     0x0005f4         0x24 build/default/production/main.o
- .debug_frame     0x000618         0x68 build/default/production/strategy.o
+ .debug_frame     0x0005f4         0x68 build/default/production/strategy.o
+ .debug_frame     0x00065c         0x24 build/default/production/main.o
 
 .debug_str        0x000000        0x484
  *(.debug_str)
@@ -955,8 +955,8 @@ __FUID0
  .debug_str       0x0002ba         0x4b build/default/production/asservissement.o
  .debug_str       0x000305         0x46 build/default/production/controleur.o
  .debug_str       0x00034b         0xf8 build/default/production/DetectionSharp.o
- .debug_str       0x000443         0x25 build/default/production/main.o
- .debug_str       0x000468         0x1c build/default/production/strategy.o
+ .debug_str       0x000443         0x1c build/default/production/strategy.o
+ .debug_str       0x00045f         0x25 build/default/production/main.o
 
 .debug_loc
  *(.debug_loc)
@@ -992,9 +992,9 @@ __FUID0
  .debug_pubnames
                   0x0005af        0x138 build/default/production/DetectionSharp.o
  .debug_pubnames
-                  0x0006e7         0x24 build/default/production/main.o
+                  0x0006e7         0x3d build/default/production/strategy.o
  .debug_pubnames
-                  0x00070b         0x3d build/default/production/strategy.o
+                  0x000724         0x24 build/default/production/main.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -1026,9 +1026,9 @@ __FUID0
  .debug_aranges
                   0x000108         0x18 build/default/production/DetectionSharp.o
  .debug_aranges
-                  0x000120         0x18 build/default/production/main.o
+                  0x000120         0x18 build/default/production/strategy.o
  .debug_aranges
-                  0x000138         0x18 build/default/production/strategy.o
+                  0x000138         0x18 build/default/production/main.o
 
 .ivt              0x000004        0x130
                   0x000004          0x4 LONG 0x2d2 DEFINED (__OscillatorFail)?ABSOLUTE (__OscillatorFail):ABSOLUTE (__DefaultInterrupt)
@@ -1070,7 +1070,7 @@ __FUID0
                   0x00004c          0x4 LONG 0x2d2 DEFINED (__T5Interrupt)?ABSOLUTE (__T5Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00004e          0x4 LONG 0x2d2 DEFINED (__INT2Interrupt)?ABSOLUTE (__INT2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000050          0x4 LONG 0x2d2 DEFINED (__U2RXInterrupt)?ABSOLUTE (__U2RXInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000052          0x4 LONG 0x566c DEFINED (__U2TXInterrupt)?ABSOLUTE (__U2TXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000052          0x4 LONG 0x56a0 DEFINED (__U2TXInterrupt)?ABSOLUTE (__U2TXInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000054          0x4 LONG 0x2d2 DEFINED (__SPI2ErrInterrupt)?ABSOLUTE (__SPI2ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000056          0x4 LONG 0x2d2 DEFINED (__SPI2Interrupt)?ABSOLUTE (__SPI2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000058          0x4 LONG 0x2d2 DEFINED (__C1RxRdyInterrupt)?ABSOLUTE (__C1RxRdyInterrupt):ABSOLUTE (__DefaultInterrupt)
@@ -3894,11 +3894,11 @@ LOAD data_init
  .debug_pubtypes
                   0x0008f3        0x1f9 build/default/production/DetectionSharp.o
  .debug_pubtypes
-                  0x000aec         0x55 build/default/production/main.o
+                  0x000aec         0x1b build/default/production/strategy.o
  .debug_pubtypes
-                  0x000b41         0x12 build/default/production/math.o
+                  0x000b07         0x55 build/default/production/main.o
  .debug_pubtypes
-                  0x000b53         0x1b build/default/production/strategy.o
+                  0x000b5c         0x12 build/default/production/math.o
 
 __c30_signature
                   0x000b6e        0x1ce
@@ -3927,11 +3927,11 @@ __c30_signature
  __c30_signature
                   0x000bb0          0x6 build/default/production/DetectionSharp.o
  __c30_signature
-                  0x000bb6          0x6 build/default/production/main.o
+                  0x000bb6          0x6 build/default/production/strategy.o
  __c30_signature
-                  0x000bbc          0x6 build/default/production/math.o
+                  0x000bbc          0x6 build/default/production/main.o
  __c30_signature
-                  0x000bc2          0x6 build/default/production/strategy.o
+                  0x000bc2          0x6 build/default/production/math.o
  __c30_signature
                   0x000bc8          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o)
  __c30_signature
@@ -4198,7 +4198,7 @@ __c30_signature
 .dinit            0x004a8a        0x282
  .dinit           0x004a8a        0x282 data_init
 
-.text             0x004d0c        0xbb8
+.text             0x004d0c        0xbec
  .text            0x004d0c        0x266 build/default/production/leds.o
                   0x004d0c                  _ledsInit
                   0x004d32                  _ledSet
@@ -4211,34 +4211,34 @@ __c30_signature
                   0x00507e                  _sendUnSignedInteger
                   0x00512c                  _StringFormatted
                   0x005148                  _envoyer_message
- .text            0x0051d0        0x202 build/default/production/strategy.o
+ .text            0x0051d0        0x236 build/default/production/strategy.o
                   0x0051d0                  _allselected
                   0x0051fc                  _shortpath
                   0x005322                  _strategy
- .text            0x0053d2        0x10e build/default/production/pid.o
-                  0x0053d2                  _pidGetOrder
- .text            0x0054e0         0xfc build/default/production/adc.o
-                  0x0054e0                  _adcInit
-                  0x005556                  _adcPoll
-                  0x0055b4                  _adcGetChannel
- .text            0x0055dc         0xd0 build/default/production/uart.o
-                  0x0055dc                  _uart_init
-                  0x00562a                  _uartGetChar
-                  0x005640                  _uartSendChar
-                  0x00565a                  _uartWaitEndOfTransmission
-                  0x00566c                  __U2TXInterrupt
- .text            0x0056ac         0xc4 build/default/production/main.o
-                  0x0056ac                  _main
- .text            0x005770         0x84 build/default/production/timer.o
-                  0x005770                  _timerInit
-                  0x0057d0                  _jackInit
- .text            0x0057f4         0x6c build/default/production/bits.o
-                  0x0057f4                  _bitInit
-                  0x00580c                  _bitSet
-                  0x005844                  _bitGet
- .text            0x005860         0x64 build/default/production/configuration.o
-                  0x005860                  _pinConfiguration
+ .text            0x005406        0x10e build/default/production/pid.o
+                  0x005406                  _pidGetOrder
+ .text            0x005514         0xfc build/default/production/adc.o
+                  0x005514                  _adcInit
+                  0x00558a                  _adcPoll
+                  0x0055e8                  _adcGetChannel
+ .text            0x005610         0xd0 build/default/production/uart.o
+                  0x005610                  _uart_init
+                  0x00565e                  _uartGetChar
+                  0x005674                  _uartSendChar
+                  0x00568e                  _uartWaitEndOfTransmission
+                  0x0056a0                  __U2TXInterrupt
+ .text            0x0056e0         0xc4 build/default/production/main.o
+                  0x0056e0                  _main
+ .text            0x0057a4         0x84 build/default/production/timer.o
+                  0x0057a4                  _timerInit
+                  0x005804                  _jackInit
+ .text            0x005828         0x6c build/default/production/bits.o
+                  0x005828                  _bitInit
+                  0x005840                  _bitSet
+                  0x005878                  _bitGet
+ .text            0x005894         0x64 build/default/production/configuration.o
+                  0x005894                  _pinConfiguration
 
-.init.delay32     0x0058c4         0x1c
- .init.delay32    0x0058c4         0x1c c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
-                  0x0058c4                  ___delay32
+.init.delay32     0x0058f8         0x1c
+ .init.delay32    0x0058f8         0x1c c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
+                  0x0058f8                  ___delay32
