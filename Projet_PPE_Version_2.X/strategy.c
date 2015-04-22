@@ -110,33 +110,61 @@ void strategy()
                //go to target à ajouter mais que de qlq cm
                 switch (target)
                 {
-                    case 0 : //algo poser plots ou gobelet
+                    case 0 : //go to x=1000 y=600
+                             //si arrivé à destination
+                             //algo poser plots ou gobelet
                                 break;
-                    case 1 : //algoPrendreGobelet
+                    case 1 ://go to x=830 y=910
+                            //si arrivé à destination
+                            //algoPrendreGobelet
                                 break;
-                    case 2 : //algoPrendrePlot
+                    case 2 : //go to x=200 y=850
+                             //si arrivé à destination
+                             //algoPrendrePlot
                                 break;
-                    case 3 : //algoPrendrePlot
+                    case 3 : //go to x=100 y=850
+                             //si arrivé à destination
+                            //algoPrendrePlot
                                 break;
-                    case 4 : //algoPrendrePlot
+                    case 4 : //go to x=200 y=90
+                             //si arrivé à destination
+                            //algoPrendrePlot
                                 break;
-                    case 5 : //algoPrendrePlot
+                    case 5 : //go to x=1355 y=810
+                             //si arrivé à destination
+                            //algoPrendrePlot
                                 break;
-                    case 6 : //algoPrendrePlot
+                    case 6 : //go to x=1400 y=1300
+                             //si arrivé à destination
+                            //algoPrendrePlot
                                 break;
-                    case 7 : //algoPrendrePlot
+                    case 7 : //go to x=1770 y=1100
+                             //si arrivé à destination
+                            //algoPrendrePlot
                                 break;
-                    case 8 : //algoPoserPlots
+                    case 8 : //go to x=1850 y=1300
+                             //si arrivé à destination
+                            //algoPoserPlots
                                 break;
-                    case 9 : //algoClapets
+                    case 9 : //go to x=1850 y=870
+                             //si arrivé à destination
+                            //algoClapets
                                 break;
-                    case 10 ://algoClapets
+                    case 10 ://go to x=1850 y=250
+                             //si arrivé à destination
+                            //algoClapets
                                 break;
-                    case 11 ://algoPrendreGoblet
+                    case 11 ://go to x=1750 y=250
+                             //si arrivé à destination
+                            //algoPrendreGoblet
                                 break;
-                    case 12 ://algoPoserPlots
+                    case 12 ://go to x=1750 y=90
+                             //si arrivé à destination
+                             //algoPoserPlots
                                 break;
-                    case 13 ://algoPoserPlots
+                    case 13 ://go to x=1850 y=90
+                             //si arrivé à destination
+                             //algoPoserPlots
                                 break;
                 }
             }

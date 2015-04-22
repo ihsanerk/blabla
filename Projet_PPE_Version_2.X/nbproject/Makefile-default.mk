@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=configuration.c bits.c adc.c timer.c debugger.c uart.c leds.c moteur.c asservissement.c pid.c controleur.c DetectionSharp.c strategy.c main.c math.c
+SOURCEFILES_QUOTED_IF_SPACED=configuration.c bits.c adc.c timer.c debugger.c uart.c leds.c moteur.c asservissement.c pid.c controleur.c DetectionSharp.c strategy.c main.c math.c actionneur.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/configuration.o ${OBJECTDIR}/bits.o ${OBJECTDIR}/adc.o ${OBJECTDIR}/timer.o ${OBJECTDIR}/debugger.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/leds.o ${OBJECTDIR}/moteur.o ${OBJECTDIR}/asservissement.o ${OBJECTDIR}/pid.o ${OBJECTDIR}/controleur.o ${OBJECTDIR}/DetectionSharp.o ${OBJECTDIR}/strategy.o ${OBJECTDIR}/main.o ${OBJECTDIR}/math.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/configuration.o.d ${OBJECTDIR}/bits.o.d ${OBJECTDIR}/adc.o.d ${OBJECTDIR}/timer.o.d ${OBJECTDIR}/debugger.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/leds.o.d ${OBJECTDIR}/moteur.o.d ${OBJECTDIR}/asservissement.o.d ${OBJECTDIR}/pid.o.d ${OBJECTDIR}/controleur.o.d ${OBJECTDIR}/DetectionSharp.o.d ${OBJECTDIR}/strategy.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/math.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/configuration.o ${OBJECTDIR}/bits.o ${OBJECTDIR}/adc.o ${OBJECTDIR}/timer.o ${OBJECTDIR}/debugger.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/leds.o ${OBJECTDIR}/moteur.o ${OBJECTDIR}/asservissement.o ${OBJECTDIR}/pid.o ${OBJECTDIR}/controleur.o ${OBJECTDIR}/DetectionSharp.o ${OBJECTDIR}/strategy.o ${OBJECTDIR}/main.o ${OBJECTDIR}/math.o ${OBJECTDIR}/actionneur.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/configuration.o.d ${OBJECTDIR}/bits.o.d ${OBJECTDIR}/adc.o.d ${OBJECTDIR}/timer.o.d ${OBJECTDIR}/debugger.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/leds.o.d ${OBJECTDIR}/moteur.o.d ${OBJECTDIR}/asservissement.o.d ${OBJECTDIR}/pid.o.d ${OBJECTDIR}/controleur.o.d ${OBJECTDIR}/DetectionSharp.o.d ${OBJECTDIR}/strategy.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/math.o.d ${OBJECTDIR}/actionneur.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/configuration.o ${OBJECTDIR}/bits.o ${OBJECTDIR}/adc.o ${OBJECTDIR}/timer.o ${OBJECTDIR}/debugger.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/leds.o ${OBJECTDIR}/moteur.o ${OBJECTDIR}/asservissement.o ${OBJECTDIR}/pid.o ${OBJECTDIR}/controleur.o ${OBJECTDIR}/DetectionSharp.o ${OBJECTDIR}/strategy.o ${OBJECTDIR}/main.o ${OBJECTDIR}/math.o
+OBJECTFILES=${OBJECTDIR}/configuration.o ${OBJECTDIR}/bits.o ${OBJECTDIR}/adc.o ${OBJECTDIR}/timer.o ${OBJECTDIR}/debugger.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/leds.o ${OBJECTDIR}/moteur.o ${OBJECTDIR}/asservissement.o ${OBJECTDIR}/pid.o ${OBJECTDIR}/controleur.o ${OBJECTDIR}/DetectionSharp.o ${OBJECTDIR}/strategy.o ${OBJECTDIR}/main.o ${OBJECTDIR}/math.o ${OBJECTDIR}/actionneur.o
 
 # Source Files
-SOURCEFILES=configuration.c bits.c adc.c timer.c debugger.c uart.c leds.c moteur.c asservissement.c pid.c controleur.c DetectionSharp.c strategy.c main.c math.c
+SOURCEFILES=configuration.c bits.c adc.c timer.c debugger.c uart.c leds.c moteur.c asservissement.c pid.c controleur.c DetectionSharp.c strategy.c main.c math.c actionneur.c
 
 
 CFLAGS=
@@ -187,6 +187,13 @@ ${OBJECTDIR}/math.o: math.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  math.c  -o ${OBJECTDIR}/math.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/math.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/math.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/actionneur.o: actionneur.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/actionneur.o.d 
+	@${RM} ${OBJECTDIR}/actionneur.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  actionneur.c  -o ${OBJECTDIR}/actionneur.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/actionneur.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1  -mno-eds-warn  -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/actionneur.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 else
 ${OBJECTDIR}/configuration.o: configuration.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -292,6 +299,13 @@ ${OBJECTDIR}/math.o: math.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/math.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  math.c  -o ${OBJECTDIR}/math.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/math.o.d"      -mno-eds-warn  -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/math.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/actionneur.o: actionneur.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/actionneur.o.d 
+	@${RM} ${OBJECTDIR}/actionneur.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  actionneur.c  -o ${OBJECTDIR}/actionneur.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/actionneur.o.d"      -mno-eds-warn  -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/actionneur.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 
